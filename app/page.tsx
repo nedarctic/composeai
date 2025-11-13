@@ -1,12 +1,10 @@
-// app/page.tsx
 "use client";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Sparkles, Zap, Brain, MousePointer2 } from "lucide-react";
-import localFont from "next/font/local";
 import { useEffect, useState } from "react";
 import { poppins } from "./fonts";
-
+import Image from "next/image";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -62,12 +60,12 @@ export default function Home() {
             onMouseLeave={() => setIsCursorActive(false)}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Write Like a <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Pro</span>
+              Master Professional <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Writing</span>
               <br />
-              <span className="text-gray-700 dark:text-gray-300">with AI</span>
+              <span className="text-gray-700 dark:text-gray-300">with Expert Tutorials</span>
             </h1>
             <p className="mt-6 text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-lg leading-relaxed">
-              Master AI-powered writing. Craft compelling content 10× faster. Learn prompt engineering, content strategy, and automation.
+              Access curated video tutorials and written guides to improve business, creative, and academic writing. Learn techniques that professional writers rely on.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -77,7 +75,7 @@ export default function Home() {
                 whileTap={{ scale: 0.98 }}
                 className="group inline-flex items-center justify-center rounded-full bg-linear-to-r from-blue-600 to-purple-600 text-white px-8 py-4 text-lg font-semibold shadow-lg transition-all duration-300"
               >
-                Start Free Trial <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition" />
+                Browse Tutorials <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition" />
               </motion.a>
               <motion.a
                 href="#about"
@@ -85,20 +83,33 @@ export default function Home() {
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center rounded-full border-2 border-gray-300 dark:border-gray-600 px-8 py-4 text-lg font-medium text-gray-700 dark:text-gray-300 backdrop-blur-sm bg-white/10 dark:bg-gray-800/10 hover:bg-gray-100 dark:hover:bg-gray-800 transition"
               >
-                <Sparkles className="mr-2 w-5 h-5" /> Explore Courses
+                <Sparkles className="mr-2 w-5 h-5" /> Explore Content
               </motion.a>
             </div>
 
-            <div className="mt-12 flex items-center gap-8 text-sm text-gray-500 dark:text-gray-400">
+            <div className="mt-12 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
               <div className="flex -space-x-2">
-                {[...Array(4)].map((_, i) => (
-                  <div key={i} className="w-10 h-10 rounded-full bg-linear-to-br from-blue-500 to-purple-500 border-2 border-white dark:border-gray-900" />
+                {[
+                  "/student1.jpeg",
+                  "/student2.jpeg",
+                  "/student3.jpeg",
+                  "/student4.jpeg",
+                ].map((src, i) => (
+                  <Image
+                    key={i}
+                    src={src}
+                    alt={`Learner ${i + 1}`}
+                    width={40}
+                    height={40}
+                    className="w-10 h-10 rounded-full border-2 border-white dark:border-gray-900 object-cover"
+                  />
                 ))}
               </div>
               <p>
-                <strong className="text-gray-900 dark:text-white">12,000+</strong> writers trained
+                <strong className="text-gray-900 dark:text-white">12,000+</strong> learners served
               </p>
             </div>
+
           </motion.div>
 
           {/* 3D Floating Hero Card */}
@@ -117,10 +128,10 @@ export default function Home() {
               >
                 <div className="absolute inset-0 rounded-3xl bg-linear-to-tr from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-xl" />
                 <Brain className="w-16 h-16 text-purple-600 mb-4" />
-                <h3 className="text-2xl font-bold mb-2">AI Writing Assistant</h3>
-                <p className="text-gray-600 dark:text-gray-300">Generate, refine, and optimize content in seconds.</p>
+                <h3 className="text-2xl font-bold mb-2">Step-by-Step Tutorials</h3>
+                <p className="text-gray-600 dark:text-gray-300">Structured lessons with examples and exercises for real-world writing improvement.</p>
                 <div className="mt-6 flex gap-2">
-                  {["Blog", "Email", "Ad Copy"].map((tag) => (
+                  {["Articles", "Emails", "Reports"].map((tag) => (
                     <span key={tag} className="px-3 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full">
                       {tag}
                     </span>
@@ -142,10 +153,10 @@ export default function Home() {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Why Top Writers Choose <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600">ComposeAI</span>
+                Learn Writing That Works with <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600">ComposeAI</span>
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                From freelancers to marketing teams — scale your content without sacrificing quality.
+                Tutorials, guides, and practical exercises designed to make you a confident, skilled writer in any professional context.
               </p>
               <MousePointer2 className="mx-auto mt-4 w-8 h-8 text-purple-600 animate-bounce" />
             </motion.div>
@@ -154,20 +165,20 @@ export default function Home() {
               {[
                 {
                   icon: <Zap className="w-8 h-8" />,
-                  title: "10× Faster Drafts",
-                  desc: "AI generates first drafts in seconds. You refine in minutes.",
+                  title: "Learn Quickly",
+                  desc: "Concise tutorials with practical exercises you can apply immediately.",
                   gradient: "from-yellow-400 to-orange-500",
                 },
                 {
                   icon: <Brain className="w-8 h-8" />,
-                  title: "Smart Suggestions",
-                  desc: "Context-aware tone, style, and SEO optimization.",
+                  title: "Expert Techniques",
+                  desc: "Proven strategies for business, creative, and academic writing.",
                   gradient: "from-blue-500 to-cyan-500",
                 },
                 {
                   icon: <Sparkles className="w-8 h-8" />,
-                  title: "Proven Frameworks",
-                  desc: "Learn AIDA, PAS, and 20+ copywriting models.",
+                  title: "Structured Learning",
+                  desc: "Follow organized lessons, practice exercises, and examples step by step.",
                   gradient: "from-purple-500 to-pink-500",
                 },
               ].map((feature, i) => (
@@ -203,31 +214,31 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Courses That Transform Writers</h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300">From zero to AI-powered pro in 4 weeks.</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Tutorials That Improve Your Writing</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300">Step-by-step lessons and exercises for writers of all levels.</p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  title: "AI Writing Mastery",
+                  title: "Professional Writing Basics",
                   level: "Beginner",
-                  duration: "6 hours",
-                  students: "3,200+",
+                  duration: "4 hours",
+                  students: "2,500+",
                   color: "from-blue-500 to-cyan-500",
                 },
                 {
-                  title: "Prompt Engineering Pro",
+                  title: "Editing & Style Techniques",
                   level: "Intermediate",
-                  duration: "8 hours",
-                  students: "2,800+",
+                  duration: "6 hours",
+                  students: "2,100+",
                   color: "from-purple-500 to-pink-500",
                 },
                 {
-                  title: "AI Content Strategy",
+                  title: "Advanced Writing Projects",
                   level: "Advanced",
-                  duration: "10 hours",
-                  students: "1,900+",
+                  duration: "8 hours",
+                  students: "1,400+",
                   color: "from-orange-500 to-red-500",
                 },
               ].map((course, i) => (
@@ -251,7 +262,7 @@ export default function Home() {
                     </div>
                     <h3 className="text-2xl font-bold mb-3">{course.title}</h3>
                     <p className="text-gray-600 dark:text-gray-300 mb-6">
-                      Master {course.title.toLowerCase().replace(" pro", "")} with hands-on projects.
+                      Learn through detailed tutorials, examples, and exercises to strengthen your writing skills.
                     </p>
                     <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
                       <span>{course.duration}</span>
@@ -280,33 +291,19 @@ export default function Home() {
             className="max-w-4xl mx-auto text-center"
           >
             <div className="p-12 bg-linear-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl shadow-2xl text-white">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Ready to 10× Your Writing?</h2>
-              <p className="text-xl mb-8 opacity-90">Join 12,000+ writers. Start free. Upgrade anytime.</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Start Learning Today</h2>
+              <p className="text-xl mb-8 opacity-90">Join thousands of learners. Access tutorials, written guides, and exercises instantly.</p>
               <motion.a
                 href="#"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 className="inline-flex items-center justify-center rounded-full bg-white text-gray-900 px-10 py-5 text-lg font-bold shadow-xl hover:shadow-2xl transition-all"
               >
-                Start Writing Free <Sparkles className="ml-2 w-6 h-6" />
+                Start Learning Free <Sparkles className="ml-2 w-6 h-6" />
               </motion.a>
             </div>
           </motion.div>
         </section>
-
-        {/* ===== Footer ===== */}
-        <footer className="py-12 px-6 border-t border-gray-200 dark:border-gray-800">
-          <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
-            <p>© {new Date().getFullYear()} ComposeAI. All rights reserved.</p>
-            <div className="flex gap-6 mt-4 md:mt-0">
-              {["Privacy", "Terms", "Contact"].map((link) => (
-                <a key={link} href="#" className="hover:text-gray-900 dark:hover:text-white transition">
-                  {link}
-                </a>
-              ))}
-            </div>
-          </div>
-        </footer>
       </main>
     </>
   );

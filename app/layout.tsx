@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "./components/Header";
-import { stackSans } from "./fonts";
+import Footer from "./components/Footer";
+import { poppins } from "./fonts";
 
 export const metadata: Metadata = {
   title: "ComposeAI - AI-Powered Content Creation",
@@ -14,12 +15,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={stackSans.variable}>
+    <html lang="en" className={`${poppins.className}`}>
       <body
-        className="font-(--font-stack-sans antialiased"
+        className={`${poppins.className}`}
       >
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
