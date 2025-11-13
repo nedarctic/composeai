@@ -207,7 +207,7 @@ export default function Home() {
 
         {/* ===== Top Courses ===== */}
         <section id="courses" className="py-32 px-6 lg:px-12 bg-linear-to-b from-gray-50 to-white dark:from-gray-900 dark:to-gray-950">
-          <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col justify-center items-center max-w-7xl mx-auto">
             <motion.div
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -279,6 +279,15 @@ export default function Home() {
                 </motion.div>
               ))}
             </div>
+
+            <motion.a
+                href="/courses"
+                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
+                whileTap={{ scale: 0.98 }}
+                className="group 1-1/2 mt-16 inline-flex items-center justify-center rounded-full bg-linear-to-r from-blue-600 to-purple-600 text-white px-8 py-4 text-lg font-semibold shadow-lg transition-all duration-300"
+              >
+                Browse More Tutorials <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition" />
+              </motion.a>
           </div>
         </section>
 

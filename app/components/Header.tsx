@@ -14,6 +14,7 @@ export default function Header() {
     { name: "Courses", href: "/courses" },
     { name: "Dashboard", href: "/dashboard" },
     { name: "About", href: "/about" },
+    { name: "Pricing", href: "/pricing" },
   ];
 
   // Lock scroll when mobile menu is open

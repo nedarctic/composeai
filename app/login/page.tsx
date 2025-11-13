@@ -1,199 +1,255 @@
 "use client";
 
-import { useState } from "react";
-import Link from "next/link";
-import { FcGoogle } from "react-icons/fc";
 import { motion } from "framer-motion";
+import { ArrowRight, Sparkles, Zap, Brain, Eye, EyeOff, Lock, Mail } from "lucide-react";
+import { FcGoogle } from "react-icons/fc";
+import { useState } from "react";
 import { poppins } from "../fonts";
-import { login } from "../lib/helpers";
+import Image from "next/image";
 
-export default function ComposeLogin() {
-  const [formData, setFormData] = useState({
-    email: "",
-    password: "",
-    remember: false,
-  });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+export default function LoginPage() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isCursorActive, setIsCursorActive] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError(null);
-    setLoading(true);
-
-    const res = await login(formData.email, formData.password);
-
-    if (!res) {
-      setError("Invalid email or password.");
-      setLoading(false);
-      return;
-    }
-
-    const { access, refresh } = res;
-
-    try {
-      if (formData.remember) {
-        localStorage.setItem("access", access);
-        localStorage.setItem("refresh", refresh);
-      } else {
-        sessionStorage.setItem("access", access);
-        sessionStorage.setItem("refresh", refresh);
-      }
-      window.location.href = "/";
-    } catch (err) {
-      console.error(err);
-      setError("Unexpected error while saving session.");
-    }
-
-    setLoading(false);
+    setIsLoading(true);
+    setTimeout(() => setIsLoading(false), 2000);
   };
 
   return (
-    <main className={`${poppins.className} flex min-h-screen bg-white dark:bg-gray-900`}>
-      {/* Left Section */}
-      <div className="w-full lg:w-1/2 flex flex-col items-center justify-center px-6 lg:px-32 py-24 lg:py-32">
-        <div className="w-full max-w-md space-y-8 relative">
-          {/* Optional linear Accent Background */}
-          <div className="absolute inset-0 bg-linear-to-tr from-blue-500 via-purple-500 to-pink-500 opacity-10 blur-3xl -z-10 rounded-3xl"></div>
+    <>
+      {isCursorActive && (
+        <motion.div
+          className="fixed w-8 h-8 bg-linear-to-r from-blue-500 to-purple-500 rounded-full pointer-events-none z-50 mix-blend-difference opacity-80"
+          animate={{
+            x: mousePosition.x - 16,
+            y: mousePosition.y - 16,
+          }}
+          transition={{ type: "spring", damping: 30, stiffness: 200 }}
+        />
+      )}
 
+      <main
+        onMouseMove={(e) => setMousePosition({ x: e.clientX, y: e.clientY })}
+        className={`${poppins.className} font-sans bg-white dark:bg-linear-to-b dark:from-gray-950 dark:to-gray-900 text-gray-900 dark:text-gray-100 min-h-screen overflow-hidden`}
+      >
+        {/* Background Animated Orbs */}
+        <div className="absolute inset-0 overflow-hidden pointer-events-none">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="text-center"
-          >
-            <h1 className="text-4xl font-bold text-gray-900 dark:text-white">
-              Welcome Back
-            </h1>
-            <p className="mt-3 text-gray-600 dark:text-gray-300">
-              Continue mastering writing with ComposeAI
-            </p>
-          </motion.div>
+            className="absolute top-1/3 -left-40 w-96 h-96 bg-linear-to-r from-blue-400 to-purple-400 rounded-full blur-3xl opacity-20"
+            animate={{ x: [0, 100, 0], y: [0, -100, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+          />
+          <motion.div
+            className="absolute bottom-1/3 -right-40 w-96 h-96 bg-linear-to-r from-pink-400 to-yellow-400 rounded-full blur-3xl opacity-20"
+            animate={{ x: [0, -80, 0], y: [0, 100, 0] }}
+            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+          />
+        </div>
 
-          {/* Google login */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-          >
-            <button
-              className="w-full flex items-center justify-center gap-3 px-4 py-3 border border-gray-300 dark:border-gray-700 rounded-full text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition"
-              onClick={() => console.log("Google login")}
+        <div className="flex flex-col lg:flex-row min-h-[calc(100vh-8rem)] py-20 lg:py-24 px-6 sm:px-10 md:px-16 relative">
+          {/* Left Section */}
+          <div className="flex-1 flex items-center justify-center">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              onMouseEnter={() => setIsCursorActive(true)}
+              onMouseLeave={() => setIsCursorActive(false)}
+              className="w-full max-w-md"
             >
-              <FcGoogle className="text-xl" />
-              <span>Continue with Google</span>
-            </button>
-          </motion.div>
-
-          {/* Divider */}
-          <div className="relative">
-            <div className="absolute inset-0 flex items-center">
-              <div className="w-full border-t border-gray-300 dark:border-gray-700"></div>
-            </div>
-            <div className="relative flex justify-center text-sm">
-              <span className="px-2 bg-white dark:bg-gray-900 text-gray-500">or</span>
-            </div>
-          </div>
-
-          {/* Login Form */}
-          <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            onSubmit={handleSubmit}
-            className="space-y-6"
-          >
-            {error && (
-              <p className="text-red-600 dark:text-red-400 text-sm">{error}</p>
-            )}
-
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-                Email
-              </label>
-              <input
-                id="email"
-                type="email"
-                value={formData.email}
-                onChange={(e) =>
-                  setFormData({ ...formData, email: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-purple-500 transition"
-                required
-              />
-            </div>
-
-            <div>
-              <label htmlFor="password" className="block text-sm font-medium text-gray-900 dark:text-white mb-2">
-                Password
-              </label>
-              <input
-                id="password"
-                type="password"
-                value={formData.password}
-                onChange={(e) =>
-                  setFormData({ ...formData, password: e.target.value })
-                }
-                className="w-full px-4 py-3 rounded-xl border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 dark:focus:ring-purple-500 transition"
-                required
-              />
-            </div>
-
-            <div className="flex items-center justify-between">
-              <div className="flex items-center">
-                <input
-                  id="remember"
-                  type="checkbox"
-                  checked={formData.remember}
-                  onChange={(e) =>
-                    setFormData({ ...formData, remember: e.target.checked })
-                  }
-                  className="h-4 w-4 rounded border-gray-300 dark:border-gray-700 text-black dark:text-white focus:ring-black dark:focus:ring-white"
-                />
-                <label htmlFor="remember" className="ml-2 text-sm text-gray-600 dark:text-gray-400">
-                  Remember me
-                </label>
+              {/* Logo */}
+              <div className="text-center mb-12">
+                <div className="flex items-center justify-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-2xl bg-linear-to-r from-blue-600 to-purple-600 flex items-center justify-center">
+                    <Brain className="w-6 h-6 text-white" />
+                  </div>
+                  <h1 className="text-3xl font-bold bg-linear-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                    ComposeAI
+                  </h1>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">
+                  Continue your writing journey
+                </p>
               </div>
 
-              <Link href="/reset" className="text-sm text-gray-900 dark:text-white hover:underline">
-                Forgot password?
-              </Link>
-            </div>
+              {/* Login Form */}
+              <motion.form
+                onSubmit={handleLogin}
+                className="space-y-6"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.2 }}
+              >
+                {/* Email */}
+                <div className="relative">
+                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Enter your email"
+                    className="block w-full pl-12 pr-3 py-4 border border-gray-300 dark:border-gray-700 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    required
+                  />
+                </div>
 
-            <button
-              type="submit"
-              disabled={loading}
-              className="w-full px-8 py-3 rounded-full bg-linear-to-r from-blue-600 to-purple-600 text-white font-semibold hover:opacity-90 transition disabled:opacity-50"
+                {/* Password */}
+                <div className="relative">
+                  <Lock className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="Enter your password"
+                    className="block w-full pl-12 pr-12 py-4 border border-gray-300 dark:border-gray-700 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    required
+                  />
+                  <button
+                    type="button"
+                    onClick={() => setShowPassword(!showPassword)}
+                    className="absolute right-4 top-1/2 -translate-y-1/2"
+                  >
+                    {showPassword ? (
+                      <EyeOff className="h-5 w-5 text-gray-400 hover:text-gray-600 transition" />
+                    ) : (
+                      <Eye className="h-5 w-5 text-gray-400 hover:text-gray-600 transition" />
+                    )}
+                  </button>
+                </div>
+
+                {/* Remember me + Forgot */}
+                <div className="flex items-center justify-between text-sm">
+                  <label className="flex items-center gap-2 text-gray-600 dark:text-gray-400">
+                    <input type="checkbox" className="w-4 h-4 text-blue-600 rounded" />
+                    Remember me
+                  </label>
+                  <a href="#" className="font-medium text-blue-600 hover:text-blue-500">
+                    Forgot password?
+                  </a>
+                </div>
+
+                {/* Submit */}
+                <motion.button
+                  type="submit"
+                  disabled={isLoading}
+                  whileHover={{ scale: isLoading ? 1 : 1.05 }}
+                  whileTap={{ scale: 0.98 }}
+                  className="w-full flex items-center justify-center gap-2 rounded-2xl bg-linear-to-r from-blue-600 to-purple-600 text-white py-4 px-6 font-semibold shadow-lg transition-all duration-300 disabled:opacity-50"
+                >
+                  {isLoading ? (
+                    <>
+                      <motion.div
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+                        className="w-5 h-5 border-2 border-white border-t-transparent rounded-full"
+                      />
+                      Signing in...
+                    </>
+                  ) : (
+                    <>
+                      Sign In <ArrowRight className="w-5 h-5" />
+                    </>
+                  )}
+                </motion.button>
+              </motion.form>
+
+              {/* Divider */}
+              <div className="mt-10 relative">
+                <div className="absolute inset-0 flex items-center">
+                  <div className="w-full border-t border-gray-300 dark:border-gray-700" />
+                </div>
+                <div className="relative flex justify-center text-sm">
+                  <span className="px-2 bg-white dark:bg-gray-900 text-gray-500">
+                    Or continue with
+                  </span>
+                </div>
+              </div>
+
+              {/* Google Login */}
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                type="button"
+                className="mt-6 w-full inline-flex justify-center items-center gap-3 py-3 px-4 border border-gray-300 dark:border-gray-700 rounded-2xl bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm text-sm font-medium text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-700 transition"
+              >
+                <FcGoogle className="w-5 h-5" />
+                Continue with Google
+              </motion.button>
+
+              <p className="mt-10 text-center text-gray-600 dark:text-gray-400">
+                Don’t have an account?{" "}
+                <a href="/signup" className="font-semibold text-blue-600 hover:text-blue-500">
+                  Sign up now
+                </a>
+              </p>
+            </motion.div>
+          </div>
+
+          {/* Right - Visual Side */}
+          <div className="hidden lg:flex flex-1 items-center justify-center bg-linear-to-br from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 p-16">
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.3 }}
+              className="max-w-lg relative"
             >
-              {loading ? "Signing in..." : "Sign In"}
-            </button>
-          </motion.form>
+              <motion.div
+                whileHover={{ y: -10, rotateZ: -2 }}
+                className="absolute -top-8 -left-8 w-64 p-6 bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 z-20"
+              >
+                <Zap className="w-8 h-8 text-yellow-500 mb-3" />
+                <h3 className="text-lg font-bold mb-2">Learn Quickly</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  Concise tutorials with practical exercises
+                </p>
+              </motion.div>
 
-          <p className="text-center text-sm text-gray-600 dark:text-gray-400">
-            Don’t have an account?{" "}
-            <Link
-              href="/signup"
-              className="text-blue-600 dark:text-purple-500 font-medium hover:underline"
-            >
-              Sign up
-            </Link>
-          </p>
-        </div>
-      </div>
+              <motion.div
+                whileHover={{ y: -5, rotateZ: 2 }}
+                className="absolute top-20 left-32 w-64 p-6 bg-white/90 dark:bg-gray-800/90 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 z-10"
+              >
+                <Brain className="w-8 h-8 text-blue-500 mb-3" />
+                <h3 className="text-lg font-bold mb-2">Expert Techniques</h3>
+                <p className="text-sm text-gray-600 dark:text-gray-300">
+                  Proven strategies for professional writing
+                </p>
+              </motion.div>
 
-      {/* Right Section */}
-      <div className="hidden lg:block lg:w-1/2 bg-linear-to-tr from-blue-50 via-purple-50 to-pink-50 dark:from-gray-800 dark:via-gray-900 dark:to-gray-950">
-        <div className="h-full flex items-center justify-center p-12">
-          <div className="max-w-md text-center">
-            <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-              Master Professional Writing
-            </h2>
-            <p className="text-gray-600 dark:text-gray-400">
-              Join thousands of learners improving business, creative, and academic writing with ComposeAI tutorials and guides.
-            </p>
+              <motion.div
+                whileHover={{ y: -8 }}
+                className="relative w-72 p-8 bg-linear-to-br from-blue-600 to-purple-600 rounded-3xl shadow-2xl text-white mt-32"
+              >
+                <Sparkles className="w-10 h-10 mb-4" />
+                <h2 className="text-2xl font-bold mb-3">Welcome Back!</h2>
+                <p className="opacity-90">
+                  Continue your journey to master professional writing with expert-led tutorials.
+                </p>
+                <div className="mt-6 flex -space-x-2">
+                  {["/student1.jpeg", "/student2.jpeg", "/student3.jpeg"].map((src, i) => (
+                    <Image
+                      key={i}
+                      src={src}
+                      alt={`Learner ${i + 1}`}
+                      width={40}
+                      height={40}
+                      className="w-10 h-10 rounded-full border-2 border-white object-cover"
+                    />
+                  ))}
+                  <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-xs font-bold border-2 border-white">
+                    +2.1k
+                  </div>
+                </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   );
 }
