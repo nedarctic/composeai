@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { Twitter, Linkedin, Instagram } from "lucide-react";
+import { Twitter, Linkedin, Instagram, MapPin } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -20,18 +20,18 @@ export default function Footer() {
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-center gap-12 lg:gap-0 z-10">
+      <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start lg:items-start gap-12 lg:gap-0 z-10">
         {/* Branding + tagline */}
-        <div className="flex flex-col items-start">
+        <div className="flex flex-col items-start gap-4">
           <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 mb-2">
-            ComposeAI
+            ScholarBrood
           </h3>
           <p className="text-gray-600 dark:text-gray-400 max-w-xs leading-relaxed">
-            Empower your writing with AI. Create faster, smarter, and with more impact.
+            Empower your writing and research. Build skills faster, smarter, and with more impact.
           </p>
-          <div className="mt-4 flex gap-4">
+          <div className="mt-2 flex gap-4">
             <motion.a
-              href="#"
+              href="https://twitter.com"
               whileHover={{ scale: 1.2 }}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="Twitter"
@@ -39,7 +39,7 @@ export default function Footer() {
               <Twitter className="w-6 h-6" />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://linkedin.com"
               whileHover={{ scale: 1.2 }}
               className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
               aria-label="LinkedIn"
@@ -47,7 +47,7 @@ export default function Footer() {
               <Linkedin className="w-6 h-6" />
             </motion.a>
             <motion.a
-              href="#"
+              href="https://instagram.com"
               whileHover={{ scale: 1.2 }}
               className="text-gray-700 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 transition-colors"
               aria-label="Instagram"
@@ -55,35 +55,67 @@ export default function Footer() {
               <Instagram className="w-6 h-6" />
             </motion.a>
           </div>
+
+          {/* Location */}
+          <div className="flex items-center gap-2 mt-4 text-gray-600 dark:text-gray-400">
+            <MapPin className="w-5 h-5" />
+            <span>Myrtle Beach, SC</span>
+          </div>
+
+          {/* Newsletter Subscribe */}
+          <div className="mt-4 flex flex-col sm:flex-row gap-2 w-full max-w-xs">
+            <input
+              type="email"
+              placeholder="Your email"
+              className="flex-1 px-4 py-2 rounded-lg border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-600 dark:focus:ring-purple-500 transition"
+            />
+            <button className="px-5 py-2 rounded-lg bg-linear-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white font-semibold transition">
+              Subscribe
+            </button>
+          </div>
         </div>
 
         {/* Footer Links */}
         <div className="flex flex-col sm:flex-row gap-12 w-full lg:w-auto">
           {[
             {
-              title: "Product",
-              links: ["Features", "Pricing", "Updates", "Integrations"],
+              title: "Services",
+              links: [
+                { name: "Academic Writing Support", href: "/services/academic-writing-support" },
+                { name: "Research Mentorship", href: "/services/research-mentorship" },
+                { name: "AI & Online Skills Training", href: "/services/ai-online-skills-training" },
+                { name: "Pricing / Packages", href: "/pricing" },
+              ],
             },
             {
               title: "Company",
-              links: ["About Us", "Careers", "Blog", "Contact"],
+              links: [
+                { name: "About", href: "/about" },
+                { name: "Blog / Insights", href: "/blog" },
+                { name: "Resources", href: "/resources" },
+                { name: "Contact", href: "/contact" },
+              ],
             },
             {
-              title: "Resources",
-              links: ["Guides", "Case Studies", "Support", "Help Center"],
+              title: "Legal",
+              links: [
+                { name: "Privacy Policy", href: "/privacy-policy" },
+                { name: "Terms of Use", href: "/terms" },
+                { name: "Accessibility Statement", href: "/accessibility" },
+              ],
             },
           ].map((section) => (
             <div key={section.title} className="flex flex-col">
               <h4 className="text-gray-900 dark:text-gray-100 font-semibold mb-3">{section.title}</h4>
               <ul className="flex flex-col gap-2 text-gray-600 dark:text-gray-400">
                 {section.links.map((link) => (
-                  <li key={link}>
+                  <li key={link.name}>
                     <motion.a
-                      href="#"
+                      href={link.href}
                       whileHover={{ x: 4, color: "#6366f1" }}
                       className="transition-all duration-200"
                     >
-                      {link}
+                      {link.name}
                     </motion.a>
                   </li>
                 ))}
@@ -95,12 +127,12 @@ export default function Footer() {
 
       {/* Bottom Bar */}
       <div className="relative z-10 mt-12 border-t border-gray-200 dark:border-gray-800 pt-8 flex flex-col lg:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
-        <p>© {new Date().getFullYear()} ComposeAI. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} ScholarBrood. All rights reserved.</p>
         <div className="flex gap-6 mt-4 lg:mt-0">
-          {["Privacy Policy", "Terms of Service", "Cookies"].map((link) => (
+          {["Privacy Policy", "Terms of Use", "Accessibility Statement"].map((link) => (
             <motion.a
               key={link}
-              href="#"
+              href={`/${link.toLowerCase().replace(/\s/g, "-")}`}
               whileHover={{ color: "#6366f1" }}
               className="transition-colors duration-200"
             >

@@ -60,12 +60,12 @@ export default function Home() {
             onMouseLeave={() => setIsCursorActive(false)}
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-              Master Professional <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Writing</span>
+              Master Academic & Professional <span className="bg-linear-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Writing</span>
               <br />
-              <span className="text-gray-700 dark:text-gray-300">with Expert Tutorials</span>
+              <span className="text-gray-700 dark:text-gray-300">with ScholarBrood</span>
             </h1>
             <p className="mt-6 text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-lg leading-relaxed">
-              Access curated video tutorials and written guides to improve business, creative, and academic writing. Learn techniques that professional writers rely on.
+              Unlock your potential with curated tutorials, research mentorship, and AI-enhanced learning tools. Build skills for academic writing, research, and online professional growth.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-4">
@@ -89,12 +89,7 @@ export default function Home() {
 
             <div className="mt-12 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
               <div className="flex -space-x-2">
-                {[
-                  "/student1.jpeg",
-                  "/student2.jpeg",
-                  "/student3.jpeg",
-                  "/student4.jpeg",
-                ].map((src, i) => (
+                {["/student1.jpeg", "/student2.jpeg", "/student3.jpeg", "/student4.jpeg"].map((src, i) => (
                   <Image
                     key={i}
                     src={src}
@@ -106,10 +101,9 @@ export default function Home() {
                 ))}
               </div>
               <p>
-                <strong className="text-gray-900 dark:text-white">12,000+</strong> learners served
+                <strong className="text-gray-900 dark:text-white">12,000+</strong> learners empowered
               </p>
             </div>
-
           </motion.div>
 
           {/* 3D Floating Hero Card */}
@@ -128,10 +122,10 @@ export default function Home() {
               >
                 <div className="absolute inset-0 rounded-3xl bg-linear-to-tr from-blue-500/20 via-purple-500/20 to-pink-500/20 blur-xl" />
                 <Brain className="w-16 h-16 text-purple-600 mb-4" />
-                <h3 className="text-2xl font-bold mb-2">Step-by-Step Tutorials</h3>
-                <p className="text-gray-600 dark:text-gray-300">Structured lessons with examples and exercises for real-world writing improvement.</p>
+                <h3 className="text-2xl font-bold mb-2">Structured Learning Paths</h3>
+                <p className="text-gray-600 dark:text-gray-300">Follow tutorials, practical exercises, and examples designed to improve academic and professional writing.</p>
                 <div className="mt-6 flex gap-2">
-                  {["Articles", "Emails", "Reports"].map((tag) => (
+                  {["Essays", "Research Papers", "Reports"].map((tag) => (
                     <span key={tag} className="px-3 py-1 text-xs font-medium bg-blue-100 dark:bg-blue-900 text-blue-700 dark:text-blue-300 rounded-full">
                       {tag}
                     </span>
@@ -142,7 +136,7 @@ export default function Home() {
           </motion.div>
         </section>
 
-        {/* ===== Why ComposeAI ===== */}
+        {/* ===== Why ScholarBrood ===== */}
         <section id="about" className="py-32 px-6 lg:px-12 relative">
           <div className="max-w-7xl mx-auto">
             <motion.div
@@ -153,10 +147,10 @@ export default function Home() {
               className="text-center mb-16"
             >
               <h2 className="text-4xl md:text-5xl font-bold mb-6">
-                Learn Writing That Works with <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600">ComposeAI</span>
+                Learn, Research, and Excel with <span className="text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600">ScholarBrood</span>
               </h2>
               <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-                Tutorials, guides, and practical exercises designed to make you a confident, skilled writer in any professional context.
+                Comprehensive tutorials, mentorship, and AI-guided exercises to help you become a confident academic writer and professional researcher.
               </p>
               <MousePointer2 className="mx-auto mt-4 w-8 h-8 text-purple-600 animate-bounce" />
             </motion.div>
@@ -166,19 +160,19 @@ export default function Home() {
                 {
                   icon: <Zap className="w-8 h-8" />,
                   title: "Learn Quickly",
-                  desc: "Concise tutorials with practical exercises you can apply immediately.",
+                  desc: "Short, actionable lessons with exercises you can implement immediately.",
                   gradient: "from-yellow-400 to-orange-500",
                 },
                 {
                   icon: <Brain className="w-8 h-8" />,
-                  title: "Expert Techniques",
-                  desc: "Proven strategies for business, creative, and academic writing.",
+                  title: "Expert Mentorship",
+                  desc: "Personalized guidance in academic writing, research methods, and skill-building.",
                   gradient: "from-blue-500 to-cyan-500",
                 },
                 {
                   icon: <Sparkles className="w-8 h-8" />,
-                  title: "Structured Learning",
-                  desc: "Follow organized lessons, practice exercises, and examples step by step.",
+                  title: "Structured Growth",
+                  desc: "Organized learning paths with step-by-step tutorials and practical exercises.",
                   gradient: "from-purple-500 to-pink-500",
                 },
               ].map((feature, i) => (
@@ -214,28 +208,28 @@ export default function Home() {
               viewport={{ once: true }}
               className="text-center mb-16"
             >
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Tutorials That Improve Your Writing</h2>
-              <p className="text-xl text-gray-600 dark:text-gray-300">Step-by-step lessons and exercises for writers of all levels.</p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">Hands-On Tutorials to Boost Your Skills</h2>
+              <p className="text-xl text-gray-600 dark:text-gray-300">Step-by-step lessons and exercises for academic writing, research projects, and AI-enabled learning.</p>
             </motion.div>
 
             <div className="grid md:grid-cols-3 gap-8">
               {[
                 {
-                  title: "Professional Writing Basics",
+                  title: "Foundations of Academic Writing",
                   level: "Beginner",
                   duration: "4 hours",
                   students: "2,500+",
                   color: "from-blue-500 to-cyan-500",
                 },
                 {
-                  title: "Editing & Style Techniques",
+                  title: "Research Methods & Mentorship",
                   level: "Intermediate",
                   duration: "6 hours",
                   students: "2,100+",
                   color: "from-purple-500 to-pink-500",
                 },
                 {
-                  title: "Advanced Writing Projects",
+                  title: "AI & Digital Skills Training",
                   level: "Advanced",
                   duration: "8 hours",
                   students: "1,400+",
@@ -262,11 +256,11 @@ export default function Home() {
                     </div>
                     <h3 className="text-2xl font-bold mb-3">{course.title}</h3>
                     <p className="text-gray-600 dark:text-gray-300 mb-6">
-                      Learn through detailed tutorials, examples, and exercises to strengthen your writing skills.
+                      Comprehensive lessons, exercises, and mentorship for practical skill building.
                     </p>
                     <div className="flex justify-between items-center text-sm text-gray-500 dark:text-gray-400">
                       <span>{course.duration}</span>
-                      <span>{course.students} enrolled</span>
+                      <span>{course.students} learners</span>
                     </div>
                     <motion.a
                       href="#"
@@ -281,13 +275,13 @@ export default function Home() {
             </div>
 
             <motion.a
-                href="/courses"
-                whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
-                whileTap={{ scale: 0.98 }}
-                className="group 1-1/2 mt-16 inline-flex items-center justify-center rounded-full bg-linear-to-r from-blue-600 to-purple-600 text-white px-8 py-4 text-lg font-semibold shadow-lg transition-all duration-300"
-              >
-                Browse More Tutorials <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition" />
-              </motion.a>
+              href="/courses"
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px rgba(59, 130, 246, 0.3)" }}
+              whileTap={{ scale: 0.98 }}
+              className="group mt-16 inline-flex items-center justify-center rounded-full bg-linear-to-r from-blue-600 to-purple-600 text-white px-8 py-4 text-lg font-semibold shadow-lg transition-all duration-300"
+            >
+              Browse More Tutorials <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition" />
+            </motion.a>
           </div>
         </section>
 
@@ -300,8 +294,8 @@ export default function Home() {
             className="max-w-4xl mx-auto text-center"
           >
             <div className="p-12 bg-linear-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl shadow-2xl text-white">
-              <h2 className="text-4xl md:text-5xl font-bold mb-6">Start Learning Today</h2>
-              <p className="text-xl mb-8 opacity-90">Join thousands of learners. Access tutorials, written guides, and exercises instantly.</p>
+              <h2 className="text-2xl md:text-5xl font-bold mb-6">Join ScholarBrood Today</h2>
+              <p className="text-xl mb-8 opacity-90">Access tutorials, mentorship, and AI tools to accelerate your academic and professional growth.</p>
               <motion.a
                 href="#"
                 whileHover={{ scale: 1.05 }}
