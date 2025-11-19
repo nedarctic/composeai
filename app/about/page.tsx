@@ -8,42 +8,50 @@ import { Users, Award, BookOpen } from "lucide-react";
 export default function About() {
   const features = [
     {
-      icon: <Users className="w-10 h-10 text-blue-600" />,
+      icon: <Users className="w-12 h-12" />,
       title: "Expert Mentors",
       desc: "Learn from experienced academics and professional writers who guide you step by step.",
-      gradient: "from-blue-500 to-cyan-500",
     },
     {
-      icon: <Award className="w-10 h-10 text-purple-600" />,
+      icon: <Award className="w-12 h-12" />,
       title: "Proven Success",
       desc: "Thousands of learners have improved their writing and research skills through ScholarBrood.",
-      gradient: "from-purple-500 to-pink-500",
     },
     {
-      icon: <BookOpen className="w-10 h-10 text-yellow-500" />,
+      icon: <BookOpen className="w-12 h-12" />,
       title: "Structured Learning",
       desc: "Curated tutorials, guides, and exercises designed to help you learn efficiently and effectively.",
-      gradient: "from-yellow-400 to-orange-500",
     },
   ];
 
   return (
-    <main className={`${poppins.className} min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100`}>
+    <main className={`${poppins.className} min-h-screen bg-[#1C1C30] text-gray-100 overflow-x-hidden`}>
       {/* Hero Section */}
-      <section className="relative py-32 px-6 lg:px-12 text-center">
+      <section className="relative py-32 px-6 lg:px-12 text-center overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <motion.div
+            className="absolute top-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-[#E8B85F] rounded-full blur-3xl opacity-10"
+            animate={{ y: [0, -40, 0] }}
+            transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600"
+          transition={{ duration: 1 }}
+          className="relative text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight"
         >
-          About ScholarBrood
+          About <span className="text-[#E8B85F]">ScholarBrood</span>
         </motion.h1>
+
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+          transition={{ delay: 0.3 }}
+          className="relative text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed"
         >
           ScholarBrood is a digital learning platform dedicated to helping students, researchers, and professionals master academic writing, research mentorship, and online skills. We combine expert guidance, practical tutorials, and AI-driven tools to accelerate your learning journey.
         </motion.p>
@@ -51,76 +59,87 @@ export default function About() {
 
       {/* Image & Mission Section */}
       <section className="py-24 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-12">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
           <motion.div
-            initial={{ opacity: 0, x: -40 }}
+            initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex-1 relative rounded-3xl overflow-hidden shadow-2xl"
+            transition={{ duration: 0.9 }}
+            className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-800"
           >
             <Image
               src="/about-hero.jpeg"
-              alt="ScholarBrood Team"
-              width={600}
-              height={400}
-              className="w-full h-auto object-cover"
+              alt="ScholarBrood Team & Learning Environment"
+              width={800}
+              height={600}
+              className="w-full h-auto object-cover transition-transform duration-700 hover:scale-105"
             />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C30]/80 to-transparent" />
           </motion.div>
 
           <motion.div
-            initial={{ opacity: 0, x: 40 }}
+            initial={{ opacity: 0, x: 60 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="flex-1"
+            transition={{ duration: 0.9 }}
+            className="space-y-8"
           >
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
-            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-              We aim to empower learners with practical knowledge and skills that transform their writing and research capabilities. Through structured tutorials, personalized mentorship, and hands-on exercises, we help you achieve academic and professional excellence.
-            </p>
-            <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
-              At ScholarBrood, we believe learning should be accessible, effective, and engaging. Our platform blends traditional academic methods with modern digital tools to make learning smarter, faster, and impactful.
-            </p>
+            <h2 className="text-4xl md:text-5xl font-bold text-[#E8B85F]">
+              Our Mission
+            </h2>
+            <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
+              <p>
+                We aim to empower learners with practical knowledge and skills that transform their writing and research capabilities. Through structured tutorials, personalized mentorship, and hands-on exercises, we help you achieve academic and professional excellence.
+              </p>
+              <p>
+                At ScholarBrood, we believe learning should be accessible, effective, and engaging. Our platform blends traditional academic methods with modern digital tools to make learning smarter, faster, and truly impactful.
+              </p>
+            </div>
           </motion.div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-24 px-6 lg:px-12 bg-gray-50 dark:bg-gray-900">
-        <div className="max-w-7xl mx-auto text-center mb-16">
+      <section className="py-32 px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto text-center mb-20">
           <motion.h2
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold mb-6"
+            className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6"
           >
-            Why Choose ScholarBrood
+            Why Choose <span className="text-[#E8B85F]">ScholarBrood</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+            className="text-xl text-gray-400 max-w-3xl mx-auto"
           >
-            We combine expertise, practical guidance, and structured learning experiences to ensure you gain confidence, skills, and results.
+            We combine expertise, practical guidance, and structured learning experiences to ensure you gain confidence, skills, and real results.
           </motion.p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12 max-w-7xl mx-auto">
+        <div className="grid md:grid-cols-3 gap-10 max-w-7xl mx-auto">
           {features.map((feature, i) => (
             <motion.div
               key={feature.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.2 }}
-              whileHover={{ y: -6, scale: 1.02 }}
-              className="relative p-10 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 bg-linear-to-br from-white to-gray-50 dark:from-gray-800 dark:to-gray-900 overflow-hidden cursor-pointer"
+              transition={{ delay: i * 0.2, duration: 0.8 }}
+              whileHover={{ y: -12, scale: 1.04 }}
+              className="group relative p-10 rounded-3xl bg-white/5 backdrop-blur-xl border border-gray-800 hover:border-[#E8B85F]/40 overflow-hidden transition-all duration-500"
             >
-              <div className={`absolute inset-0 bg-linear-to-br ${feature.gradient} opacity-0 group-hover:opacity-10 transition-opacity duration-500`} />
-              <div className="relative z-10 flex flex-col items-start gap-4">
-                <div className="p-4 rounded-xl bg-gray-100 dark:bg-gray-800">{feature.icon}</div>
-                <h3 className="text-2xl font-bold">{feature.title}</h3>
-                <p className="text-gray-600 dark:text-gray-300">{feature.desc}</p>
+              <div className="absolute inset-0 bg-[#E8B85F] opacity-0 group-hover:opacity-10 transition-opacity duration-700" />
+              <div className="absolute -inset-1 bg-[#E8B85F] rounded-3xl blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-700 -z-10" />
+
+              <div className="relative z-10 flex flex-col items-start gap-6">
+                <div className="p-4 rounded-2xl bg-[#E8B85F]/10 text-[#E8B85F] group-hover:bg-[#E8B85F]/20 transition-all">
+                  {feature.icon}
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white">{feature.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{feature.desc}</p>
               </div>
             </motion.div>
           ))}
@@ -133,19 +152,27 @@ export default function About() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
+          transition={{ duration: 0.9 }}
+          className="max-w-5xl mx-auto text-center"
         >
-          <div className="p-12 bg-linear-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl shadow-2xl text-white">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Join Our Learning Community</h2>
-            <p className="text-xl mb-8 opacity-90">Explore our services, access valuable resources, and take your writing and research skills to the next level.</p>
-            <motion.a
-              href="/contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center justify-center rounded-full bg-white text-gray-900 px-10 py-5 text-lg font-bold shadow-xl hover:shadow-2xl transition-all"
-            >
-              Get in Touch
-            </motion.a>
+          <div className="relative p-16 rounded-3xl bg-gradient-to-br from-[#E8B85F] to-[#d4a44e] shadow-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-[#1C1C30] opacity-40" />
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1C1C30] mb-6">
+                Join Our Learning Community
+              </h2>
+              <p className="text-xl md:text-2xl text-[#1C1C30]/90 mb-10 max-w-3xl mx-auto">
+                Explore our services, access valuable resources,, and take your writing and research skills to the next level.
+              </p>
+              <motion.a
+                href="/contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center justify-center px-12 py-6 bg-[#1C1C30] text-[#E8B85F] text-xl font-bold rounded-full hover:bg-[#1C1C30]/90 shadow-2xl transition-all duration-300"
+              >
+                Get in Touch
+              </motion.a>
+            </div>
           </div>
         </motion.div>
       </section>

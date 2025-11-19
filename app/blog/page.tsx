@@ -55,56 +55,73 @@ export default function Blog() {
   ];
 
   return (
-    <main className={`${poppins.className} min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100`}>
+    <main className={`${poppins.className} min-h-screen bg-[#1C1C30] text-gray-100 overflow-x-hidden`}>
       {/* Hero Section */}
-      <section className="relative py-32 px-6 lg:px-12 text-center">
+      <section className="relative py-32 px-6 lg:px-12 text-center overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <motion.div
+            className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#E8B85F] rounded-full blur-3xl opacity-10"
+            animate={{ y: [0, -60, 0] }}
+            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+          />
+        </div>
+
         <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+          initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-5xl md:text-6xl font-bold mb-6 bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-purple-600"
+          transition={{ duration: 1 }}
+          className="relative text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight"
         >
-          Blog & Insights
+          Blog & <span className="text-[#E8B85F]">Insights</span>
         </motion.h1>
+
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto leading-relaxed"
+          transition={{ delay: 0.3 }}
+          className="relative text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
         >
           Stay updated with the latest tips, tutorials, and insights on academic writing, research mentorship, and AI-driven productivity.
         </motion.p>
       </section>
 
-      {/* Featured Posts */}
+      {/* Featured Posts – Large Hero Cards */}
       <section className="py-24 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
           {featuredPosts.map((post, i) => (
             <motion.div
               key={post.title}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 40 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
-              className="relative group cursor-pointer overflow-hidden rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700"
+              className="group relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer border border-gray-800 hover:border-[#E8B85F]/30 transition-all duration-500"
             >
               <Image
                 src={post.image}
                 alt={post.title}
-                width={600}
-                height={400}
-                className="w-full h-72 object-cover group-hover:scale-105 transition-transform duration-500"
+                width={800}
+                height={600}
+                className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700"
               />
-              <div className="absolute inset-0 bg-black/25 group-hover:bg-black/35 transition-colors duration-300 rounded-3xl" />
-              <div className="absolute bottom-6 left-6 z-10">
-                <span className="text-sm text-white bg-blue-600/80 px-3 py-1 rounded-full">{post.category}</span>
-                <h3 className="mt-2 text-2xl font-bold text-white">{post.title}</h3>
-                <p className="mt-1 text-gray-200">{post.excerpt}</p>
+              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C30]/90 via-[#1C1C30]/30 to-transparent" />
+
+              {/* Gold glow on hover */}
+              <div className="absolute inset-0 bg-[#E8B85F] opacity-0 group-hover:opacity-10 transition-opacity duration-700" />
+
+              <div className="absolute bottom-8 left-8 right-8 z-10">
+                <span className="inline-block px-4 py-1.5 text-sm font-semibold bg-[#E8B85F]/20 text-[#E8B85F] rounded-full backdrop-blur-sm border border-[#E8B85F]/30">
+                  {post.category}
+                </span>
+                <h3 className="mt-4 text-3xl font-bold text-white">{post.title}</h3>
+                <p className="mt-2 text-gray-200 text-lg">{post.excerpt}</p>
                 <Link
                   href={post.link}
-                  className="mt-3 inline-block text-white font-semibold bg-linear-to-r from-blue-500 to-purple-500 px-4 py-2 rounded-full hover:from-blue-600 hover:to-purple-600 transition"
+                  className="mt-6 inline-flex items-center text-[#E8B85F] font-bold hover:gap-3 transition-all duration-300"
                 >
-                  Read More
+                  Read More →
                 </Link>
               </div>
             </motion.div>
@@ -112,39 +129,54 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* Blog Grid */}
-      <section className="py-24 px-6 lg:px-12 bg-gray-50 dark:bg-gray-900">
+      {/* All Posts Grid */}
+      <section className="py-32 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl font-bold mb-12 text-center">All Posts</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
+          <motion.h2
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-4xl md:text-5xl font-bold text-center mb-16"
+          >
+            All <span className="text-[#E8B85F]">Posts</span>
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
             {blogPosts.map((post, i) => (
-              <motion.div
+              <motion.article
                 key={post.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.15 }}
-                className="flex flex-col overflow-hidden rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 bg-white dark:bg-gray-800 cursor-pointer"
+                transition={{ delay: i * 0.1 }}
+                whileHover={{ y: -12, scale: 1.03 }}
+                className="group relative bg-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-gray-800 hover:border-[#E8B85F]/30 transition-all duration-500 shadow-xl"
               >
-                <Image
-                  src={post.image}
-                  alt={post.title}
-                  width={400}
-                  height={250}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6 flex flex-col gap-4">
-                  <span className="text-xs font-semibold text-blue-600">{post.category}</span>
-                  <h3 className="text-lg font-bold">{post.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-300 text-sm">{post.excerpt}</p>
+                <div className="relative h-56 overflow-hidden">
+                  <Image
+                    src={post.image}
+                    alt={post.title}
+                    width={400}
+                    height={300}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C30]/80 to-transparent" />
+                </div>
+
+                <div className="p-6 space-y-4">
+                  <span className="text-xs font-semibold text-[#E8B85F] uppercase tracking-wider">
+                    {post.category}
+                  </span>
+                  <h3 className="text-xl font-bold text-white line-clamp-2">{post.title}</h3>
+                  <p className="text-gray-400 text-sm line-clamp-3">{post.excerpt}</p>
                   <Link
                     href={post.link}
-                    className="mt-auto inline-flex items-center font-semibold text-transparent bg-clip-text bg-linear-to-r from-blue-600 to-purple-600 hover:underline"
+                    className="inline-flex items-center text-[#E8B85F] font-medium hover:gap-2 transition-all duration-300"
                   >
-                    Read More
+                    Read More →
                   </Link>
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>
@@ -156,17 +188,25 @@ export default function Blog() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="max-w-4xl mx-auto text-center"
+          transition={{ duration: 0.9 }}
+          className="max-w-5xl mx-auto text-center"
         >
-          <div className="p-12 bg-linear-to-br from-blue-600 via-purple-600 to-pink-600 rounded-3xl shadow-2xl text-white">
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">Never Miss an Insight</h2>
-            <p className="text-xl mb-8 opacity-90">Subscribe to our newsletter and get the latest articles on writing, research, and AI productivity.</p>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-white text-gray-900 px-10 py-5 text-lg font-bold shadow-xl hover:shadow-2xl transition-all"
-            >
-              Subscribe
-            </Link>
+          <div className="relative p-16 rounded-3xl bg-gradient-to-br from-[#E8B85F] to-[#d4a44e] shadow-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-[#1C1C30] opacity-40" />
+            <div className="relative z-10">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1C1C30] mb-6">
+                Never Miss an Insight
+              </h2>
+              <p className="text-xl md:text-2xl text-[#1C1C30]/90 mb-10 max-w-3xl mx-auto">
+                Subscribe to our newsletter and get the latest articles on writing, research, and AI productivity delivered straight to your inbox.
+              </p>
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center px-12 py-6 bg-[#1C1C30] text-[#E8B85F] text-xl font-bold rounded-full hover:bg-[#1C1C30]/90 hover:scale-105 shadow-2xl transition-all duration-300"
+              >
+                Subscribe Now
+              </Link>
+            </div>
           </div>
         </motion.div>
       </section>
