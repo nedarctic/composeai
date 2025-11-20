@@ -3,24 +3,24 @@
 import { motion } from "framer-motion";
 import { poppins } from "../fonts";
 import Image from "next/image";
-import { Users, Award, BookOpen } from "lucide-react";
+import { Users, Award, PenTool } from "lucide-react";
 
 export default function About() {
   const features = [
     {
       icon: <Users className="w-12 h-12" />,
-      title: "Expert Mentors",
-      desc: "Learn from experienced academics and professional writers who guide you step by step.",
+      title: "Expert Writing Coaches",
+      desc: "Work directly with published academics and professional editors who provide clear, actionable feedback on your writing.",
     },
     {
       icon: <Award className="w-12 h-12" />,
-      title: "Proven Success",
-      desc: "Thousands of learners have improved their writing and research skills through ScholarBrood.",
+      title: "Proven Results",
+      desc: "Over 12,000 students and professionals have dramatically improved their academic and professional writing with our methods.",
     },
     {
-      icon: <BookOpen className="w-12 h-12" />,
-      title: "Structured Learning",
-      desc: "Curated tutorials, guides, and exercises designed to help you learn efficiently and effectively.",
+      icon: <PenTool className="w-12 h-12" />,
+      title: "Structured Writing Programs",
+      desc: "Carefully designed tutorials, templates, exercises, and progressive pathways that turn beginners into confident, polished writers.",
     },
   ];
 
@@ -53,7 +53,7 @@ export default function About() {
           transition={{ delay: 0.3 }}
           className="relative text-xl md:text-2xl text-gray-300 max-w-5xl mx-auto leading-relaxed"
         >
-          ScholarBrood is a digital learning platform dedicated to helping students, researchers, and professionals master academic writing, research mentorship, and online skills. We combine expert guidance, practical tutorials, and AI-driven tools to accelerate your learning journey.
+          ScholarBrood is a premium learning platform dedicated to helping students, academics, and professionals master academic and professional writing through expert instruction, structured tutorials, and personalized feedback.
         </motion.p>
       </section>
 
@@ -89,10 +89,10 @@ export default function About() {
             </h2>
             <div className="space-y-6 text-lg text-gray-300 leading-relaxed">
               <p>
-                We aim to empower learners with practical knowledge and skills that transform their writing and research capabilities. Through structured tutorials, personalized mentorship, and hands-on exercises, we help you achieve academic and professional excellence.
+                We exist to transform the way people write — from struggling with structure and clarity to producing compelling, publication-ready work with confidence.
               </p>
               <p>
-                At ScholarBrood, we believe learning should be accessible, effective, and engaging. Our platform blends traditional academic methods with modern digital tools to make learning smarter, faster, and truly impactful.
+                Through expertly crafted tutorials, real-world templates, progressive exercises, and one-on-one editorial feedback, we help writers at every level achieve clarity, precision, and impact in their academic and professional communication.
               </p>
             </div>
           </motion.div>
@@ -116,7 +116,7 @@ export default function About() {
             viewport={{ once: true }}
             className="text-xl text-gray-400 max-w-3xl mx-auto"
           >
-            We combine expertise, practical guidance, and structured learning experiences to ensure you gain confidence, skills, and real results.
+            We deliver the most effective, human-centered writing education available — proven by thousands of transformed writers.
           </motion.p>
         </div>
 
@@ -159,10 +159,10 @@ export default function About() {
             <div className="absolute inset-0 bg-[#1C1C30] opacity-40" />
             <div className="relative z-10">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1C1C30] mb-6">
-                Join Our Learning Community
+                Start Writing at a Higher Level
               </h2>
               <p className="text-xl md:text-2xl text-[#1C1C30]/90 mb-10 max-w-3xl mx-auto">
-                Explore our services, access valuable resources,, and take your writing and research skills to the next level.
+                Join thousands of writers who have elevated their craft with ScholarBrood’s expert-led programs and personal feedback.
               </p>
               <motion.a
                 href="/contact"

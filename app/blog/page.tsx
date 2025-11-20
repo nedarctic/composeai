@@ -9,48 +9,62 @@ export default function Blog() {
   const featuredPosts = [
     {
       title: "Mastering Academic Writing: Key Strategies",
-      excerpt: "Learn techniques to structure, edit, and polish your academic papers efficiently.",
+      excerpt: "Proven techniques to plan, structure, edit, and polish essays, theses, and research papers with confidence.",
       image: "/blog1.jpeg",
       link: "/blog/mastering-academic-writing",
       category: "Writing Tips",
     },
     {
-      title: "AI Tools for Smarter Research",
-      excerpt: "Discover AI-powered tools to streamline literature reviews and data analysis.",
+      title: "How to Write a Compelling Introduction",
+      excerpt: "Hook your reader from the first sentence and set up a powerful argument — with real examples that work.",
       image: "/blog2.jpeg",
-      link: "/blog/ai-tools-for-research",
-      category: "Research & AI",
+      link: "/blog/compelling-introductions",
+      category: "Writing Craft",
     },
   ];
 
   const blogPosts = [
     {
       title: "Effective Citation Methods",
-      excerpt: "Avoid plagiarism and improve credibility with proper citation techniques.",
+      excerpt: "Master APA, MLA, Chicago, and Harvard styles to cite flawlessly and strengthen academic credibility.",
       image: "/blog3.jpeg",
       link: "/blog/effective-citation-methods",
       category: "Writing Tips",
     },
     {
-      title: "Organizing Your Thesis",
-      excerpt: "Step-by-step guidance to structure a thesis for clarity and impact.",
+      title: "Organizing Your Thesis Like a Pro",
+      excerpt: "Step-by-step framework to build a clear, logical, and impactful thesis structure from outline to final draft.",
       image: "/blog4.jpeg",
       link: "/blog/organizing-your-thesis",
       category: "Academic Writing",
     },
     {
-      title: "Time Management for Researchers",
-      excerpt: "Maximize productivity with proven strategies tailored to research projects.",
+      title: "Clarity & Concision: Editing Secrets",
+      excerpt: "Learn professional editing techniques to eliminate wordiness and make every sentence count.",
       image: "/blog5.jpeg",
-      link: "/blog/time-management-for-researchers",
+      link: "/blog/clarity-and-concision",
+      category: "Editing",
+    },
+    {
+      title: "Crafting Strong Arguments",
+      excerpt: "Build persuasive, evidence-based arguments that reviewers and professors can’t ignore.",
+      image: "/blog6.jpeg",
+      link: "/blog/crafting-strong-arguments",
+      category: "Writing Craft",
+    },
+    {
+      title: "Overcoming Writer’s Block Forever",
+      excerpt: "Practical strategies used by published academics to start writing — even when motivation is low.",
+      image: "/blog7.jpeg",
+      link: "/blog/overcoming-writers-block",
       category: "Productivity",
     },
     {
-      title: "Leveraging Online Learning Platforms",
-      excerpt: "Tips for using online courses to supplement your academic skills.",
-      image: "/blog6.jpeg",
-      link: "/blog/leveraging-online-learning",
-      category: "Digital Skills",
+      title: "Writing Literature Reviews That Stand Out",
+      excerpt: "Go beyond summary: synthesize sources critically and position your work in the field.",
+      image: "/blog8.jpeg",
+      link: "/blog/writing-literature-reviews",
+      category: "Academic Writing",
     },
   ];
 
@@ -83,7 +97,7 @@ export default function Blog() {
           transition={{ delay: 0.3 }}
           className="relative text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
         >
-          Stay updated with the latest tips, tutorials, and insights on academic writing, research mentorship, and AI-driven productivity.
+          Expert advice, proven techniques, and in-depth guides to help you write clearer, stronger, and more impactful academic and professional work.
         </motion.p>
       </section>
 
@@ -160,7 +174,7 @@ export default function Blog() {
                     height={300}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C30]/80 to-transparent" />
+                  <div className="absolute inset-0 bg-linear-to-t from-[#1C1C30]/80 to-transparent" />
                 </div>
 
                 <div className="p-6 space-y-4">
@@ -191,14 +205,14 @@ export default function Blog() {
           transition={{ duration: 0.9 }}
           className="max-w-5xl mx-auto text-center"
         >
-          <div className="relative p-16 rounded-3xl bg-gradient-to-br from-[#E8B85F] to-[#d4a44e] shadow-2xl overflow-hidden">
+          <div className="relative p-16 rounded-3xl bg-linear-to-br from-[#E8B85F] to-[#d4a44e] shadow-2xl overflow-hidden">
             <div className="absolute inset-0 bg-[#1C1C30] opacity-40" />
             <div className="relative z-10">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1C1C30] mb-6">
-                Never Miss an Insight
+                Never Miss a Writing Tip
               </h2>
               <p className="text-xl md:text-2xl text-[#1C1C30]/90 mb-10 max-w-3xl mx-auto">
-                Subscribe to our newsletter and get the latest articles on writing, research, and AI productivity delivered straight to your inbox.
+                Subscribe to get weekly insights, templates, and expert writing advice delivered straight to your inbox.
               </p>
               <Link
                 href="/contact"

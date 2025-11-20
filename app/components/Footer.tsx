@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Twitter, Linkedin, Instagram, MapPin } from "lucide-react";
+import Image from "next/image";
+import { quicksand } from "../fonts";
 
 export default function Footer() {
   return (
@@ -22,14 +24,36 @@ export default function Footer() {
 
       <div className="relative max-w-7xl mx-auto flex flex-col lg:flex-row justify-between items-start gap-16 z-10">
         {/* Branding & Newsletter */}
-        <div className="flex flex-col items-start gap-6 max-w-md">
-          {/* Logo */}
-          <h3 className="text-3xl font-bold text-[#E8B85F]">
-            ScholarBrood
-          </h3>
+        <div className="flex flex-col items-start gap-7 max-w-md">
+          {/* Logo + Glow + Slogan */}
+          <div className="relative">
+            {/* Gold Glow Behind Logo */}
+            <div className="absolute inset-0 -m-4">
+              <div className="absolute inset-0 bg-[#E8B85F] rounded-full blur-3xl opacity-40 scale-110 animate-pulse" />
+              <div className="absolute inset-0 bg-[#E8B85F] rounded-full blur-xl opacity-60 scale-125" />
+            </div>
+
+            {/* Actual Logo */}
+            <Image
+              src="/logo/scholarbrood-logo.svg"
+              alt="ScholarBrood Logo"
+              width={280}
+              height={90}
+              className="relative place-self-center md:place-self-start z-10 w-auto h-36 md:h-44 lg:h-48 drop-shadow-2xl"
+              priority
+            />
+
+            {/* Fixed Italic Slogan */}
+            <p
+              className={`${quicksand.className} relative z-10 italic font-medium text-lg md:text-lg tracking-wider text-[#1C1C30] mt-4 opacity-95 leading-tight`}
+              style={{ fontStyle: "italic" }} // forces italic even if variant not loaded
+            >
+              Learn, Pursue & Grow Academic Excellence!
+            </p>
+          </div>
 
           <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-            Empower your writing and research. Build skills faster, smarter, and with more impact.
+            Master academic and professional writing with expert-led tutorials, structured exercises, and personalized feedback.
           </p>
 
           {/* Social Icons – Gold on hover */}
@@ -80,9 +104,9 @@ export default function Footer() {
             {
               title: "Services",
               links: [
-                { name: "Academic Writing Support", href: "/services/academic-writing-support" },
-                { name: "Research Mentorship", href: "/services/research-mentorship" },
-                { name: "AI & Online Skills Training", href: "/services/ai-online-skills-training" },
+                { name: "Academic Writing Tutorials", href: "/services/academic-writing-tutorials" },
+                { name: "Professional Writing Guidance", href: "/services/professional-writing-guidance" },
+                { name: "One-on-One Writing Feedback", href: "/services/writing-feedback" },
                 { name: "Pricing / Packages", href: "/pricing" },
               ],
             },

@@ -1,6 +1,6 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { Check, X, Zap, Sparkles, Brain, Shield, Users, Star, ArrowRight, Crown } from "lucide-react";
+import { Check, X, Zap, Sparkles, PenTool, Shield, Users, Star, ArrowRight, Crown } from "lucide-react";
 import { useEffect, useState } from "react";
 import { poppins } from "../fonts";
 
@@ -20,20 +20,20 @@ const pricingTiers: PricingTier[] = [
         name: "Free",
         price: 0,
         billing: "forever",
-        description: "Perfect for exploring ScholarBrood and getting started.",
+        description: "Perfect for exploring ScholarBrood and getting started with writing.",
         features: [
-            "Access to 5 beginner tutorials",
-            "Text-based guides & resources",
+            "Access to 8 beginner writing tutorials",
+            "All free templates & checklists",
             "Community forum access",
             "Progress tracking",
             "Certificates of completion",
         ],
         notIncluded: [
-            "Full video library",
-            "AI writing feedback",
-            "Premium templates & checklists",
-            "1-on-1 mentorship",
-            "Offline access",
+            "Full video tutorial library",
+            "Personalized writing feedback",
+            "Advanced & professional templates",
+            "1-on-1 editorial coaching",
+            "Offline downloads",
         ],
         icon: <Sparkles className="w-9 h-9" />,
     },
@@ -41,32 +41,33 @@ const pricingTiers: PricingTier[] = [
         name: "Scholar Pro",
         price: 29,
         billing: "/month",
-        description: "The complete academic writing & research mastery package.",
+        description: "The complete academic & professional writing mastery package.",
         features: [
-            "Unlimited video + text tutorials",
-            "AI-powered writing feedback",
-            "All premium templates & worksheets",
-            "Priority email support",
-            "Weekly live mentorship sessions",
+            "Unlimited video + text tutorials (200+ hours)",
+            "Detailed, human editorial feedback on your drafts",
+            "Every premium template, checklist & worksheet",
+            "Priority email + chat support",
+            "Weekly live writing workshops",
             "Verified certificates + LinkedIn badges",
-            "Offline access & downloads",
+            "Offline access & lifetime downloads",
+            "New resources added monthly",
         ],
         popular: true,
-        icon: <Brain className="w-9 h-9" />,
+        icon: <PenTool className="w-9 h-9" />,
     },
     {
         name: "Institution",
         price: 79,
         billing: "/user/month",
-        description: "Built for universities, departments, and research teams.",
+        description: "Built for universities, writing centers, and academic departments.",
         features: [
-            "Everything in Scholar Pro",
-            "Team & student progress dashboard",
-            "Custom branding & style guides",
-            "Bulk licensing & user management",
-            "Dedicated success manager",
-            "Onboarding workshops",
-            "API & LMS integration",
+            "Everything in Scholar Pro for all users",
+            "Admin dashboard & student progress tracking",
+            "Custom branding & institutional style guides",
+            "Bulk licensing & SSO integration",
+            "Dedicated account manager",
+            "Faculty training & onboarding workshops",
+            "Unlimited seats + API access",
         ],
         icon: <Users className="w-9 h-9" />,
     },
@@ -79,8 +80,8 @@ export default function PricingPage() {
 
     const getPrice = (tier: PricingTier) => {
         if (tier.name === "Free") return { monthly: 0, yearly: 0 };
-        if (tier.name === "Scholar Pro") return { monthly: 29, yearly: 23 };
-        if (tier.name === "Institution") return { monthly: 79, yearly: 63 };
+        if (tier.name === "Scholar Pro") return { monthly: 29, yearly: 23 };        // ~20% savings
+        if (tier.name === "Institution") return { monthly: 79, yearly: 63 };      // ~20% savings
         return { monthly: tier.price, yearly: tier.price };
     };
 
@@ -113,10 +114,10 @@ export default function PricingPage() {
                         Simple, Transparent <span className="text-[#E8B85F]">Pricing</span>
                     </h1>
                     <p className="text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto mb-12">
-                        Choose the plan that matches your academic journey. Upgrade, downgrade, or cancel anytime.
+                        Choose the plan that fits your writing goals. Upgrade, downgrade, or cancel anytime.
                     </p>
 
-                    {/* FIXED Billing Toggle */}
+                    {/* Billing Toggle */}
                     <div className="flex items-center justify-center gap-8 mb-16">
                         <span className={`text-lg font-medium transition ${billingCycle === "monthly" ? "text-white" : "text-gray-500"}`}>
                             Monthly
@@ -219,7 +220,7 @@ export default function PricingPage() {
                                                     : "bg-gray-800 text-gray-300 hover:bg-gray-700"
                                                 }`}
                                         >
-                                            {tier.name === "Free" ? "Get Started Free" : "Start Free Trial"}
+                                            {tier.name === "Free" ? "Get Started Free" : "Start 14-Day Free Trial"}
                                         </motion.button>
                                     </div>
                                 </div>
@@ -241,10 +242,10 @@ export default function PricingPage() {
                         <div className="absolute inset-0 bg-[#1C1C30] opacity-40" />
                         <div className="relative z-10">
                             <h2 className="text-5xl md:text-6xl font-bold text-[#1C1C30] mb-8">
-                                Start Your Journey Today
+                                Start Writing at a Higher Level
                             </h2>
                             <p className="text-2xl text-[#1C1C30]/90 mb-12 max-w-3xl mx-auto">
-                                Join thousands of students and researchers already mastering academic excellence with ScholarBrood.
+                                Join thousands of students, professors, and professionals who have transformed their writing with ScholarBrood.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-6 justify-center">
                                 <motion.a

@@ -2,28 +2,28 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { BookOpen, Brain, Zap } from "lucide-react";
+import { BookOpen, PenTool, FileText } from "lucide-react";
 import { poppins } from "../fonts";
 
 export default function Services() {
   const services = [
     {
-      title: "Academic Writing Support",
-      desc: "Comprehensive tutorials and guidance to improve essays, reports, theses, and academic papers for students and professionals.",
+      title: "Academic Writing Tutorials",
+      desc: "In-depth, expert-led tutorials covering essays, theses, literature reviews, reports, and every form of academic writing — from structure to style.",
       icon: <BookOpen className="w-12 h-12" />,
-      href: "/services/academic-writing-support",
+      href: "/services/academic-writing-tutorials",
     },
     {
-      title: "Research Mentorship",
-      desc: "Personalized guidance from experienced researchers to help you navigate research projects, publications, and methodologies.",
-      icon: <Brain className="w-12 h-12" />,
-      href: "/services/research-mentorship",
+      title: "One-on-One Writing Feedback",
+      desc: "Get personalized, detailed feedback from experienced academic editors on your drafts, structure, clarity, argumentation, and citation style.",
+      icon: <PenTool className="w-12 h-12" />,
+      href: "/services/writing-feedback",
     },
     {
-      title: "AI & Online Skills Training",
-      desc: "Learn how to leverage AI tools, digital platforms, and online productivity techniques to enhance your writing and research workflow.",
-      icon: <Zap className="w-12 h-12" />,
-      href: "/services/ai-online-skills-training",
+      title: "Professional & Advanced Writing",
+      desc: "Master grant proposals, research articles, business reports, white papers, and publication-ready manuscripts with step-by-step guidance.",
+      icon: <FileText className="w-12 h-12" />,
+      href: "/services/professional-writing-guidance",
     },
   ];
 
@@ -52,7 +52,7 @@ export default function Services() {
           transition={{ delay: 0.3 }}
           className="relative text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
         >
-          ScholarBrood provides expert-led tutorials, mentorship, and digital skills training to help students and professionals achieve excellence in writing and research.
+          ScholarBrood delivers expert writing instruction, structured tutorials, and personalized feedback to help students and professionals write with clarity, precision, and impact.
         </motion.p>
       </section>
 
@@ -84,7 +84,7 @@ export default function Services() {
                   href={service.href}
                   className="mt-4 inline-flex items-center text-[#E8B85F] font-semibold hover:gap-3 transition-all duration-300"
                 >
-                  Learn More → 
+                  Learn More →
                 </Link>
               </div>
             </motion.div>
@@ -108,7 +108,7 @@ export default function Services() {
                 Ready to Elevate Your Writing?
               </h2>
               <p className="text-xl md:text-2xl text-[#1C1C30]/90 mb-10 max-w-3xl mx-auto">
-                Explore our services and start mastering academic writing, research, and digital skills today.
+                Join thousands of students and professionals who have transformed their writing with ScholarBrood’s expert guidance and proven tutorials.
               </p>
               <Link
                 href="/contact"
