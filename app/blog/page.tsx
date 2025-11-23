@@ -3,7 +3,6 @@
 import { motion } from "framer-motion";
 import { poppins } from "../fonts";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Blog() {
   const featuredPosts = [
@@ -113,7 +112,7 @@ export default function Blog() {
               transition={{ delay: i * 0.2 }}
               className="group relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer border border-gray-800 hover:border-[#E8B85F]/30 transition-all duration-500"
             >
-              <Image
+              <img
                 src={post.image}
                 alt={post.title}
                 width={800}
@@ -167,7 +166,7 @@ export default function Blog() {
                 className="group relative bg-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-gray-800 hover:border-[#E8B85F]/30 transition-all duration-500 shadow-xl"
               >
                 <div className="relative h-56 overflow-hidden">
-                  <Image
+                  <img
                     src={post.image}
                     alt={post.title}
                     width={400}

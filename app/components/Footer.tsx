@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Twitter, Linkedin, Instagram, MapPin } from "lucide-react";
-import Image from "next/image";
 import { quicksand } from "../fonts";
 
 export default function Footer() {
@@ -34,13 +33,12 @@ export default function Footer() {
             </div>
 
             {/* Actual Logo */}
-            <Image
+            <img
               src="/logo/scholarbrood-logo.svg"
               alt="ScholarBrood Logo"
               width={280}
               height={90}
               className="relative place-self-center md:place-self-start z-10 w-auto h-36 md:h-44 lg:h-48 drop-shadow-2xl"
-              priority
             />
 
             {/* Fixed Italic Slogan */}

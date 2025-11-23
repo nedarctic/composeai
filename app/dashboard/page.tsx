@@ -3,7 +3,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, BarChart, Brain, CheckCircle, Clock, Edit, FileText, PlayCircle, Sparkles, Star, Target, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 import { poppins } from "../fonts";
-import Image from "next/image";
 
 interface UserProgress {
     completedCourses: number;
@@ -133,7 +132,7 @@ export default function DashboardPage() {
                         onMouseLeave={() => setIsCursorActive(false)}
                     >
                         <div className="flex flex-col items-center justify-center gap-6 mb-8">
-                            <Image
+                            <img
                                 src={mockUser.avatar}
                                 alt="User Avatar"
                                 width={80}
@@ -229,10 +228,9 @@ export default function DashboardPage() {
                                 >
                                     <div className="absolute inset-0 bg-linear-to-br from-blue-600/0 to-purple-600/0 group-hover:from-blue-600/10 group-hover:to-purple-600/20 transition-all duration-500 z-10" />
                                     <div className="relative aspect-video overflow-hidden">
-                                        <Image
+                                        <img
                                             src={course.thumbnail}
                                             alt={course.title}
-                                            fill
                                             className="object-cover group-hover:scale-110 transition-transform duration-500"
                                         />
                                         <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition" />
@@ -299,7 +297,7 @@ export default function DashboardPage() {
                                 >
                                     <div className="absolute inset-0 bg-linear-to-br from-blue-500 to-purple-500 opacity-0 group-hover:opacity-10 transition-opacity duration-500" />
                                     <div className="relative z-10">
-                                        <Image
+                                        <img
                                             src={course.thumbnail}
                                             alt={course.title}
                                             width={400}

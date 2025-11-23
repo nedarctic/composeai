@@ -5,7 +5,6 @@ import { ArrowRight, Sparkles, Zap, Brain, Eye, EyeOff, Lock, Mail } from "lucid
 import { FcGoogle } from "react-icons/fc";
 import { useState } from "react";
 import { poppins } from "../fonts";
-import Image from "next/image";
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
@@ -232,7 +231,7 @@ export default function LoginPage() {
                 </p>
                 <div className="mt-6 flex -space-x-2">
                   {["/student1.jpeg", "/student2.jpeg", "/student3.jpeg"].map((src, i) => (
-                    <Image
+                    <img
                       key={i}
                       src={src}
                       alt={`Learner ${i + 1}`}

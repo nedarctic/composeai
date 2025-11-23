@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { Search, Filter, Play, FileText, Star, Clock, User, ArrowRight, Sparkles } from "lucide-react";
 import { useEffect, useState } from "react";
 import { poppins } from "../fonts";
-import Image from "next/image";
 
 interface Course {
     id: number;
@@ -434,10 +433,9 @@ export default function CoursesPage() {
 
                                 {/* Thumbnail */}
                                 <div className="relative aspect-video overflow-hidden">
-                                    <Image
+                                    <img
                                         src={course.thumbnail}
                                         alt={course.title}
-                                        fill
                                         className="object-cover group-hover:scale-110 transition-transform duration-500"
                                     />
                                     <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition" />

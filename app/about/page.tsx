@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { poppins } from "../fonts";
-import Image from "next/image";
 import { Users, Award, PenTool } from "lucide-react";
 
 export default function About() {
@@ -67,7 +66,7 @@ export default function About() {
             transition={{ duration: 0.9 }}
             className="relative rounded-3xl overflow-hidden shadow-2xl border border-gray-800"
           >
-            <Image
+            <img
               src="/about-hero.jpeg"
               alt="ScholarBrood Team & Learning Environment"
               width={800}

@@ -4,7 +4,6 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Sparkles, Zap, PenTool, MousePointer2, CheckCircle, Users, Shield, Clock } from "lucide-react";
 import { useEffect, useState } from "react";
 import { poppins } from "./fonts";
-import Image from "next/image";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -99,7 +98,7 @@ export default function Home() {
             <div className="mt-12 flex items-center gap-4 text-sm text-gray-500 dark:text-gray-400">
               <div className="flex -space-x-2">
                 {["/student1.jpeg", "/student2.jpeg", "/student3.jpeg", "/student4.jpeg"].map((src, i) => (
-                  <Image key={i} src={src} alt="Student" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white dark:border-[#1C1C30] object-cover" />
+                  <img key={i} src={src} alt="Student" width={40} height={40} className="w-10 h-10 rounded-full border-2 border-white dark:border-[#1C1C30] object-cover" />
                 ))}
               </div>
               <p><strong className="text-gray-900 dark:text-white">10,000+</strong> students trusted worldwide</p>
