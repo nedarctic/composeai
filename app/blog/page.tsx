@@ -1,8 +1,8 @@
 'use client';
 
 import { motion } from "framer-motion";
-import { poppins } from "../fonts";
 import Link from "next/link";
+import { poppins } from "../fonts";
 
 export default function Blog() {
   const featuredPosts = [
@@ -23,86 +23,46 @@ export default function Blog() {
   ];
 
   const blogPosts = [
-    {
-      title: "Effective Citation Methods",
-      excerpt: "Master APA, MLA, Chicago, and Harvard styles to cite flawlessly and strengthen academic credibility.",
-      image: "/blog3.jpeg",
-      link: "/blog/effective-citation-methods",
-      category: "Writing Tips",
-    },
-    {
-      title: "Organizing Your Thesis Like a Pro",
-      excerpt: "Step-by-step framework to build a clear, logical, and impactful thesis structure from outline to final draft.",
-      image: "/blog4.jpeg",
-      link: "/blog/organizing-your-thesis",
-      category: "Academic Writing",
-    },
-    {
-      title: "Clarity & Concision: Editing Secrets",
-      excerpt: "Learn professional editing techniques to eliminate wordiness and make every sentence count.",
-      image: "/blog5.jpeg",
-      link: "/blog/clarity-and-concision",
-      category: "Editing",
-    },
-    {
-      title: "Crafting Strong Arguments",
-      excerpt: "Build persuasive, evidence-based arguments that reviewers and professors can’t ignore.",
-      image: "/blog6.jpeg",
-      link: "/blog/crafting-strong-arguments",
-      category: "Writing Craft",
-    },
-    {
-      title: "Overcoming Writer’s Block Forever",
-      excerpt: "Practical strategies used by published academics to start writing — even when motivation is low.",
-      image: "/blog7.jpeg",
-      link: "/blog/overcoming-writers-block",
-      category: "Productivity",
-    },
-    {
-      title: "Writing Literature Reviews That Stand Out",
-      excerpt: "Go beyond summary: synthesize sources critically and position your work in the field.",
-      image: "/blog8.jpeg",
-      link: "/blog/writing-literature-reviews",
-      category: "Academic Writing",
-    },
+    { title: "Effective Citation Methods", excerpt: "Master APA, MLA, Chicago, and Harvard styles to cite flawlessly...", image: "/blog3.jpeg", link: "/blog/effective-citation-methods", category: "Writing Tips" },
+    { title: "Organizing Your Thesis Like a Pro", excerpt: "Step-by-step framework to build a clear, logical thesis...", image: "/blog4.jpeg", link: "/blog/organizing-your-thesis", category: "Academic Writing" },
+    { title: "Clarity & Concision: Editing Secrets", excerpt: "Learn professional editing techniques to eliminate wordiness...", image: "/blog5.jpeg", link: "/blog/clarity-and-concision", category: "Editing" },
+    { title: "Crafting Strong Arguments", excerpt: "Build persuasive, evidence-based arguments that professors...", image: "/blog6.jpeg", link: "/blog/crafting-strong-arguments", category: "Writing Craft" },
+    { title: "Overcoming Writer’s Block Forever", excerpt: "Practical strategies used by published academics to start writing...", image: "/blog7.jpeg", link: "/blog/overcoming-writers-block", category: "Productivity" },
+    { title: "Writing Literature Reviews That Stand Out", excerpt: "Go beyond summary: synthesize sources critically and position...", image: "/blog8.jpeg", link: "/blog/writing-literature-reviews", category: "Academic Writing" },
   ];
 
   return (
-    <main className={`${poppins.className} min-h-screen bg-[#1C1C30] text-gray-100 overflow-x-hidden`}>
+    <main className={`${poppins.className} min-h-screen bg-white dark:bg-[#1C1C30] text-gray-900 dark:text-gray-100 transition-colors duration-500 overflow-x-hidden`}>
+      
       {/* Hero Section */}
-      <section className="relative py-32 px-6 lg:px-12 text-center overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none">
+      <section className="mt-20 relative py-20 sm:py-32 px-6 lg:px-12 text-center overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none opacity-25">
           <motion.div
-            className="absolute top-20 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-[#E8B85F] rounded-full blur-3xl opacity-10"
+            className="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 sm:w-[800px] sm:h-[800px] bg-[#E8B85F] rounded-full blur-3xl"
             animate={{ y: [0, -60, 0] }}
             transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
           />
         </div>
 
-        <motion.h1
+        <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="relative text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight"
+          className="relative max-w-6xl mx-auto"
         >
-          Blog & <span className="text-[#E8B85F]">Insights</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.3 }}
-          className="relative text-xl md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed"
-        >
-          Expert advice, proven techniques, and in-depth guides to help you write clearer, stronger, and more impactful academic and professional work.
-        </motion.p>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight">
+            Blog & <span className="text-[#E8B85F]">Insights</span>
+          </h1>
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
+            Expert advice, proven techniques, and in-depth guides to help you write clearer, stronger, and more impactful academic and professional work.
+          </p>
+        </motion.div>
       </section>
 
-      {/* Featured Posts – Large Hero Cards */}
-      <section className="py-24 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+      {/* Featured Posts – Responsive Large Cards */}
+      <section className="py-16 sm:py-24 px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
           {featuredPosts.map((post, i) => (
             <motion.div
               key={post.title}
@@ -110,31 +70,28 @@ export default function Blog() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.2 }}
-              className="group relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer border border-gray-800 hover:border-[#E8B85F]/30 transition-all duration-500"
+              className="group relative rounded-3xl overflow-hidden shadow-2xl cursor-pointer border border-gray-200 dark:border-gray-800 hover:border-[#E8B85F]/40 transition-all duration-500"
             >
-              <img
-                src={post.image}
-                alt={post.title}
-                width={800}
-                height={600}
-                className="w-full h-96 object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#1C1C30]/90 via-[#1C1C30]/30 to-transparent" />
+              <div className="aspect-[4/3] sm:aspect-[16/10] relative overflow-hidden">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+              </div>
 
-              {/* Gold glow on hover */}
-              <div className="absolute inset-0 bg-[#E8B85F] opacity-0 group-hover:opacity-10 transition-opacity duration-700" />
-
-              <div className="absolute bottom-8 left-8 right-8 z-10">
-                <span className="inline-block px-4 py-1.5 text-sm font-semibold bg-[#E8B85F]/20 text-[#E8B85F] rounded-full backdrop-blur-sm border border-[#E8B85F]/30">
+              <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 z-10">
+                <span className="inline-block px-4 py-2 text-xs sm:text-sm font-bold bg-[#E8B85F]/20 text-[#E8B85F] rounded-full backdrop-blur-sm border border-[#E8B85F]/30">
                   {post.category}
                 </span>
-                <h3 className="mt-4 text-3xl font-bold text-white">{post.title}</h3>
-                <p className="mt-2 text-gray-200 text-lg">{post.excerpt}</p>
+                <h3 className="mt-4 text-2xl sm:text-3xl font-bold text-white leading-tight">{post.title}</h3>
+                <p className="mt-3 text-gray-200 text-base sm:text-lg line-clamp-2">{post.excerpt}</p>
                 <Link
                   href={post.link}
-                  className="mt-6 inline-flex items-center text-[#E8B85F] font-bold hover:gap-3 transition-all duration-300"
+                  className="mt-6 inline-flex items-center text-[#E8B85F] font-bold hover:gap-3 transition-all duration-300 text-sm sm:text-base"
                 >
-                  Read More →
+                  Read More
                 </Link>
               </div>
             </motion.div>
@@ -143,50 +100,52 @@ export default function Blog() {
       </section>
 
       {/* All Posts Grid */}
-      <section className="py-32 px-6 lg:px-12">
+      <section className="py-20 sm:py-32 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto">
           <motion.h2
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-4xl md:text-5xl font-bold text-center mb-16"
+            className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-12 sm:mb-16 px-4"
           >
             All <span className="text-[#E8B85F]">Posts</span>
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 lg:gap-10">
             {blogPosts.map((post, i) => (
               <motion.article
                 key={post.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                whileHover={{ y: -12, scale: 1.03 }}
-                className="group relative bg-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-gray-800 hover:border-[#E8B85F]/30 transition-all duration-500 shadow-xl"
+                transition={{ delay: i * 0.08 }}
+                whileHover={{ y: -10, scale: 1.03 }}
+                className="group relative bg-gray-50 dark:bg-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-[#E8B85F]/40 transition-all duration-500 shadow-lg"
               >
-                <div className="relative h-56 overflow-hidden">
+                <div className="aspect-[4/3] relative overflow-hidden">
                   <img
                     src={post.image}
                     alt={post.title}
-                    width={400}
-                    height={300}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#1C1C30]/80 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
                 </div>
 
-                <div className="p-6 space-y-4">
-                  <span className="text-xs font-semibold text-[#E8B85F] uppercase tracking-wider">
+                <div className="p-5 sm:p-6 space-y-3">
+                  <span className="text-xs font-bold text-[#E8B85F] uppercase tracking-wider">
                     {post.category}
                   </span>
-                  <h3 className="text-xl font-bold text-white line-clamp-2">{post.title}</h3>
-                  <p className="text-gray-400 text-sm line-clamp-3">{post.excerpt}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white line-clamp-2 leading-tight">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 line-clamp-3">
+                    {post.excerpt}
+                  </p>
                   <Link
                     href={post.link}
-                    className="inline-flex items-center text-[#E8B85F] font-medium hover:gap-2 transition-all duration-300"
+                    className="inline-flex items-center text-[#E8B85F] font-medium text-sm hover:gap-2 transition-all duration-300 mt-2"
                   >
-                    Read More →
+                    Read More
                   </Link>
                 </div>
               </motion.article>
@@ -195,8 +154,8 @@ export default function Blog() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 px-6 lg:px-12">
+      {/* Final CTA */}
+      <section className="py-24 sm:py-32 px-6 lg:px-12">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -204,18 +163,18 @@ export default function Blog() {
           transition={{ duration: 0.9 }}
           className="max-w-5xl mx-auto text-center"
         >
-          <div className="relative p-16 rounded-3xl bg-linear-to-br from-[#E8B85F] to-[#d4a44e] shadow-2xl overflow-hidden">
-            <div className="absolute inset-0 bg-[#1C1C30] opacity-40" />
+          <div className="relative p-12 sm:p-20 rounded-3xl bg-gradient-to-br from-[#E8B85F] to-[#d4a44e] shadow-2xl overflow-hidden">
+            <div className="absolute inset-0 bg-black/40 dark:bg-[#1C1C30]/60" />
             <div className="relative z-10">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1C1C30] mb-6">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-2xl mb-6">
                 Never Miss a Writing Tip
               </h2>
-              <p className="text-xl md:text-2xl text-[#1C1C30]/90 mb-10 max-w-3xl mx-auto">
+              <p className="text-lg sm:text-xl md:text-2xl text-white/90 drop-shadow-lg mb-10 max-w-3xl mx-auto px-4">
                 Subscribe to get weekly insights, templates, and expert writing advice delivered straight to your inbox.
               </p>
               <Link
                 href="/contact"
-                className="inline-flex items-center justify-center px-12 py-6 bg-[#1C1C30] text-[#E8B85F] text-xl font-bold rounded-full hover:bg-[#1C1C30]/90 hover:scale-105 shadow-2xl transition-all duration-300"
+                className="inline-flex items-center justify-center px-10 sm:px-12 py-5 sm:py-6 bg-white text-[#1C1C30] text-lg sm:text-xl font-bold rounded-full shadow-2xl hover:bg-gray-100 hover:scale-105 transition-all duration-300"
               >
                 Subscribe Now
               </Link>
