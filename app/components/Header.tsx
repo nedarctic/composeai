@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
-import { poppins } from "../fonts";
+import { oswald } from "../fonts";
 import Image from "next/image";
 
 export default function Header() {
@@ -35,11 +35,11 @@ export default function Header() {
           <div className="flex flex-col">
             <Link
               href="/"
-              className={`${poppins.className} text-3xl font-bold tracking-tight bg-linear-to-r from-[#E8B85F] to-[#d4a44e] bg-clip-text text-transparent`}
+              className={`${oswald.className} text-3xl font-bold tracking-tight bg-linear-to-r from-[#E8B85F] to-[#d4a44e] bg-clip-text text-transparent`}
             >
               ScholarBrood
             </Link>
-            <p className="text-[10px] text-black text-sm">Learn, Pursue & Grow Academic Excellence!</p>
+            <p className={`${oswald.className} text-[10px] text-black text-sm`}>Learn, Pursue & Grow Academic Excellence!</p>
           </div>
         </div>
 
@@ -53,7 +53,7 @@ export default function Header() {
             >
               <Link
                 href={item.href}
-                className={`${poppins.className} relative text-gray-700 dark:text-gray-300 font-medium text-base tracking-wide transition-all duration-300
+                className={`${oswald.className} relative text-gray-700 dark:text-gray-300 font-medium text-base tracking-wide transition-all duration-300
                   after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-0 after:h-0.5 after:bg-[#E8B85F] after:transition-all after:duration-300
                   hover:text-[#E8B85F] hover:after:w-full`}
               >

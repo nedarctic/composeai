@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { poppins } from "../fonts";
+import { oswald } from "../fonts";
 
 export default function Blog() {
   const featuredPosts = [
@@ -32,35 +32,37 @@ export default function Blog() {
   ];
 
   return (
-    <main className={`${poppins.className} min-h-screen bg-white dark:bg-[#1C1C30] text-gray-900 dark:text-gray-100 transition-colors duration-500 overflow-x-hidden`}>
-      
+    <main className={`${oswald.className} min-h-screen bg-white dark:bg-[#1C1C30] text-gray-900 dark:text-gray-100 transition-colors duration-500 overflow-x-hidden`}>
+
       {/* Hero Section */}
-      <section className="mt-20 relative py-20 sm:py-32 px-6 lg:px-12 text-center overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-25">
-          <motion.div
-            className="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 sm:w-[800px] sm:h-[800px] bg-[#E8B85F] rounded-full blur-3xl"
-            animate={{ y: [0, -60, 0] }}
-            transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
+      <section className="relative min-h-screen py-28 sm:py-36 px-6 lg:px-12 text-center flex flex-col justify-center items-center overflow-hidden">
+        <img src="/9.jpg" alt="Blog Hero Background" className="absolute inset-0 w-full h-full object-cover z-0" />
+        <div className="absolute inset-0 bg-black/50 z-0" />
+
+        {/* Floating background shape */}
+        <motion.div
+          className="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 sm:w-[800px] sm:h-[800px] bg-[#E8B85F] rounded-full blur-3xl opacity-20"
+          animate={{ y: [0, -60, 0] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "easeInOut" }}
+        />
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="relative max-w-6xl mx-auto"
+          className="relative z-10 max-w-6xl mx-auto"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight text-white">
             Blog & <span className="text-[#E8B85F]">Insights</span>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
+          <p className="text-lg sm:text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed px-4">
             Expert advice, proven techniques, and in-depth guides to help you write clearer, stronger, and more impactful academic and professional work.
           </p>
         </motion.div>
       </section>
 
-      {/* Featured Posts – Responsive Large Cards */}
+      {/* Featured Posts Section */}
       <section className="py-16 sm:py-24 px-6 lg:px-12">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16">
           {featuredPosts.map((post, i) => (
@@ -122,28 +124,24 @@ export default function Blog() {
                 whileHover={{ y: -10, scale: 1.03 }}
                 className="group relative bg-gray-50 dark:bg-white/5 backdrop-blur-xl rounded-3xl overflow-hidden border border-gray-200 dark:border-gray-800 hover:border-[#E8B85F]/40 transition-all duration-500 shadow-lg"
               >
-                <div className="aspect-[4/3] relative overflow-hidden">
+                <div className="aspect-[4/3] relative overflow-hidden rounded-2xl">
                   <img
                     src={post.image}
                     alt={post.title}
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent rounded-2xl" />
                 </div>
 
-                <div className="p-5 sm:p-6 space-y-3">
-                  <span className="text-xs font-bold text-[#E8B85F] uppercase tracking-wider">
+                <div className="p-6 sm:p-8 space-y-4">
+                  <span className="inline-block px-3 py-1 text-xs sm:text-sm font-bold bg-[#E8B85F]/20 text-[#E8B85F] rounded-full backdrop-blur-sm border border-[#E8B85F]/30">
                     {post.category}
                   </span>
-                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white line-clamp-2 leading-tight">
-                    {post.title}
-                  </h3>
-                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 line-clamp-3">
-                    {post.excerpt}
-                  </p>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 dark:text-white line-clamp-2 leading-tight">{post.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 line-clamp-3">{post.excerpt}</p>
                   <Link
                     href={post.link}
-                    className="inline-flex items-center text-[#E8B85F] font-medium text-sm hover:gap-2 transition-all duration-300 mt-2"
+                    className="inline-flex items-center text-[#E8B85F] font-medium text-sm sm:text-base hover:gap-2 transition-all duration-300 mt-2"
                   >
                     Read More
                   </Link>
@@ -163,9 +161,9 @@ export default function Blog() {
           transition={{ duration: 0.9 }}
           className="max-w-5xl mx-auto text-center"
         >
-          <div className="relative p-12 sm:p-20 rounded-3xl bg-gradient-to-br from-[#E8B85F] to-[#d4a44e] shadow-2xl overflow-hidden">
-            <div className="absolute inset-0 bg-black/40 dark:bg-[#1C1C30]/60" />
-            <div className="relative z-10">
+          <div className="relative p-10 sm:p-16 rounded-3xl bg-[#E8B85F] shadow-2xl overflow-hidden text-center">
+              <div className="absolute inset-0 bg-black/10" />
+              <div className="relative z-10">
               <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-2xl mb-6">
                 Never Miss a Writing Tip
               </h2>

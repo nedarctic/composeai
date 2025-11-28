@@ -1,7 +1,7 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, Sparkles, Mail, Shield, Clock, Zap, Users } from "lucide-react";
-import { poppins } from "./fonts";
+import { oswald, poppins } from "./fonts";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -27,7 +27,7 @@ export default function Home() {
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-tight text-white text-center px-4"
+            className={`${oswald.className} relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-tight text-white text-center px-4`}
           >
             The Hub of Academic, Research & Publication Professionals
           </motion.h1>
@@ -44,10 +44,10 @@ export default function Home() {
               transition={{ duration: 0.8 }}
               className="flex-1 text-center lg:text-left"
             >
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-[#E8B85F] leading-tight">
+              <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold text-[#E8B85F] leading-tight`}>
                 Unlock Your Academic Potential — Expert Support Starts Here
               </h2>
-              <p className="mt-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+              <p className={`${oswald.className} mt-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed`}>
                 Reliable writing, research coaching & mentorship designed to help you excel — from your first assignment to your final dissertation.
               </p>
 
@@ -57,7 +57,7 @@ export default function Home() {
                   href="/contact"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#E8B85F] text-[#1C1C30] px-8 py-5 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300"
+                  className={`${oswald.className} w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#E8B85F] text-[#1C1C30] px-8 py-5 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300`}
                 >
                   Get Expert Help Now
                   <ArrowRight className="ml-3 w-6 h-6" />
@@ -67,7 +67,7 @@ export default function Home() {
                   href="/contact"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto inline-flex items-center justify-center rounded-full border-2 border-[#E8B85F] px-8 py-5 text-lg font-medium text-[#E8B85F] hover:bg-[#E8B85F] hover:text-[#1C1C30] transition-all duration-300"
+                  className={`${oswald.className} w-full sm:w-auto inline-flex items-center justify-center rounded-full border-2 border-[#E8B85F] px-8 py-5 text-lg font-medium text-[#E8B85F] hover:bg-[#E8B85F] hover:text-[#1C1C30] transition-all duration-300`}
                 >
                   <Sparkles className="mr-3 w-5 h-5" />
                   Free Consultation
@@ -100,12 +100,12 @@ export default function Home() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="text-3xl sm:text-4xl md:text-5xl font-bold mb-6"
+              className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-6`}
             >
               Why Students Trust{" "}
-              <span className="text-[#E8B85F]">ScholarBrood</span>
+              <span className={`${oswald.className} text-[#E8B85F]`}>ScholarBrood</span>
             </motion.h2>
-            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed px-4">
+            <p className={`${oswald.className} text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed px-4`}>
               Professional support that delivers real results — with confidentiality, quality, and your success as our top priority.
             </p>
 
@@ -145,8 +145,8 @@ export default function Home() {
                   <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#E8B85F]/10 flex items-center justify-center text-[#E8B85F] group-hover:scale-110 transition-transform">
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-bold mb-3">{item.title}</h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-base">
+                  <h3 className={`${oswald.className} text-xl font-bold mb-3`}>{item.title}</h3>
+                  <p className={`${oswald.className} text-gray-600 dark:text-gray-400 text-base`}>
                     {item.desc}
                   </p>
                 </motion.div>
@@ -164,13 +164,13 @@ export default function Home() {
             transition={{ duration: 0.8 }}
             className="max-w-5xl mx-auto"
           >
-            <div className="relative p-10 sm:p-16 rounded-3xl bg-gradient-to-br from-[#E8B85F] to-[#d4a44e] shadow-2xl overflow-hidden text-center">
-              <div className="absolute inset-0 bg-black/40" />
+            <div className="relative p-10 sm:p-16 rounded-3xl bg-[#E8B85F] shadow-2xl overflow-hidden text-center">
+              <div className="absolute inset-0 bg-black/10" />
               <div className="relative z-10">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 px-4">
+                <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 px-4`}>
                   Start Your Academic Success Journey With ScholarBrood
                 </h2>
-                <p className="text-lg sm:text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto px-4 leading-relaxed">
+                <p className={`${oswald.className} text-lg sm:text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto px-4 leading-relaxed`}>
                   Achieve more. Stress less. Join thousands of students who’ve already transformed their grades and confidence.
                 </p>
 
@@ -180,7 +180,7 @@ export default function Home() {
                     href="/contact"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full sm:w-auto px-10 py-5 bg-white text-[#1C1C30] text-lg font-bold rounded-full shadow-2xl hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-3"
+                    className={`${oswald.className} w-full sm:w-auto px-10 py-5 bg-white text-[#1C1C30] text-lg font-bold rounded-full shadow-2xl hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-3`}
                   >
                     Get Expert Help Now <ArrowRight className="w-6 h-6" />
                   </motion.a>
@@ -189,7 +189,7 @@ export default function Home() {
                     href="mailto:info@scholarbrood.com"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full sm:w-auto px-8 py-5 border-4 border-white text-white text-lg font-bold rounded-full hover:bg-white hover:text-[#1C1C30] transition-all duration-300 flex items-center justify-center gap-2"
+                    className={`${oswald.className} w-full sm:w-auto px-8 py-5 border-4 border-white text-white text-lg font-bold rounded-full hover:bg-white hover:text-[#1C1C30] transition-all duration-300 flex items-center justify-center gap-2`}
                   >
                     <Mail className="w-5 h-5" />
                     info@scholarbrood.com

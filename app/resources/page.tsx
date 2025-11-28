@@ -2,8 +2,16 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { FileText, ClipboardList, PenTool, Download, FileCheck, BookOpenText, ArrowRight } from "lucide-react";
-import { poppins } from "../fonts";
+import {
+  FileText,
+  ClipboardList,
+  PenTool,
+  Download,
+  FileCheck,
+  BookOpenText,
+  ArrowRight
+} from "lucide-react";
+import { oswald } from "../fonts";
 
 export default function Resources() {
   const resources = [
@@ -52,37 +60,37 @@ export default function Resources() {
   ];
 
   return (
-    <main className={`${poppins.className} min-h-screen bg-white dark:bg-[#1C1C30] text-gray-900 dark:text-gray-100 transition-colors duration-500 overflow-x-hidden`}>
+    <main className={`${oswald.className} min-h-screen bg-white dark:bg-[#1C1C30] text-gray-900 dark:text-gray-100 transition-colors duration-500 overflow-x-hidden`}>
 
-      {/* Hero Section */}
-      <section className="mt-20 relative py-20 sm:py-32 px-6 lg:px-12 text-center overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-25">
-          <motion.div
-            className="absolute top-20 left-1/2 -translate-x-1/2 w-96 h-96 sm:w-[700px] sm:h-[700px] bg-[#E8B85F] rounded-full blur-3xl"
-            animate={{ y: [0, -50, 0] }}
-            transition={{ duration: 22, repeat: Infinity, ease: "easeInOut" }}
-          />
-        </div>
+      {/* HERO — Now visually aligned with Services page */}
+      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-32 sm:px-10 overflow-hidden">
+        <img
+          src="/6.jpg"
+          alt="Resources Background"
+          className="absolute inset-0 w-full h-full object-cover z-0"
+        />
+        <div className="absolute inset-0 bg-black/60 z-0" />
 
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
           transition={{ duration: 1 }}
-          className="relative max-w-6xl mx-auto"
+          className="relative z-10 text-center max-w-4xl px-6"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight text-white">
             Free <span className="text-[#E8B85F]">Writing Resources</span>
           </h1>
-          <p className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto leading-relaxed px-4">
-            Expert-crafted templates, checklists, and guides used by thousands of students and academics to write faster, clearer, and at a higher level — completely free.
+
+          <p className="text-lg sm:text-xl md:text-2xl text-gray-200 leading-relaxed max-w-3xl mx-auto">
+            Expert-crafted templates, guides, and checklists used by thousands of students to write smarter, faster, and better — at no cost.
           </p>
         </motion.div>
       </section>
 
-      {/* Resources Grid */}
-      <section className="py-20 sm:py-32 px-6 lg:px-12">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 lg:gap-12">
+      {/* RESOURCES GRID — upgraded visuals */}
+      <section className="py-20 sm:py-28 px-6 lg:px-12">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
+
           {resources.map((resource, i) => (
             <motion.div
               key={resource.title}
@@ -90,23 +98,23 @@ export default function Resources() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.12, duration: 0.8 }}
-              whileHover={{ y: -12, scale: 1.04 }}
-              className="group relative p-8 sm:p-10 rounded-3xl bg-gray-50 dark:bg-white/5 backdrop-blur-xl border border-gray-200 dark:border-gray-800 hover:border-[#E8B85F]/40 overflow-hidden transition-all duration-500 shadow-xl"
+              whileHover={{ y: -15, scale: 1.03 }}
+              className="group relative p-10 rounded-3xl bg-white/80 dark:bg-white/5 backdrop-blur-xl border border-gray-300 dark:border-gray-800 hover:border-[#E8B85F]/50 transition-all duration-500 shadow-xl"
             >
               {/* Gold glow */}
-              <div className="absolute inset-0 bg-[#E8B85F] opacity-0 group-hover:opacity-10 transition-opacity duration-700" />
-              <div className="absolute -inset-1 bg-[#E8B85F] rounded-3xl blur-3xl opacity-0 group-hover:opacity-20 transition-opacity duration-700 -z-10" />
+              <div className="absolute inset-0 bg-gradient-to-br from-[#E8B85F]/0 to-[#E8B85F]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 rounded-3xl pointer-events-none" />
 
               <div className="relative z-10 flex flex-col items-start gap-6">
-                <div className="p-4 sm:p-5 rounded-2xl bg-[#E8B85F]/10 text-[#E8B85F] group-hover:bg-[#E8B85F]/20 transition-all duration-300">
+
+                <div className="p-5 rounded-2xl bg-[#E8B85F]/10 text-[#E8B85F] group-hover:bg-[#E8B85F]/20 transition-all duration-300">
                   {resource.icon}
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white leading-tight">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white">
                     {resource.title}
                   </h3>
-                  <span className="inline-block px-4 py-2 text-xs sm:text-sm font-bold bg-[#E8B85F]/20 text-[#E8B85F] rounded-full border border-[#E8B85F]/30">
+                  <span className="inline-block px-4 py-2 text-xs sm:text-sm font-bold bg-[#E8B85F]/20 text-[#E8B85F] rounded-full border border-[#E8B85F]/40">
                     {resource.type}
                   </span>
                 </div>
@@ -120,7 +128,8 @@ export default function Resources() {
                   target="_blank"
                   className="mt-4 inline-flex items-center text-[#E8B85F] text-lg font-bold hover:gap-4 transition-all duration-300"
                 >
-                  {resource.type === "Downloadable" ? "Download Free" : "View Guide"} <ArrowRight className="w-5 h-5 ml-1" />
+                  {resource.type === "Downloadable" ? "Download Free" : "View Guide"}
+                  <ArrowRight className="w-5 h-5 ml-2" />
                 </Link>
               </div>
             </motion.div>
@@ -128,47 +137,32 @@ export default function Resources() {
         </div>
       </section>
 
-      {/* Final CTA — NOW 100% RESPONSIVE & FLAWLESS */}
+      {/* FINAL CTA */}
       <section className="py-20 sm:py-28 lg:py-32 px-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
           transition={{ duration: 0.9 }}
           className="max-w-5xl mx-auto text-center"
         >
-          <div className="relative p-10 sm:p-16 lg:p-20 rounded-3xl bg-gradient-to-br from-[#E8B85F] to-[#d4a44e] shadow-2xl overflow-hidden">
-            {/* Dark overlay for contrast */}
-            <div className="absolute inset-0 bg-black/40 dark:bg-[#1C1C30]/60" />
+          <div className="relative p-10 sm:p-16 rounded-3xl bg-[#E8B85F] shadow-2xl overflow-hidden text-center">
+            <div className="absolute inset-0 bg-black/10" />
 
             <div className="relative z-10 flex flex-col items-center gap-8">
-              {/* Responsive Heading */}
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white drop-shadow-2xl leading-tight px-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight">
                 Want Custom Templates?
               </h2>
 
-              {/* Responsive Paragraph */}
-              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 drop-shadow-lg max-w-3xl mx-auto px-6 leading-relaxed">
-                Need a specific template, checklist, or guide that doesn’t exist yet? Tell us — we’ll build it for you.
+              <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed px-4">
+                Need a specific template or guide? Tell us — we’ll create it for you.
               </p>
 
-              {/* THE UNBREAKABLE BUTTON */}
               <Link
                 href="/contact"
-                className="w-full sm:w-auto max-w-md mx-auto px-8 sm:px-12 py-5 sm:py-6 
-                     bg-white text-[#1C1C30] 
-                     text-base sm:text-lg lg:text-xl font-bold 
-                     rounded-full 
-                     shadow-2xl 
-                     hover:bg-gray-100 hover:scale-105 
-                     transition-all duration-300 
-                     flex items-center justify-center 
-                     gap-3 
-                     whitespace-nowrap 
-                     overflow-hidden"
+                className="px-12 py-5 bg-white text-[#1C1C30] text-lg md:text-xl font-bold rounded-full hover:scale-105 transition-all duration-300 shadow-2xl flex items-center gap-3"
               >
-                <span className="truncate">Request Custom Resource</span>
-                <ArrowRight className="w-5 h-5 sm:w-6 sm:h-6 flex-shrink-0" />
+                Request Custom Resource
+                <ArrowRight className="w-6 h-6" />
               </Link>
             </div>
           </div>
