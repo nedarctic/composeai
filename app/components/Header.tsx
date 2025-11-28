@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
 import { Menu, X } from "lucide-react";
 import { poppins } from "../fonts";
+import Image from "next/image";
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -29,12 +30,18 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
         {/* Logo – Gradient gold that shines in both modes */}
-        <Link
-          href="/"
-          className={`${poppins.className} text-3xl font-bold tracking-tight bg-gradient-to-r from-[#E8B85F] to-[#d4a44e] bg-clip-text text-transparent`}
-        >
-          ScholarBrood
-        </Link>
+        <div className="flex gap-4 justify-end items-end">
+          <Image src="logo/scholarbrood-logo.svg" alt="Header logo" width={40} height={40} />
+          <div className="flex flex-col">
+            <Link
+              href="/"
+              className={`${poppins.className} text-3xl font-bold tracking-tight bg-linear-to-r from-[#E8B85F] to-[#d4a44e] bg-clip-text text-transparent`}
+            >
+              ScholarBrood
+            </Link>
+            <p className="text-[10px] sm:text-[#E8B85F] text-sm">Learn, Pursue & Grow Academic Excellence!</p>
+          </div>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-10">
