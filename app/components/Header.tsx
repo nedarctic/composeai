@@ -39,7 +39,7 @@ export default function Header() {
             >
               ScholarBrood
             </Link>
-            <p className="text-[10px] sm:text-[#E8B85F] text-sm">Learn, Pursue & Grow Academic Excellence!</p>
+            <p className="text-[10px] text-black text-sm">Learn, Pursue & Grow Academic Excellence!</p>
           </div>
         </div>
 
