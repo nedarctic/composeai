@@ -36,7 +36,7 @@ export default function Blog() {
 
       {/* Hero Section */}
       <section className="relative min-h-screen py-28 sm:py-36 px-6 lg:px-12 text-center flex flex-col justify-center items-center overflow-hidden">
-        <img src="/9.jpg" alt="Blog Hero Background" className="absolute inset-0 w-full h-full object-cover z-0" />
+        <img src="/Paper edited using a red pen.jpg" alt="Paper edited using a red pen" className="absolute inset-0 w-full h-full object-cover z-0" />
         <div className="absolute inset-0 bg-black/50 z-0" />
 
         {/* Floating background shape */}

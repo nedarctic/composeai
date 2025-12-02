@@ -1,203 +1,318 @@
 "use client";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { ArrowRight, Sparkles, Mail, Shield, Clock, Zap, Users } from "lucide-react";
-import { oswald, poppins } from "./fonts";
+import {
+  ArrowRight,
+  Sparkles,
+  Mail,
+  Shield,
+  Clock,
+  Zap,
+  Users,
+  Quote,
+} from "lucide-react";
+import { oswald } from "./fonts";
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"]);
 
+  const services = [
+    {
+      id: "writing",
+      title: "Academic Writing Assistance",
+      desc:
+        "Professional support for essays, term papers, coursework, reports, and academic assignments that meet institutional standards.",
+    },
+    {
+      id: "thesis",
+      title: "Thesis & Dissertation Support",
+      desc:
+        "Complete guidance for proposal development, literature review, methodology, data analysis, writing, formatting, and defense preparation.",
+    },
+    {
+      id: "editing",
+      title: "Editing & Proofreading",
+      desc:
+        "Refine grammar, clarity, tone, structure, and logical flow while ensuring originality and academic precision.",
+    },
+    {
+      id: "proposal",
+      title: "Research Proposal & Project Help",
+      desc:
+        "Expert support from topic selection to methodology development and full proposal writing.",
+    },
+    {
+      id: "data",
+      title: "Data Analysis & SPSS/Excel/STATA Support",
+      desc:
+        "Statistical support including data cleaning, coding, testing, interpretation, and preparation of results chapters.",
+    },
+    {
+      id: "publication",
+      title: "Publication Processing & Journal Support",
+      desc:
+        "End-to-end assistance with article preparation, journal selection, formatting, submission, reviewer response, and manuscript revision to increase acceptance chances.",
+    },
+    {
+      id: "cv",
+      title: "CV, SOP & Academic Personal Statements",
+      desc:
+        "Professionally crafted academic documents for admissions, scholarships, and fellowship opportunities.",
+    },
+  ];
+
+  const testimonials = [
+    {
+      name: "Catherine – MSc Student",
+      text: "ScholarBrood helped me complete my thesis on time with excellent quality.",
+    },
+    {
+      name: "Rhodera – Undergraduate Student",
+      text: "Very reliable academic support. Their research guidance and writing clarity exceeded my expectations.",
+    },
+    {
+      name: "Joylander – PhD Candidate",
+      text: "Their editing and formatting improved my dissertation significantly. The feedback was detailed and helpful.",
+    },
+    {
+      name: "Dr. Drinkwater – Researcher",
+      text: "Their publication processing service made my manuscript ready for journal submission. I highly recommend them.",
+    },
+  ];
+
+  const insights = [
+    {
+      title: "How to Structure a Winning Research Proposal",
+      desc: "A practical guide to crafting clear, persuasive, and academically sound proposals.",
+      href: "/blog/how-to-structure-a-winning-research-proposal",
+    },
+    {
+      title: "Top 10 Mistakes Students Make in Academic Writing",
+      desc: "Learn the common pitfalls that weaken academic papers and how to avoid them.",
+      href: "/blog/top-10-mistakes-students-make",
+    },
+    {
+      title: "How to Analyze Data Using SPSS: A Beginner’s Guide",
+      desc: "Step-by-step instructions to help you run tests and interpret statistical results confidently.",
+      href: "/blog/analyze-data-spass-beginners",
+    },
+  ];
+
   return (
     <>
       <main
-        className={`${poppins.className} min-h-screen overflow-x-hidden font-sans
+        className={`${oswald.className} min-h-screen overflow-x-hidden font-sans
           bg-white dark:bg-[#1C1C30]
           text-gray-900 dark:text-gray-100
           transition-colors duration-500`}
       >
-        {/* ================= Hero Section ================= */}
-        <section className="relative min-h-screen flex items-center justify-center px-5 sm:px-8 pt-[110px] overflow-hidden">
+        {/* ================= HERO / HEADER ================= */}
+        <section className="relative py-[110px] min-h-screen flex items-center justify-center px-5 sm:px-8 pt-[110px] overflow-hidden">
           <img
-            src="/1.jpg"
-            alt="Hero Background"
+            src="/A student enjoying our consultation.jpg"
+            alt="A student enjoying our consultation"
             className="absolute inset-0 w-full h-full object-cover z-0"
           />
-          <div className="absolute inset-0 bg-black/50 z-0" />
-          <motion.h1
+          <div className="absolute inset-0 bg-black/60 z-0" />
+
+          <motion.div
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className={`${oswald.className} relative z-10 text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold leading-tight text-white text-center px-4`}
+            className="relative z-10 max-w-5xl text-center px-4"
           >
-            The Hub of Academic, Research & Publication Professionals
-          </motion.h1>
-        </section>
-
-        {/* ================= Two-Column Section ================= */}
-        <section className="px-5 sm:px-8 py-20 sm:py-28">
-          <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
-            {/* Left Column - Text */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="flex-1 text-center lg:text-left"
+            <h1
+              className={`${oswald.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight`}
             >
-              <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold text-[#E8B85F] leading-tight`}>
-                Unlock Your Academic Potential — Expert Support Starts Here
-              </h2>
-              <p className={`${oswald.className} mt-6 text-lg sm:text-xl text-gray-700 dark:text-gray-300 leading-relaxed`}>
-                Reliable writing, research coaching & mentorship designed to help you excel — from your first assignment to your final dissertation.
-              </p>
+              Expert Academic Writing, Editing, Research, and Publication Support for Students and Researchers
+            </h1>
 
-              {/* Mobile-first button stack */}
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
-                <motion.a
-                  href="/contact"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`${oswald.className} w-full sm:w-auto inline-flex items-center justify-center rounded-full bg-[#E8B85F] text-[#1C1C30] px-8 py-5 text-lg font-bold shadow-lg hover:shadow-xl transition-all duration-300`}
-                >
-                  Get Expert Help Now
-                  <ArrowRight className="ml-3 w-6 h-6" />
-                </motion.a>
-
-                <motion.a
-                  href="/contact"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                  className={`${oswald.className} w-full sm:w-auto inline-flex items-center justify-center rounded-full border-2 border-[#E8B85F] px-8 py-5 text-lg font-medium text-[#E8B85F] hover:bg-[#E8B85F] hover:text-[#1C1C30] transition-all duration-300`}
-                >
-                  <Sparkles className="mr-3 w-5 h-5" />
-                  Free Consultation
-                </motion.a>
-              </div>
-            </motion.div>
-
-            {/* Right Column - Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              className="flex-1 w-full"
-            >
-              <img
-                src="/2.jpg"
-                alt="Academic Support"
-                className="w-full h-auto object-cover rounded-3xl shadow-2xl"
-                loading="lazy"
-              />
-            </motion.div>
-          </div>
-        </section>
-
-        {/* ========== WHY CHOOSE US ========== */}
-        <section className="py-20 sm:py-28 px-5 sm:px-8 bg-gray-50 dark:bg-[#1C1C30]/50">
-          <div className="max-w-7xl mx-auto text-center">
-            <motion.h2
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-6`}
-            >
-              Why Students Trust{" "}
-              <span className={`${oswald.className} text-[#E8B85F]`}>ScholarBrood</span>
-            </motion.h2>
-            <p className={`${oswald.className} text-lg sm:text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-12 leading-relaxed px-4`}>
-              Professional support that delivers real results — with confidentiality, quality, and your success as our top priority.
+            <p className={`${oswald.className} text-lg sm:text-xl md:text-2xl text-white/90 mt-6 leading-relaxed`}>
+              Get high-quality essays, proposals, theses, journal manuscripts, data analysis, and publication support from experienced academic professionals.
             </p>
 
-            {/* Responsive Grid: 1 on mobile, 2 on sm, 4 on md+ */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
-              {[
-                {
-                  icon: <Users className="w-12 h-12" />,
-                  title: "Expert Writers & Researchers",
-                  desc: "Qualified academics with advanced degrees",
-                },
-                {
-                  icon: <Shield className="w-12 h-12" />,
-                  title: "100% Plagiarism-Free",
-                  desc: "Every paper passes Turnitin & Copyscape",
-                },
-                {
-                  icon: <Clock className="w-12 h-12" />,
-                  title: "Always On Time",
-                  desc: "Even 3-hour urgent deadlines available",
-                },
-                {
-                  icon: <Zap className="w-12 h-12" />,
-                  title: "24/7 Support",
-                  desc: "Live chat, email, and phone assistance",
-                },
-              ].map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 40 }}
+            <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
+              <motion.a
+                href="/contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className={`${oswald.className} px-10 py-5 bg-[#E8B85F] text-[#1C1C30] rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3`}
+              >
+                Get Expert Help
+                <ArrowRight className="w-5 h-5" />
+              </motion.a>
+
+              <motion.a
+                href="/services"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className={`${oswald.className} px-10 py-5 border-2 border-[#E8B85F] text-[#E8B85F] rounded-full text-lg font-semibold hover:bg-[#E8B85F] hover:text-[#1C1C30] transition-all duration-300 flex items-center justify-center`}
+              >
+                View Our Services
+              </motion.a>
+            </div>
+          </motion.div>
+        </section>
+
+        {/* ================= OUR ACADEMIC SERVICES (Card Grid) ================= */}
+        <section id="services" className="px-5 sm:px-8 py-20 sm:py-28">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-4`}>
+              Our Academic Services
+            </h2>
+            <p className={`${oswald.className} text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-12`}>
+              We offer comprehensive support across the entire academic and research journey.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {services.map((s, i) => (
+                <motion.article
+                  key={s.id}
+                  initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  whileHover={{ y: -8, scale: 1.05 }}
-                  className="p-8 bg-white dark:bg-[#1C1C30]/80 rounded-3xl shadow-xl border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300 group"
+                  transition={{ delay: i * 0.08, duration: 0.5 }}
+                  whileHover={{ translateY: -8, scale: 1.02 }}
+                  className="relative p-8 bg-white dark:bg-[#1C1C30]/80 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-xl hover:shadow-2xl transition-all duration-300"
                 >
-                  <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-[#E8B85F]/10 flex items-center justify-center text-[#E8B85F] group-hover:scale-110 transition-transform">
-                    {item.icon}
+                  <div className="absolute -top-8 left-8 w-16 h-16 rounded-full bg-[#E8B85F]/10 flex items-center justify-center text-[#E8B85F] text-2xl font-bold">
+                    {i + 1}
                   </div>
-                  <h3 className={`${oswald.className} text-xl font-bold mb-3`}>{item.title}</h3>
-                  <p className={`${oswald.className} text-gray-600 dark:text-gray-400 text-base`}>
-                    {item.desc}
+
+                  <h3 className={`${oswald.className} text-xl sm:text-2xl font-bold mb-3 pl-2`}>
+                    {s.title}
+                  </h3>
+
+                  <p className={`${oswald.className} text-base text-gray-700 dark:text-gray-300 mb-6 pl-2`}>
+                    {s.desc}
                   </p>
-                </motion.div>
+
+                  <a
+                    href={`/services#${s.id}`}
+                    className={`${oswald.className} inline-flex items-center gap-2 text-sm sm:text-base font-semibold underline text-[#E8B85F]`}
+                  >
+                    Learn More <ArrowRight className="w-4 h-4" />
+                  </a>
+                </motion.article>
               ))}
             </div>
           </div>
         </section>
 
-        {/* ========= FINAL CTA ========= */}
-        <section className="py-20 sm:py-28 px-5 sm:px-8">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8 }}
-            className="max-w-5xl mx-auto"
-          >
-            <div className="relative p-10 sm:p-16 rounded-3xl bg-[#E8B85F] shadow-2xl overflow-hidden text-center">
-              <div className="absolute inset-0 bg-black/10" />
-              <div className="relative z-10">
-                <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 px-4`}>
-                  Start Your Academic Success Journey With ScholarBrood
-                </h2>
-                <p className={`${oswald.className} text-lg sm:text-xl lg:text-2xl text-white/90 mb-10 max-w-4xl mx-auto px-4 leading-relaxed`}>
-                  Achieve more. Stress less. Join thousands of students who’ve already transformed their grades and confidence.
-                </p>
+        {/* ================= WHY STUDENTS TRUST SCHOLARBROOD ================= */}
+        <section className="py-20 sm:py-28 px-5 sm:px-8 bg-gray-50 dark:bg-[#1C1C30]/40">
+          <div className="max-w-6xl mx-auto text-center">
+            <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-4`}>
+              Why Students Trust <span className="text-[#E8B85F]">ScholarBrood</span>
+            </h2>
+            <p className={`${oswald.className} text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-10`}>
+              We prioritize quality, originality, and professionalism in every project—making us a trusted partner for learners and researchers.
+            </p>
 
-                {/* Full-width buttons on mobile */}
-                <div className="flex flex-col sm:flex-row gap-5 justify-center items-center max-w-xl mx-auto">
-                  <motion.a
-                    href="/contact"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`${oswald.className} w-full sm:w-auto px-10 py-5 bg-white text-[#1C1C30] text-lg font-bold rounded-full shadow-2xl hover:bg-gray-100 transition-all duration-300 flex items-center justify-center gap-3`}
-                  >
-                    Get Expert Help Now <ArrowRight className="w-6 h-6" />
-                  </motion.a>
+            <ul className="max-w-xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+              {[
+                "Experienced academic professionals",
+                "100% original and plagiarism-free work",
+                "Accurate, well-structured, and high-quality writing",
+                "Strict confidentiality and data security",
+                "On-time delivery, every time",
+              ].map((item, idx) => (
+                <li
+                  key={idx}
+                  className={`${oswald.className} flex items-start gap-3 bg-white dark:bg-[#1C1C30]/70 p-4 rounded-lg border border-gray-200 dark:border-gray-700 shadow-sm`}
+                >
+                  <span className="mt-1 text-[#E8B85F] font-bold">✔</span>
+                  <span className="text-gray-700 dark:text-gray-300">{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-                  <motion.a
-                    href="mailto:info@scholarbrood.com"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.98 }}
-                    className={`${oswald.className} w-full sm:w-auto px-8 py-5 border-4 border-white text-white text-lg font-bold rounded-full hover:bg-white hover:text-[#1C1C30] transition-all duration-300 flex items-center justify-center gap-2`}
-                  >
-                    <Mail className="w-5 h-5" />
-                    info@scholarbrood.com
-                  </motion.a>
-                </div>
-              </div>
+          {/* ================= CLIENT TESTIMONIALS ================= */}
+          <div className="max-w-7xl mx-auto mt-20">
+            <h3 className={`${oswald.className} text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8`}>
+              What Our Clients Say
+            </h3>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {testimonials.map((t, i) => (
+                <motion.figure
+                  key={i}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  className="p-6 bg-white dark:bg-[#1C1C30]/70 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg"
+                >
+                  <Quote className="w-8 h-8 text-[#E8B85F] mb-3" />
+                  <blockquote className={`${oswald.className} text-gray-700 dark:text-gray-300 mb-4`}>{t.text}</blockquote>
+                  <figcaption className={`${oswald.className} text-sm text-[#E8B85F]`}>{t.name}</figcaption>
+                </motion.figure>
+              ))}
             </div>
-          </motion.div>
+          </div>
+        </section>
+
+        {/* ================= LATEST ACADEMIC INSIGHTS ================= */}
+        <section className="px-5 sm:px-8 py-20 sm:py-28">
+          <div className="max-w-7xl mx-auto text-center">
+            <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-10`}>
+              Latest Academic Insights
+            </h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {insights.map((post, i) => (
+                <motion.article
+                  key={i}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06 }}
+                  className="p-8 bg-white dark:bg-[#1C1C30]/80 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-xl hover:shadow-2xl"
+                >
+                  <h4 className={`${oswald.className} text-xl font-bold mb-3 text-[#E8B85F]`}>
+                    {post.title}
+                  </h4>
+                  <p className={`${oswald.className} text-gray-700 dark:text-gray-300 mb-6`}>{post.desc}</p>
+                  <a href={post.href} className={`${oswald.className} font-semibold underline text-[#E8B85F]`}>Read More</a>
+                </motion.article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ================= FINAL CTA ================= */}
+        <section className="py-20 sm:py-28 px-5 sm:px-8">
+          <div className="max-w-5xl mx-auto text-center">
+            <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-6`}>
+              Ready to Improve Your Academic Work or Publish Your Research?
+            </h2>
+
+            <p className={`${oswald.className} text-lg sm:text-xl max-w-3xl mx-auto text-gray-700 dark:text-gray-300 mb-8`}>
+              Work with expert writers, editors, analysts, and publication specialists dedicated to your success.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+              <motion.a
+                href="/contact"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className={`${oswald.className} inline-flex items-center justify-center gap-3 px-12 py-4 bg-[#E8B85F] text-[#1C1C30] text-lg font-semibold rounded-full shadow-2xl`}
+              >
+                Get Help Now <ArrowRight className="w-5 h-5" />
+              </motion.a>
+
+              <motion.a
+                href="mailto:info@scholarbrood.com"
+                whileHover={{ scale: 1.03 }}
+                whileTap={{ scale: 0.98 }}
+                className={`${oswald.className} inline-flex items-center justify-center gap-2 px-8 py-4 border-4 border-[#E8B85F] text-[#E8B85F] text-lg font-semibold rounded-full`}
+              >
+                <Mail className="w-4 h-4" />
+                info@scholarbrood.com
+              </motion.a>
+            </div>
+          </div>
         </section>
       </main>
     </>

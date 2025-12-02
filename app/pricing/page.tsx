@@ -56,18 +56,18 @@ export default function PricingPage() {
           </div>
 
           <ul className="space-y-4 text-gray-300 mb-10">
-            <li className="flex items-center gap-2">
+            <li className={`${oswald.className} flex items-center gap-2`}>
               <Check className="text-[#E8B85F]" /> Essays & summaries
             </li>
-            <li className="flex items-center gap-2">
+            <li className={`${oswald.className} flex items-center gap-2`}>
               <Check className="text-[#E8B85F]" /> Basic proofreading
             </li>
-            <li className="flex items-center gap-2">
+            <li className={`${oswald.className} flex items-center gap-2`}>
               <Check className="text-[#E8B85F]" /> APA/MLA formatting
             </li>
           </ul>
 
-          <button className="mt-auto w-full py-4 rounded-full bg-white/10 hover:bg-white/20 transition-all font-semibold">
+          <button className={`${oswald.className} mt-auto w-full py-4 rounded-full bg-white/10 hover:bg-white/20 transition-all font-semibold`}>
             Get Starter
           </button>
         </motion.div>
@@ -98,21 +98,21 @@ export default function PricingPage() {
           </div>
 
           <ul className="space-y-4 text-gray-200 mb-10 relative z-10">
-            <li className="flex items-center gap-2">
-              <Check className="text-[#E8B85F]" /> Full academic writing
+            <li className={`${oswald.className} flex items-center gap-2`}>
+              <Check className="text-[#E8B85F]"     /> Full academic writing
             </li>
-            <li className="flex items-center gap-2">
+            <li className={`${oswald.className} flex items-center gap-2`}>
               <Check className="text-[#E8B85F]" /> In-depth research synthesis
             </li>
-            <li className="flex items-center gap-2">
+            <li className={`${oswald.className} flex items-center gap-2`}>
               <Check className="text-[#E8B85F]" /> Unlimited revisions
             </li>
-            <li className="flex items-center gap-2">
+            <li className={`${oswald.className} flex items-center gap-2`}>
               <Check className="text-[#E8B85F]" /> Priority delivery
             </li>
           </ul>
 
-          <button className="mt-auto w-full py-5 rounded-full bg-[#E8B85F] text-[#1C1C1C] font-bold hover:bg-[#d4a44e] transition-all text-lg">
+          <button className={`${oswald.className} mt-auto w-full py-5 rounded-full bg-[#E8B85F] text-[#1C1C1C] font-bold hover:bg-[#d4a44e] transition-all text-lg`}>
             Choose Pro
           </button>
         </motion.div>
@@ -141,21 +141,21 @@ export default function PricingPage() {
           </div>
 
           <ul className="space-y-4 text-gray-300 mb-10">
-            <li className="flex items-center gap-2">
+            <li className={`${oswald.className} flex items-center gap-2`}>
               <Check className="text-[#E8B85F]" /> Journal-ready formatting
             </li>
-            <li className="flex items-center gap-2">
+            <li className={`${oswald.className} flex items-center gap-2`}>
               <Check className="text-[#E8B85F]" /> Data-driven analysis
             </li>
-            <li className="flex items-center gap-2">
+            <li className={`${oswald.className} flex items-center gap-2`}>
               <Check className="text-[#E8B85F]" /> Plagiarism reporting
             </li>
-            <li className="flex items-center gap-2">
+            <li className={`${oswald.className} flex items-center gap-2`}>
               <Check className="text-[#E8B85F]" /> One-on-one consultations
             </li>
           </ul>
 
-          <button className="mt-auto w-full py-4 rounded-full bg-white/10 hover:bg-white/20 transition-all font-semibold">
+          <button className={`${oswald.className} mt-auto w-full py-4 rounded-full bg-white/10 hover:bg-white/20 transition-all font-semibold`}>
             Go Elite
           </button>
         </motion.div>

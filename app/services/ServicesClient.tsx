@@ -13,7 +13,7 @@ export default function ServicesClient() {
 
       <section className="relative min-h-screen flex items-center justify-center px-5 sm:px-8 pt-20 overflow-hidden">
         <img
-          src="/3.jpg"
+          src="/Research is the primary tool in ScholarBrood.jpg"
           alt="Hero Background"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
@@ -232,7 +232,7 @@ export default function ServicesClient() {
           className="max-w-5xl mx-auto text-center"
         >
           <div className="relative p-10 sm:p-16 rounded-3xl bg-[#E8B85F] shadow-2xl overflow-hidden text-center">
-            <div className="absolute inset-0 bg-black/10" />
+              <div className="absolute inset-0 bg-black/10" />
             <div className="relative z-10">
               <h2 className={`${oswald.className} text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1C1C30] dark:text-white mb-6 leading-tight`}>
                 Start Your Academic Journey With Confidence

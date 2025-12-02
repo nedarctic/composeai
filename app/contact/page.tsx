@@ -9,8 +9,8 @@ export default function ContactPage() {
     <section className="relative min-h-screen overflow-hidden">
       {/* Background */}
       <img
-        src="/3.jpg"
-        alt="Contact Background"
+        src="/Rest easy with us in your writing, enjoy your service.jpg"
+        alt="Rest easy with us in your writing, enjoy your service"
         className="absolute inset-0 w-full h-full object-cover z-0"
       />
       <div className="absolute inset-0 bg-black/60 z-0" />

@@ -65,8 +65,8 @@ export default function Resources() {
       {/* HERO — Now visually aligned with Services page */}
       <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-32 sm:px-10 overflow-hidden">
         <img
-          src="/6.jpg"
-          alt="Resources Background"
+          src="/Excellent academic writing services at ScholarBrood.jpg"
+          alt="Excellent academic writing services at ScholarBrood"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
         <div className="absolute inset-0 bg-black/60 z-0" />

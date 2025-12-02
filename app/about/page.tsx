@@ -30,8 +30,8 @@ export default function About() {
       {/* Hero with Background Image */}
       <section className="relative min-h-screen flex items-center justify-center px-5 sm:px-8 overflow-hidden">
         <img
-          src="/8.jpg"
-          alt="ScholarBrood Hero"
+          src="/Publication team in process.jpg"
+          alt="Publication team in process"
           className="absolute inset-0 w-full h-full object-cover z-0"
         />
         <div className="absolute inset-0 bg-black/50 z-0" />

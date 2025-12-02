@@ -39,7 +39,7 @@ export default function Header() {
             >
               ScholarBrood
             </Link>
-            <p className={`${oswald.className} text-[10px] text-black text-sm`}>Learn, Pursue & Grow Academic Excellence!</p>
+            <p className={`${oswald.className} text-[10px] text-black dark:text-white text-sm`}>Learn, Pursue & Grow Academic Excellence!</p>
           </div>
         </div>
 
@@ -96,7 +96,7 @@ export default function Header() {
                   initial={{ opacity: 0, x: -40 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: i * 0.05 }}
-                  className="text-2xl font-semibold text-gray-800 dark:text-gray-200 hover:text-[#E8B85F] transition-colors duration-300"
+                  className={`${oswald.className} text-2xl font-semibold text-gray-800 dark:text-gray-200 hover:text-[#E8B85F] transition-colors duration-300`}
                   whileHover={{ x: 16 }}
                   whileTap={{ scale: 0.95 }}
                 >
