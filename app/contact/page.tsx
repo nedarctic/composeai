@@ -1,8 +1,10 @@
 "use client";
 
+import { FaPaypal } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { oswald } from "../fonts";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Paperclip, Link as LinkIcon } from "lucide-react";
+import Link from "next/link";
 
 export default function ContactPage() {
   return (
@@ -52,13 +54,13 @@ export default function ContactPage() {
               Select the type of assistance you need
             </label>
             <select
-              className="w-full p-4 rounded-xl bg-white/10 border border-white/30 focus:ring focus:ring-[#E8B85F]/60 outline-none"
+              className={`${oswald.className} text-gray-100 w-full p-4 rounded-xl bg-white/10 border border-white/30 focus:ring focus:ring-[#E8B85F]/60 outline-none`}
             >
               <option>Academic Writing Support</option>
-              <option>Research Assistance (Projects, Thesis, Dissertations)</option>
-              <option>Publication & Journal Support</option>
-              <option>Editing, Review & Proofreading</option>
-              <option>General Consultation</option>
+              <option className="text-black">Research Assistance (Projects, Thesis, Dissertations)</option>
+              <option className="text-black">Publication & Journal Support</option>
+              <option className="text-black">Editing, Review & Proofreading</option>
+              <option className="text-black">General Consultation</option>
             </select>
           </div>
 
@@ -69,7 +71,7 @@ export default function ContactPage() {
             </label>
             <input
               type="text"
-              className="w-full p-4 rounded-xl bg-white/10 border border-white/30 focus:ring focus:ring-[#E8B85F]/60 outline-none"
+              className={`${oswald.className} w-full p-4 rounded-xl bg-white/10 border border-white/30 focus:ring focus:ring-[#E8B85F]/60 outline-none`}
               placeholder="Your full name"
             />
           </div>
@@ -81,7 +83,7 @@ export default function ContactPage() {
             </label>
             <input
               type="email"
-              className="w-full p-4 rounded-xl bg-white/10 border border-white/30 focus:ring focus:ring-[#E8B85F]/60 outline-none"
+              className={`${oswald.className} w-full p-4 rounded-xl bg-white/10 border border-white/30 focus:ring focus:ring-[#E8B85F]/60 outline-none`}
               placeholder="you@example.com"
             />
           </div>
@@ -93,10 +95,51 @@ export default function ContactPage() {
             </label>
             <textarea
               rows={6}
-              className="w-full p-4 rounded-xl bg-white/10 border border-white/30 focus:ring focus:ring-[#E8B85F]/60 outline-none"
+              className={`${oswald.className} w-full p-4 rounded-xl bg-white/10 border border-white/30 focus:ring focus:ring-[#E8B85F]/60 outline-none`}
               placeholder="Provide as much detail as possible…"
             />
           </div>
+
+          {/* Attachments & Links */}
+          <div className="mb-10 space-y-6">
+
+            {/* File Upload */}
+            <div>
+              <label className={`${oswald.className} block mb-2 font-semibold`}>
+                Attach files (optional)
+              </label>
+
+              <label className="flex items-center justify-center gap-3 w-full p-4 rounded-xl bg-white/10 border border-dashed border-white/40 cursor-pointer hover:bg-white/20 transition">
+                <Paperclip className="w-5 h-5 opacity-80" />
+                <span className={`${oswald.className} text-sm opacity-90`}>
+                  Upload documents (PDF, DOCX, ZIP)
+                </span>
+                <input
+                  type="file"
+                  multiple
+                  className="hidden"
+                />
+              </label>
+            </div>
+
+            {/* External Links */}
+            <div>
+              <label className={`${oswald.className} block mb-2 font-semibold`}>
+                External links (optional)
+              </label>
+
+              <div className="relative">
+                <LinkIcon className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 opacity-70" />
+                <input
+                  type="url"
+                  className={`${oswald.className} w-full pl-12 pr-4 py-4 rounded-xl bg-white/10 border border-white/30 focus:ring focus:ring-[#E8B85F]/60 outline-none`}
+                  placeholder="Paste Google Docs, Drive, Dropbox, GitHub, etc."
+                />
+              </div>
+            </div>
+
+          </div>
+
 
           {/* Submit Button */}
           <button
@@ -104,6 +147,28 @@ export default function ContactPage() {
           >
             Submit Request <ArrowRight className="w-5 h-5" />
           </button>
+          {/* PayPal Payment Option */}
+          <div className="mt-10 pt-6 border-t border-white/20 text-center space-y-3">
+
+            <p className={`${oswald.className} text-sm opacity-80`}>
+              Prefer to make a payment or consultation deposit?
+            </p>
+
+            <Link
+              href="https://www.paypal.com/cgi-bin/webscr?cmd=_xclick&business=scholarbrood1@gmail.com&item_name=Academic+Consultation&amount=50&currency_code=USD"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${oswald.className} inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/90 text-[#003087] font-semibold hover:scale-105 transition`}
+            >
+              <FaPaypal className="w-5 h-5" />
+              Pay with PayPal
+            </Link>
+
+            <p className={`${oswald.className} text-xs opacity-60`}>
+              PayPal: scholarbrood1@gmail.com
+            </p>
+          </div>
+
         </motion.form>
       </div>
     </section>

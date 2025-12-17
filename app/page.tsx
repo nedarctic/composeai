@@ -2,15 +2,12 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
   ArrowRight,
-  Sparkles,
   Mail,
-  Shield,
-  Clock,
-  Zap,
-  Users,
   Quote,
 } from "lucide-react";
 import { oswald } from "./fonts";
+import { image } from "framer-motion/client";
+import Link from 'next/link';
 
 export default function Home() {
   const { scrollYProgress } = useScroll();
@@ -39,13 +36,7 @@ export default function Home() {
       id: "proposal",
       title: "Research Proposal & Project Help",
       desc:
-        "Expert support from topic selection to methodology development and full proposal writing.",
-    },
-    {
-      id: "data",
-      title: "Data Analysis & SPSS/Excel/STATA Support",
-      desc:
-        "Statistical support including data cleaning, coding, testing, interpretation, and preparation of results chapters.",
+        "Expert support from topic selection to methodology development, full proposal development, and data analysis (SPSS/STATA/Excel).",
     },
     {
       id: "publication",
@@ -64,18 +55,22 @@ export default function Home() {
   const testimonials = [
     {
       name: "Catherine – MSc Student",
+      image: "Catherine.jpg",
       text: "ScholarBrood helped me complete my thesis on time with excellent quality.",
     },
     {
-      name: "Rhodera – Undergraduate Student",
+      name: "Gabriel – Undergraduate Student",
+      image: "Gabriel.jpg",
       text: "Very reliable academic support. Their research guidance and writing clarity exceeded my expectations.",
     },
     {
       name: "Joylander – PhD Candidate",
+      image: "Joylander.jpg",
       text: "Their editing and formatting improved my dissertation significantly. The feedback was detailed and helpful.",
     },
     {
       name: "Dr. Drinkwater – Researcher",
+      image: "Drinkwater.jpg",
       text: "Their publication processing service made my manuscript ready for journal submission. I highly recommend them.",
     },
   ];
@@ -106,8 +101,8 @@ export default function Home() {
           text-gray-900 dark:text-gray-100
           transition-colors duration-500`}
       >
-        {/* ================= HERO / HEADER ================= */}
-        <section className="relative py-[110px] min-h-screen flex items-center justify-center px-5 sm:px-8 pt-[110px] overflow-hidden">
+        {/* HERO */}
+        <section className="relative pt-[110px] pb-[55px] min-h-screen sm:min-h-[600px] sm:max-h-[800px] flex items-center justify-center px-5 sm:px-8 overflow-hidden">
           <img
             src="/A student enjoying our consultation.jpg"
             alt="A student enjoying our consultation"
@@ -122,13 +117,13 @@ export default function Home() {
             className="relative z-10 max-w-5xl text-center px-4"
           >
             <h1
-              className={`${oswald.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight`}
+              className={`${oswald.className} text-2xl sm:text-5xl font-bold text-white leading-tight`}
             >
               Expert Academic Writing, Editing, Research, and Publication Support for Students and Researchers
             </h1>
 
-            <p className={`${oswald.className} text-lg sm:text-xl md:text-2xl text-white/90 mt-6 leading-relaxed`}>
-              Get high-quality essays, proposals, theses, journal manuscripts, data analysis, and publication support from experienced academic professionals.
+            <p className={`${oswald.className} text-md sm:text-xl text-white/90 mt-6 leading-relaxed`}>
+              Get high-quality essays, proposals, theses, journal manuscripts, data analysis, and publication support from experienced academic professionals
             </p>
 
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
@@ -136,7 +131,7 @@ export default function Home() {
                 href="/contact"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className={`${oswald.className} px-10 py-5 bg-[#E8B85F] text-[#1C1C30] rounded-full text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3`}
+                className={`${oswald.className} px-6 py-4 sm:px-10 sm:py-5 bg-[#E8B85F] text-[#1C1C30] rounded-full text-md sm:text-lg font-semibold shadow-xl hover:shadow-2xl transition-all duration-300 flex items-center justify-center gap-3`}
               >
                 Get Expert Help
                 <ArrowRight className="w-5 h-5" />
@@ -146,7 +141,7 @@ export default function Home() {
                 href="/services"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
-                className={`${oswald.className} px-10 py-5 border-2 border-[#E8B85F] text-[#E8B85F] rounded-full text-lg font-semibold hover:bg-[#E8B85F] hover:text-[#1C1C30] transition-all duration-300 flex items-center justify-center`}
+                className={`${oswald.className} px-6 sm:px-10 py-4 sm:py-5 border-2 border-[#E8B85F] text-[#E8B85F] rounded-full text-md sm:text-lg font-semibold hover:bg-[#E8B85F] hover:text-[#1C1C30] transition-all duration-300 flex items-center justify-center`}
               >
                 View Our Services
               </motion.a>
@@ -154,14 +149,17 @@ export default function Home() {
           </motion.div>
         </section>
 
-        {/* ================= OUR ACADEMIC SERVICES (Card Grid) ================= */}
+        {/* OUR ACADEMIC SERVICES (Card Grid) */}
         <section id="services" className="px-5 sm:px-8 py-20 sm:py-28">
           <div className="max-w-7xl mx-auto text-center">
-            <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-4`}>
-              Our Academic Services
+            <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-6`}>
+              Helping You In Your Academic Journey
             </h2>
+            <Link href={"/pricing"} className={`${oswald.className} text-[#E8B85F] block text-2xl sm:text-3xl md:text-4xl font-bold mb-4`}>
+              <h3>See our pricing</h3>
+            </Link>
             <p className={`${oswald.className} text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-12`}>
-              We offer comprehensive support across the entire academic and research journey.
+              We offer comprehensive support across the entire academic and research journey
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -199,14 +197,24 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ================= WHY STUDENTS TRUST SCHOLARBROOD ================= */}
-        <section className="py-20 sm:py-28 px-5 sm:px-8 bg-gray-50 dark:bg-[#1C1C30]/40">
+        {/* IMAGE SECTION */}
+        <section className="relative py-[110px] min-h-screen sm:min-h-[600px] sm:max-h-[800px] flex items-center justify-center px-5 sm:px-8 pt-[110px] overflow-hidden">
+          <img
+            src="/Essay writing service.jpg"
+            alt="Essay writing service"
+            className="absolute w-11/12 h-11/12 object-cover rounded-xl m-auto z-0"
+          />
+        </section>
+
+
+        {/* WHY STUDENTS TRUST SCHOLARBROOD */}
+        <section className="py-20 sm:py-28 px-5 sm:px-8 bg-white dark:bg-[#1C1C30]/40">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-4`}>
               Why Students Trust <span className="text-[#E8B85F]">ScholarBrood</span>
             </h2>
             <p className={`${oswald.className} text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-10`}>
-              We prioritize quality, originality, and professionalism in every project—making us a trusted partner for learners and researchers.
+              We prioritize quality, originality, and professionalism in every project—making us a trusted partner for learners and researchers. We take pride in:
             </p>
 
             <ul className="max-w-xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
@@ -227,9 +235,11 @@ export default function Home() {
               ))}
             </ul>
           </div>
+        </section>
 
-          {/* ================= CLIENT TESTIMONIALS ================= */}
-          <div className="max-w-7xl mx-auto mt-20">
+        {/* CLIENT TESTIMONIALS */}
+        <section>
+          <div className="flex flex-col items-center justify-center max-w-7xl mx-auto mt-20 min-h-screen sm:min-h-[600px] sm:max-h-[800px] bg-[#E8B85F] rounded-xl m-4 p-8">
             <h3 className={`${oswald.className} text-2xl sm:text-3xl md:text-4xl font-bold text-center mb-8`}>
               What Our Clients Say
             </h3>
@@ -242,10 +252,12 @@ export default function Home() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.07 }}
-                  className="p-6 bg-white dark:bg-[#1C1C30]/70 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg"
+                  className="flex flex-col justify-between gap-4 p-6 bg-white dark:bg-[#1C1C30]/70 rounded-3xl border border-gray-200 dark:border-gray-700 shadow-lg"
                 >
-                  <Quote className="w-8 h-8 text-[#E8B85F] mb-3" />
-                  <blockquote className={`${oswald.className} text-gray-700 dark:text-gray-300 mb-4`}>{t.text}</blockquote>
+                  <div className="flex flex-col gap-4">
+                    <div className="flex align-top gap-4"><Quote className="w-8 h-8 text-[#E8B85F] mb-3" /> <img src={t.image} alt={t.name} className="rounded-full h-24 w-24 object-cover object-top border-2 border-[#E8B85F]" /></div>
+                    <blockquote className={`${oswald.className} text-gray-700 dark:text-gray-300 mb-4`}>{t.text}</blockquote>
+                  </div>
                   <figcaption className={`${oswald.className} text-sm text-[#E8B85F]`}>{t.name}</figcaption>
                 </motion.figure>
               ))}
@@ -253,8 +265,8 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ================= LATEST ACADEMIC INSIGHTS ================= */}
-        <section className="px-5 sm:px-8 py-20 sm:py-28">
+        {/* LATEST ACADEMIC INSIGHTS */}
+        {/* <section className="px-5 sm:px-8 py-20 sm:py-28">
           <div className="max-w-7xl mx-auto text-center">
             <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-10`}>
               Latest Academic Insights
@@ -279,9 +291,19 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
 
-        {/* ================= FINAL CTA ================= */}
+        {/* IMAGE SECTION */}
+
+        {/* <section className="relative py-[110px] min-h-screen sm:min-h-[600px] sm:max-h-[800px] flex items-center justify-center px-5 sm:px-8 pt-[110px] overflow-hidden">
+          <img
+            src="/Essay writing service.jpg"
+            alt="Essay writing service"
+            className="absolute w-11/12 h-11/12 object-cover rounded-xl m-auto z-0"
+          />
+        </section> */}
+
+        {/* FINAL CTA */}
         <section className="py-20 sm:py-28 px-5 sm:px-8">
           <div className="max-w-5xl mx-auto text-center">
             <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-6`}>

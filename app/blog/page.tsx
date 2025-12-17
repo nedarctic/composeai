@@ -35,7 +35,7 @@ export default function Blog() {
     <main className={`${oswald.className} min-h-screen bg-white dark:bg-[#1C1C30] text-gray-900 dark:text-gray-100 transition-colors duration-500 overflow-x-hidden`}>
 
       {/* Hero Section */}
-      <section className="relative min-h-screen py-28 sm:py-36 px-6 lg:px-12 text-center flex flex-col justify-center items-center overflow-hidden">
+      <section className="relative min-h-screen sm:min-h-[600px] sm:max-h-[800px] py-28 sm:py-36 px-6 lg:px-12 text-center flex flex-col justify-center items-center overflow-hidden">
         <img src="/Paper edited using a red pen.jpg" alt="Paper edited using a red pen" className="absolute inset-0 w-full h-full object-cover z-0" />
         <div className="absolute inset-0 bg-black/50 z-0" />
 

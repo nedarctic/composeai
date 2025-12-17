@@ -1,166 +1,192 @@
 "use client";
 
-import { Check, Zap, Star, Crown } from "lucide-react";
+import { Check, NotebookPen, Edit, GraduationCap, BookOpen, MessageCircle } from "lucide-react";
 import { oswald, poppins } from "../fonts";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 export default function PricingPage() {
   return (
-    <section className="relative min-h-screen px-6 sm:px-10 lg:px-20 py-32 bg-black text-white overflow-hidden">
+    <>
+      {/* Hero Header */}
+      {/* <section className="relative flex flex-col text-center justify-center items-center min-h-screen sm:min-h-[600px] sm:max-h-[800px] bg-[#F7F9FC] overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B3B75]/5 to-transparent" />
 
-      {/* Background Image + Overlay */}
-      <img
-        src="/3.jpg"
-        alt="Pricing Background"
-        className="absolute inset-0 w-full h-full object-cover opacity-40 z-0"
-      />
-      <div className="absolute inset-0 bg-black/70 z-0" />
-
-      {/* Page Heading */}
-      <div className="relative z-10 text-center max-w-4xl mx-auto mb-20">
-        <h1
-          className={`${oswald.className} text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6`}
-        >
-          Choose Your Ideal Research & Writing Plan
-        </h1>
-        <p className={`${oswald.className} text-lg sm:text-xl text-gray-300`}>
-          Transparent pricing designed for students and professionals who value 
-          expert academic support and premium research quality.
-        </p>
-      </div>
-
-      {/* Pricing Grid */}
-      <div className="relative z-10 grid grid-cols-1 md:grid-cols-3 gap-10 max-w-6xl mx-auto">
-
-        {/* Left Plan */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="bg-[#111]/60 border border-white/10 rounded-3xl p-10 shadow-[0_0_40px_-10px_rgba(255,255,255,0.1)] flex flex-col"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Zap className="w-7 h-7 text-[#E8B85F]" />
-            <h2 className={`${oswald.className} text-3xl font-bold`}>
-              Starter
-            </h2>
-          </div>
-
-          <p className={`${oswald.className} text-gray-300 mb-8`}>
-            Ideal for short academic tasks and basic writing needs.
+        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto">
+          <h1 className={`${oswald.className} text-center text-4xl sm:text-5xl md:text-6xl font-bold text-[#0B3B75] mb-6`}>
+            ⭐ SCHOLARBROOD PRICING ⭐
+          </h1>
+          <p className={`${oswald.className} text-2xl font-medium text-[#0B3B75]/90`}>
+            Professional Academic & Publication Services
           </p>
-
-          <div className="text-5xl font-bold mb-8">
-            $29<span className={`${oswald.className} text-lg text-gray-400 font-normal`}>/task</span>
-          </div>
-
-          <ul className="space-y-4 text-gray-300 mb-10">
-            <li className={`${oswald.className} flex items-center gap-2`}>
-              <Check className="text-[#E8B85F]" /> Essays & summaries
-            </li>
-            <li className={`${oswald.className} flex items-center gap-2`}>
-              <Check className="text-[#E8B85F]" /> Basic proofreading
-            </li>
-            <li className={`${oswald.className} flex items-center gap-2`}>
-              <Check className="text-[#E8B85F]" /> APA/MLA formatting
-            </li>
-          </ul>
-
-          <button className={`${oswald.className} mt-auto w-full py-4 rounded-full bg-white/10 hover:bg-white/20 transition-all font-semibold`}>
-            Get Starter
-          </button>
-        </motion.div>
-
-        {/* PRO — Spotlight Plan */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.0 }}
-          viewport={{ once: true }}
-          className="bg-[#1A1A1A]/80 border border-[#E8B85F]/40 rounded-3xl p-12 shadow-[0_0_60px_-10px_rgba(232,184,95,0.6)] scale-105 relative overflow-hidden"
-        >
-          <div className="absolute inset-0 bg-gradient-to-b from-[#E8B85F]/10 to-transparent pointer-events-none" />
-
-          <div className="flex items-center gap-3 mb-6 relative z-10">
-            <Crown className="w-8 h-8 text-[#E8B85F]" />
-            <h2 className={`${oswald.className} text-4xl font-bold`}>
-              Pro (Most Popular)
-            </h2>
-          </div>
-
-          <p className={`${oswald.className} text-gray-200 mb-8 relative z-10`}>
-            Best for consistent academic work, research support, and long-form writing.
+          <p className={`${oswald.className} mt-6 text-lg text-gray-700 max-w-2xl mx-auto`}>
+            Transparent, student-friendly pricing. All writing prices are based on <strong>250 words per page</strong>.
           </p>
+        </div>
+      </section> */}
 
-          <div className="text-6xl font-bold mb-8 relative z-10">
-            $79<span className={`${oswald.className} text-xl text-gray-400 font-normal`}>/project</span>
-          </div>
+      {/* Main Pricing Grid - 4 Cards */}
+      <section className="py-40 px-6 lg:px-20 bg-[#F7F9FC]">
+        <div className="absolute inset-0 bg-gradient-to-b from-[#0B3B75]/5 to-transparent" />
 
-          <ul className="space-y-4 text-gray-200 mb-10 relative z-10">
-            <li className={`${oswald.className} flex items-center gap-2`}>
-              <Check className="text-[#E8B85F]"     /> Full academic writing
-            </li>
-            <li className={`${oswald.className} flex items-center gap-2`}>
-              <Check className="text-[#E8B85F]" /> In-depth research synthesis
-            </li>
-            <li className={`${oswald.className} flex items-center gap-2`}>
-              <Check className="text-[#E8B85F]" /> Unlimited revisions
-            </li>
-            <li className={`${oswald.className} flex items-center gap-2`}>
-              <Check className="text-[#E8B85F]" /> Priority delivery
-            </li>
-          </ul>
-
-          <button className={`${oswald.className} mt-auto w-full py-5 rounded-full bg-[#E8B85F] text-[#1C1C1C] font-bold hover:bg-[#d4a44e] transition-all text-lg`}>
-            Choose Pro
-          </button>
-        </motion.div>
-
-        {/* Right Plan */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          viewport={{ once: true }}
-          className="bg-[#111]/60 border border-white/10 rounded-3xl p-10 shadow-[0_0_40px_-10px_rgba(255,255,255,0.1)] flex flex-col"
-        >
-          <div className="flex items-center gap-3 mb-6">
-            <Star className="w-7 h-7 text-[#E8B85F]" />
-            <h2 className={`${oswald.className} text-3xl font-bold`}>
-              Elite
-            </h2>
-          </div>
-
-          <p className={`${oswald.className} text-gray-300 mb-8`}>
-            Premium support for publication, theses, and complex research projects.
+        <div className="relative z-10 text-center pb-20 px-6 max-w-5xl mx-auto">
+          <h1 className={`${oswald.className} text-center text-4xl sm:text-5xl md:text-6xl font-bold text-[#0B3B75] mb-6`}>
+            ⭐ SCHOLARBROOD PRICING ⭐
+          </h1>
+          <p className={`${oswald.className} text-2xl font-medium text-[#0B3B75]/90`}>
+            Professional Academic & Publication Services
           </p>
+          <p className={`${oswald.className} mt-6 text-lg text-gray-700 max-w-2xl mx-auto`}>
+            Transparent, student-friendly pricing. All writing prices are based on <strong>250 words per page</strong>.
+          </p>
+        </div>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
 
-          <div className="text-5xl font-bold mb-8">
-            $199<span className={`${oswald.className} text-lg text-gray-400 font-normal`}>/project</span>
-          </div>
+          {/* Card 1: Academic Writing */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col"
+          >
+            <div className="bg-[#0B3B75] text-white p-6 text-center">
+              <NotebookPen className="w-12 h-12 mx-auto mb-3" />
+              <h3 className={`${oswald.className} text-2xl font-bold`}>Academic Writing</h3>
+              <p className={`${oswald.className} text-sm mt-2 opacity-90`}>Essays • Term Papers • Reports • Coursework</p>
+            </div>
+            <div className="p-8 flex-1 flex flex-col">
+              <div className={`${oswald.className} text-4xl font-bold text-[#0B3B75] text-center`}>
+                $10 <span className={`${oswald.className} text-lg font-normal text-gray-600`}>/ page</span>
+              </div>
+              <p className={`${oswald.className} text-center text-sm text-gray-500 mt-1 mb-8`}>(250 words per page)</p>
 
-          <ul className="space-y-4 text-gray-300 mb-10">
-            <li className={`${oswald.className} flex items-center gap-2`}>
-              <Check className="text-[#E8B85F]" /> Journal-ready formatting
-            </li>
-            <li className={`${oswald.className} flex items-center gap-2`}>
-              <Check className="text-[#E8B85F]" /> Data-driven analysis
-            </li>
-            <li className={`${oswald.className} flex items-center gap-2`}>
-              <Check className="text-[#E8B85F]" /> Plagiarism reporting
-            </li>
-            <li className={`${oswald.className} flex items-center gap-2`}>
-              <Check className="text-[#E8B85F]" /> One-on-one consultations
-            </li>
-          </ul>
+              <ul className="space-y-4 text-gray-700 flex-1">
+                <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> High-quality academic writing</li>
+                <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> Fast turnaround</li>
+                <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> 100% original work</li>
+              </ul>
 
-          <button className={`${oswald.className} mt-auto w-full py-4 rounded-full bg-white/10 hover:bg-white/20 transition-all font-semibold`}>
-            Go Elite
-          </button>
-        </motion.div>
+              <Link href="/contact" className={`${oswald.className} flex flex-col justify-center items-center mt-10 w-full py-4 bg-[#F9B300] text-black font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
+                GET STARTED
+              </Link>
+            </div>
+          </motion.div>
 
-      </div>
-    </section>
+          {/* Card 2: Editing & Proofreading */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            viewport={{ once: true }}
+            className="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col"
+          >
+            <div className="bg-[#0B3B75] text-white p-6 text-center">
+              <Edit className="w-12 h-12 mx-auto mb-3" />
+              <h3 className={`${oswald.className} text-2xl font-bold`}>Editing & Proofreading</h3>
+              <p className={`${oswald.className} text-sm mt-2 opacity-90`}>Improve Clarity, Grammar & Structure</p>
+            </div>
+            <div className="p-8 flex-1 flex flex-col">
+              <div className={`${oswald.className} text-4xl font-bold text-[#0B3B75] text-center`}>
+                $10 <span className={`${oswald.className} text-lg font-normal text-gray-600`}>/ page</span>
+              </div>
+
+              <ul className="space-y-4 text-gray-700 mt-10 flex-1">
+                <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> Polishing & restructuring</li>
+                <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> Academic tone refinement</li>
+                <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> Plagiarism-safe improvements</li>
+              </ul>
+
+              <Link href="/contact" className={`${oswald.className} flex flex-col justify-center items-center mt-10 w-full py-4 bg-[#F9B300] text-black font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
+                IMPROVE MY WORK
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Card 3: Thesis & Dissertation */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="bg-[#E8EFF7] rounded-2xl shadow-lg overflow-hidden flex flex-col"
+          >
+            <div className="bg-[#082C58] text-white p-6 text-center">
+              <GraduationCap className="w-12 h-12 mx-auto mb-3" />
+              <h3 className={`${oswald.className} text-2xl font-bold`}>Thesis & Dissertation Support</h3>
+              <p className={`${oswald.className} text-sm mt-2 opacity-90`}>Proposals • Chapters • Full Projects</p>
+            </div>
+            <div className="p-8 flex-1 flex flex-col">
+              <div className={`${oswald.className} text-4xl font-bold text-[#082C58] text-center`}>
+                $12 <span className={`${oswald.className} text-lg font-normal text-gray-600`}>/ page</span>
+              </div>
+
+              <ul className="space-y-4 text-gray-700 mt-10 flex-1">
+                <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> Graduate-level writing</li>
+                <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> Research structure guidance</li>
+                <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> Formatting to university standards</li>
+              </ul>
+
+              <Link href="/contact" className={`${oswald.className} flex flex-col justify-center items-center mt-10 w-full py-4 bg-[#F9B300] text-black font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
+                START MY THESIS
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Card 4: Research Articles + Publication */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            viewport={{ once: true }}
+            className="bg-[#FFF7E6] rounded-2xl shadow-lg overflow-hidden flex flex-col"
+          >
+            <div className="bg-[#0B3B75] text-white p-6 text-center">
+              <BookOpen className="w-12 h-12 mx-auto mb-3" />
+              <h3 className={`${oswald.className} text-2xl font-bold`}>Research & Publication</h3>
+            </div>
+            <div className="p-8 flex-1 flex flex-col">
+              <div className="text-center">
+                <p className={`${oswald.className} text-xl font-bold text-[#0B3B75]`}>Research & Review Articles</p>
+                <div className={`${oswald.className} text-3xl font-bold text-[#0B3B75] mt-2`}>
+                  $15 <span className={`${oswald.className} text-lg font-normal text-gray-600`}>/ page</span>
+                </div>
+              </div>
+
+              <hr className="my-6 border-gray-300" />
+
+              <div className="text-center">
+                <p className={`${oswald.className} text-xl font-bold text-[#0B3B75]`}>Publication Processing</p>
+                <div className={`${oswald.className} text-3xl font-bold text-[#0B3B75] mt-2`}>
+                  $200 <span className={`${oswald.className} text-lg font-normal text-gray-600`}>(Flat Rate)</span>
+                </div>
+                <p className={`${oswald.className} text-sm text-gray-600 mt-2`}>Journal selection • Formatting • Submission & revisions</p>
+              </div>
+
+              <Link href="/contact" className={`${oswald.className} flex flex-col justify-center items-center mt-auto w-full py-4 bg-[#0B3B75] text-white font-bold rounded-xl hover:bg-[#082C58] transition-all`}>
+                PUBLISH MY PAPER
+              </Link>
+            </div>
+          </motion.div>
+
+        </div>
+      </section>
+
+      {/* Footer Callout */}
+      <section className="flex flex-col justify-center items-center py-20 bg-[#0B3B75] text-white">
+        <div className="max-w-4xl mx-auto text-center px-6">
+          <MessageCircle className="w-16 h-16 mx-auto mb-6 opacity-80" />
+          <h2 className={`${oswald.className} text-3xl md:text-4xl font-bold mb-6`}>
+            Not sure which service you need?
+          </h2>
+          <p className={`${oswald.className} text-lg opacity-90 mb-10`}>
+            We can recommend the best option based on your topic and academic level.
+          </p>
+          <Link href="/contact" className={`${oswald.className} flex flex-col justify-center items-center py-5 px-12 sm:w-sm md:w-md text-sm md:text-md lg:w-lg bg-[#F9B300] text-black text-xl font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
+            REQUEST A FREE QUOTE
+          </Link>
+        </div>
+      </section>
+    </>
   );
 }

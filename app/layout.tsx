@@ -5,8 +5,8 @@ import Footer from "./components/Footer";
 import { poppins } from "./fonts";
 
 export const metadata: Metadata = {
-  title: "ScholarBrood - Academic Writing, Research & AI Skills Training",
-  description: "ScholarBrood offers expert-led tutorials, mentorship, and AI & online skills training to help students and professionals excel in academic writing, research, and digital productivity.",
+  title: "Academic Writing, Research Support & Publication Services",
+  description: "ScholarBrood offers professional academic writing, research guidance, and publication processing services for students and researchers worldwide. High-quality, plagiarism-free work, expert mentorship, fast delivery, and journal-ready manuscript support.",
   keywords: [
     "academic writing",
     "research mentorship",
@@ -49,6 +49,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${poppins.className}`}>
+      <head>
+        <meta name="apple-mobile-web-app-title" content="ScholarBrood" />
+      </head>
       <body
         className={`${poppins.className}`}
       >

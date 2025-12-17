@@ -11,7 +11,7 @@ export default function ServicesClient() {
 
       {/* Hero with Image */}
 
-      <section className="relative min-h-screen flex items-center justify-center px-5 sm:px-8 pt-20 overflow-hidden">
+      <section className="relative min-h-screen sm:min-h-[600px] sm:max-h-[800px] flex items-center justify-center px-5 sm:px-8 pt-20 overflow-hidden">
         <img
           src="/Research is the primary tool in ScholarBrood.jpg"
           alt="Hero Background"
@@ -26,22 +26,22 @@ export default function ServicesClient() {
           transition={{ duration: 0.9 }}
           className="relative z-10 text-center px-6 max-w-6xl mx-auto text-white flex flex-col items-center"
         >
-          <h1 className={`${oswald.className} text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-8 tracking-tight leading-tight`}>
+          <h1 className={`${oswald.className} text-2xl sm:text-5xl font-bold mb-8 tracking-tight leading-tight`}>
             Achieve Academic Excellence With Expert Writing & Research Support
           </h1>
-          <p className={`${oswald.className} text-lg sm:text-xl md:text-2xl max-w-4xl mx-auto leading-relaxed px-4 mb-12`}>
-            From academic papers to full research projects and journal publication — ScholarBrood gives you the professional support you need to succeed.
+          <p className={`${oswald.className} text-md sm:text-xl max-w-4xl mx-auto leading-relaxed px-4 mb-12`}>
+            From academic papers to full research projects and journal publication — ScholarBrood gives you the professional support you need to succeed
           </p>
           <div className="flex flex-col sm:flex-row gap-5 justify-center items-center">
             <Link
               href="/contact"
-              className={`${oswald.className} px-10 py-5 bg-[#E8B85F] text-[#1C1C30] font-bold text-lg rounded-full hover:bg-[#d4a44e] hover:scale-105 transition-all duration-300 shadow-xl flex items-center gap-3`}
+              className={`${oswald.className} px-6 py-4 sm:px-10 sm:py-5 bg-[#E8B85F] text-[#1C1C30] font-bold text-md sm:text-lg rounded-full hover:bg-[#d4a44e] hover:scale-105 transition-all duration-300 shadow-xl flex items-center gap-3`}
             >
               Get Academic Help Now <ArrowRight className="w-5 h-5" />
             </Link>
             <Link
               href="/contact"
-              className={`${oswald.className} px-10 py-5 border-2 border-[#E8B85F] text-white font-bold text-lg rounded-full hover:bg-[#E8B85F]/20 transition-all duration-300`}
+              className={`${oswald.className} px-6 py-4 sm:px-10 sm:py-5 border-2 border-[#E8B85F] text-white font-bold text-md sm:text-lg rounded-full hover:bg-[#E8B85F]/20 transition-all duration-300`}
             >
               Request Research Support
             </Link>
@@ -69,7 +69,7 @@ export default function ServicesClient() {
                 "Accurate referencing (APA, MLA, Chicago, Harvard, etc.)",
                 "Personalized writing based on your instructions"
               ],
-              image: "4.jpg",
+              image: "/Improving focus in academic journey.jpg",
               reverse: false
             },
             {
@@ -90,7 +90,7 @@ export default function ServicesClient() {
                 "Accurate referencing (APA, MLA, Chicago, Harvard, etc.)",
                 "Personalized writing based on your instructions"
               ],
-              image: "5.jpg",
+              image: "/A team of analysts reviewing the statistics found from the field.jpg",
               reverse: true
             },
             {
@@ -109,7 +109,7 @@ export default function ServicesClient() {
                 "Improved acceptance chances",
                 "Correct formatting & referencing"
               ],
-              image: "6.jpg",
+              image: "/A researcher working on a manuscript.jpg",
               reverse: false
             },
             {
@@ -122,7 +122,7 @@ export default function ServicesClient() {
                 "Reference checks and citation accuracy",
                 "Turnitin-safe content improvement"
               ],
-              image: "7.jpg",
+              image: "/A lady handling the writing and proofreading project.jpg",
               reverse: true
             }
           ].map((section, idx) => (
@@ -172,7 +172,7 @@ export default function ServicesClient() {
                   {/* CTA Button */}
                   <div className="pt-6">
                     <Link
-                      href="/contact"
+                      href="/pricing"
                       className={`${oswald.className} inline-flex items-center gap-3 px-8 py-4 bg-[#E8B85F] text-[#1C1C30] font-bold rounded-full hover:bg-[#d4a44e] hover:scale-105 transition-all duration-300 shadow-lg`}
                     >
                       Place Your Order Now <ArrowRight className="w-5 h-5" />
@@ -234,10 +234,10 @@ export default function ServicesClient() {
           <div className="relative p-10 sm:p-16 rounded-3xl bg-[#E8B85F] shadow-2xl overflow-hidden text-center">
               <div className="absolute inset-0 bg-black/10" />
             <div className="relative z-10">
-              <h2 className={`${oswald.className} text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-[#1C1C30] dark:text-white mb-6 leading-tight`}>
+              <h2 className={`${oswald.className} text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight`}>
                 Start Your Academic Journey With Confidence
               </h2>
-              <p className={`${oswald.className} text-base sm:text-lg md:text-xl text-[#1C1C30]/90 dark:text-white/90 mb-10 max-w-3xl mx-auto px-2 sm:px-4`}>
+              <p className={`${oswald.className} text-base sm:text-lg md:text-xl text-white/90 mb-10 max-w-3xl mx-auto px-2 sm:px-4`}>
                 Whether you need academic writing, research support, or publication processing,
                 ScholarBrood is here to help you succeed.
               </p>
@@ -250,7 +250,7 @@ export default function ServicesClient() {
                 </Link>
                 <Link
                   href="/contact"
-                  className={`${oswald.className} w-full sm:w-auto px-6 sm:px-10 py-4 sm:py-5 border-2 md:border-4 border-[#1C1C30] text-[#1C1C30] dark:text-white text-base sm:text-lg md:text-xl font-bold rounded-full hover:bg-[#1C1C30] hover:text-[#E8B85F] transition-all duration-300`}
+                  className={`${oswald.className} w-full sm:w-auto px-6 sm:px-10 py-4 sm:py-5 border-2 md:border-4 border-[#1C1C30] text-white text-base sm:text-lg md:text-xl font-bold rounded-full hover:bg-[#1C1C30] hover:text-[#E8B85F] transition-all duration-300`}
                 >
                   Start Publication Processing
                 </Link>

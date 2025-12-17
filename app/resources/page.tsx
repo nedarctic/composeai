@@ -63,7 +63,7 @@ export default function Resources() {
     <main className={`${oswald.className} min-h-screen bg-white dark:bg-[#1C1C30] text-gray-900 dark:text-gray-100 transition-colors duration-500 overflow-x-hidden`}>
 
       {/* HERO — Now visually aligned with Services page */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center px-6 py-32 sm:px-10 overflow-hidden">
+      <section className="relative min-h-screen sm:min-h-[600px] sm:max-h-[800px] flex flex-col items-center justify-center px-6 py-32 sm:px-10 overflow-hidden">
         <img
           src="/Excellent academic writing services at ScholarBrood.jpg"
           alt="Excellent academic writing services at ScholarBrood"

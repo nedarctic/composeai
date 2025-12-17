@@ -3,16 +3,16 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { MapPin, Mail, Phone } from "lucide-react";
-import { FaFacebook, FaLinkedin, FaInstagram, FaYoutube } from "react-icons/fa";
+import { FaFacebook, FaLinkedin, FaInstagram, FaYoutube, FaReddit, FaTumblr } from "react-icons/fa";
 import { oswald } from "../fonts";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="relative bg-gray-50 dark:bg-[#1C1C30] pt-12 pb-12 px-6 overflow-hidden">
+    <footer className="relative bg-gray-50 dark:bg-[#1C1C30] pt-12 overflow-hidden">
 
-      <div className="relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 z-10">
+      <div className="px-8 relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 z-10">
 
         {/* ABOUT SECTION */}
         <motion.div
@@ -27,8 +27,8 @@ export default function Footer() {
           </h3>
 
           <p className={`${oswald.className} text-sm leading-relaxed text-gray-600 dark:text-gray-400 max-w-sm`}>
-            ScholarBrood provides professional academic writing, editing, research support, 
-            and publication processing for students and researchers worldwide. Our goal is 
+            ScholarBrood provides professional academic writing, editing, research support,
+            and publication processing for students and researchers worldwide. Our goal is
             to help you produce high-quality, original, and academically sound work.
           </p>
         </motion.div>
@@ -47,11 +47,11 @@ export default function Footer() {
 
           <ul className="space-y-3">
             {[
-              { label: "Home", href: "/" },
-              { label: "Services", href: "/services" },
-              { label: "Blog", href: "/blog" },
               { label: "About Us", href: "/about" },
-              { label: "Contact", href: "/contact" },
+              { label: "Our Services", href: "/services" },
+              { label: "Order Request Form", href: "/order" },
+              { label: "Resources", href: "/resources" },
+              { label: "Contact Us", href: "/contact" },
             ].map(({ label, href }) => (
               <li key={label}>
                 <Link
@@ -102,11 +102,14 @@ export default function Footer() {
 
           <div className="flex gap-5">
             {[
-              { Icon: FaFacebook, href: "https://facebook.com/scholarbrood" },
-              { Icon: FaLinkedin, href: "https://linkedin.com/company/scholarbrood" },
-              { Icon: FaInstagram, href: "https://instagram.com/scholarbrood" },
-              { Icon: FaYoutube, href: "https://youtube.com/@scholarbrood" },
+              { Icon: FaFacebook, href: "https://facebook.com/scholarbrood" }, // left as-is
+              { Icon: FaLinkedin, href: "https://www.linkedin.com/in/nicholas-otieno-28a25939a/" },
+              { Icon: FaInstagram, href: "https://www.instagram.com/scholarbrood/" },
+              { Icon: FaYoutube, href: "https://www.youtube.com/@ScholarBrood" },
+              { Icon: FaReddit, href: "https://www.reddit.com/user/scholarbrood/" },
+              { Icon: FaTumblr, href: "https://scholarbrood.tumblr.com/" },
             ].map(({ Icon, href }) => (
+
               <a
                 key={href}
                 href={href}
@@ -122,8 +125,8 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM BAR */}
-      <div className="relative z-10 mt-16 pt-8 border-t border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-gray-500 dark:text-gray-400">
+      <div className="relative z-10 mt-16 px-6 py-12 bg-black border-t border-gray-200 dark:border-gray-800">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-[#E8B85F] dark:text-gray-400">
           <p className={`${oswald.className}`}>© {currentYear} ScholarBrood. All rights reserved.</p>
           <div className="flex gap-6 mt-4 md:mt-0">
             {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (

@@ -7,17 +7,18 @@ import { Menu, X } from "lucide-react";
 import { oswald } from "../fonts";
 import Image from "next/image";
 
+import MobileDrawer from "./MobileDrawer";
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { name: "Home", href: "/" },
-    { name: "Services", href: "/services" },
-    { name: "About", href: "/about" },
-    { name: "Blog", href: "/blog" },
-    { name: "Resources", href: "/resources" },
-    { name: "Pricing", href: "/pricing" },
-    { name: "Contact", href: "/contact" },
+    { label: "Home", href: "/" },
+    { label: "Services", href: "/services" },
+    { label: "About", href: "/about" },
+    { label: "Blog", href: "/blog" },
+    { label: "Order Form", href: "/order" },
+    { label: "Contact", href: "/contact" },
   ];
 
   // Lock body scroll when mobile menu is open
@@ -29,25 +30,46 @@ export default function Header() {
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/80 dark:bg-[#1C1C30]/90 border-b border-gray-200/50 dark:border-gray-800/50 shadow-lg">
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
-        {/* Logo – Gradient gold that shines in both modes */}
+        {/* Logo – Light & Dark versions */}
         <div className="flex gap-4 justify-end items-end">
-          <Image src="logo/scholarbrood-logo.svg" alt="Header logo" width={40} height={40} />
+
+          {/* Light mode logo */}
+          <Image
+            src="/logo/scholarbrood-light-logo.svg"
+            alt="Header logo"
+            width={40}
+            height={40}
+            className="dark:hidden"
+          />
+
+          {/* Dark mode logo */}
+          <Image
+            src="/logo/scholarbrood-dark-logo-1.svg"
+            alt="Header logo dark"
+            width={40}
+            height={40}
+            className="hidden dark:block"
+          />
+
           <div className="flex flex-col">
             <Link
               href="/"
-              className={`${oswald.className} text-3xl font-bold tracking-tight bg-linear-to-r from-[#E8B85F] to-[#d4a44e] bg-clip-text text-transparent`}
+              className={`${oswald.className} text-xl sm:text-3xl font-bold tracking-tight bg-linear-to-r from-[#E8B85F] to-[#d4a44e] bg-clip-text text-transparent`}
             >
               ScholarBrood
             </Link>
-            <p className={`${oswald.className} text-[10px] text-black dark:text-white text-sm`}>Learn, Pursue & Grow Academic Excellence!</p>
+            <p className={`${oswald.className} text-[10px] text-black dark:text-white text-sm`}>
+              Learn, Pursue & Grow Academic Excellence!
+            </p>
           </div>
         </div>
+
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-10">
           {navItems.map((item) => (
             <motion.div
-              key={item.name}
+              key={item.label}
               whileHover={{ y: -3, scale: 1.08 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -57,7 +79,7 @@ export default function Header() {
                   after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-0 after:h-0.5 after:bg-[#E8B85F] after:transition-all after:duration-300
                   hover:text-[#E8B85F] hover:after:w-full`}
               >
-                {item.name}
+                {item.label}
               </Link>
             </motion.div>
           ))}
@@ -77,36 +99,13 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu – Full automatic dark/light */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -30 }}
-            transition={{ duration: 0.3, ease: "easeOut" }}
-            className="md:hidden absolute top-full left-0 w-full bg-white dark:bg-[#1C1C30] border-t border-gray-200 dark:border-gray-800 shadow-2xl"
-          >
-            <div className="px-8 py-10 flex flex-col space-y-7">
-              {navItems.map((item, i) => (
-                <motion.a
-                  key={item.name}
-                  href={item.href}
-                  onClick={() => setIsOpen(false)}
-                  initial={{ opacity: 0, x: -40 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: i * 0.05 }}
-                  className={`${oswald.className} text-2xl font-semibold text-gray-800 dark:text-gray-200 hover:text-[#E8B85F] transition-colors duration-300`}
-                  whileHover={{ x: 16 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {item.name}
-                </motion.a>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+      {/* Mobile Menu – Slide in from Right */}
+      <MobileDrawer
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+        navItems={navItems}
+        oswald={oswald}
+      />
     </header>
   );
 }
