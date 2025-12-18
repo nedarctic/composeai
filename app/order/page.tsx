@@ -12,6 +12,8 @@ type ModalType = "loading" | "success" | "error" | null;
 export default function OrderPage() {
     const [modalState, setModalState] = useState<ModalType>(null);
     const [modalMessage, setModalMessage] = useState("");
+    const [selectedFiles, setSelectedFiles] = useState<File[]>([]);
+
 
     async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
         e.preventDefault();
@@ -31,9 +33,10 @@ export default function OrderPage() {
                 setModalState("success");
                 setModalMessage("Your request has been submitted successfully!");
                 form.reset();
-                // Auto-close after 5 seconds
+                setSelectedFiles([]); // reset UI
                 setTimeout(() => setModalState(null), 5000);
-            } else {
+            }
+            else {
                 throw new Error("Submission failed");
             }
         } catch (err) {
@@ -141,15 +144,67 @@ export default function OrderPage() {
                                 <label className={`${oswald.className} block mb-2 font-semibold`}>
                                     Attach files (optional)
                                 </label>
+
+                                {/* Upload Button */}
                                 <label className="flex items-center justify-center gap-3 w-full p-4 rounded-xl bg-white/10 border border-dashed border-white/40 cursor-pointer hover:bg-white/20 transition">
                                     <Paperclip className="w-5 h-5 opacity-80" />
+
                                     <span className={`${oswald.className} text-sm opacity-90`}>
-                                        Upload documents (PDF, DOCX, ZIP)
+                                        {selectedFiles.length === 0
+                                            ? "Upload documents (PDF, DOCX, ZIP)"
+                                            : "Add more files"}
                                     </span>
-                                    <input name="files" type="file" multiple className="hidden" />
+
+                                    <input
+                                        name="files"
+                                        type="file"
+                                        multiple
+                                        className="hidden"
+                                        onChange={(e) => {
+                                            if (!e.target.files) return;
+
+                                            const filesArray = Array.from(e.target.files);
+                                            setSelectedFiles((prev) => [...prev, ...filesArray]);
+                                        }}
+                                    />
                                 </label>
+
+                                {/* File List */}
+                                {selectedFiles.length > 0 && (
+                                    <ul className="mt-4 space-y-2">
+                                        {selectedFiles.map((file, index) => (
+                                            <li
+                                                key={`${file.name}-${index}`}
+                                                className="flex items-center justify-between bg-white/10 rounded-lg px-4 py-2 text-sm"
+                                            >
+                                                <div className="flex items-center gap-3 truncate">
+                                                    <Paperclip className="w-4 h-4 opacity-70 shrink-0" />
+                                                    <span className={`${oswald.className} truncate max-w-[240px]`}>
+                                                        {file.name}
+                                                    </span>
+                                                    <span className={`${oswald.className} opacity-60 text-xs`}>
+                                                        {(file.size / 1024 / 1024).toFixed(2)} MB
+                                                    </span>
+                                                </div>
+
+                                                <button
+                                                    type="button"
+                                                    onClick={() =>
+                                                        setSelectedFiles((prev) =>
+                                                            prev.filter((_, i) => i !== index)
+                                                        )
+                                                    }
+                                                    className={`${oswald.className} text-red-400 hover:text-red-500 transition`}
+                                                >
+                                                    <X className="w-4 h-4" />
+                                                </button>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
                             </div>
 
+                            {/* External Links */}
                             <div>
                                 <label className={`${oswald.className} block mb-2 font-semibold`}>
                                     External links (optional)
@@ -165,6 +220,7 @@ export default function OrderPage() {
                                 </div>
                             </div>
                         </div>
+
 
                         {/* Submit Button */}
                         <button

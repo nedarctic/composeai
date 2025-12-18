@@ -33,7 +33,7 @@ export async function POST(req: Request) {
       from: `"ScholarBrood Orders" <orders@scholarbrood.com>`,
       to: "orders@scholarbrood.com",
       replyTo: email?.toString(),
-      subject: "New Order Request – ScholarBrood",
+      subject: "New Order Request",
       html: `
         <h2>New Order Request</h2>
         <p><strong>Service:</strong> ${service}</p>
