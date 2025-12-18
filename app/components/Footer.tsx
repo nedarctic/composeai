@@ -1,6 +1,5 @@
 'use client';
 
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { MapPin, Mail, Phone } from "lucide-react";
 import { FaFacebook, FaLinkedin, FaInstagram, FaYoutube, FaReddit, FaTumblr } from "react-icons/fa";
@@ -9,136 +8,120 @@ import { oswald } from "../fonts";
 export default function Footer() {
   const currentYear = new Date().getFullYear();
 
+  const quickLinks = [
+    { label: "About Us", href: "/about" },
+    { label: "Our Services", href: "/services" },
+    { label: "Order Request Form", href: "/order" },
+    { label: "Resources", href: "/resources" },
+    { label: "Contact Us", href: "/contact" },
+  ];
+
+  const policyLinks = ["Privacy Policy", "Terms of Service", "Cookie Policy"];
+
+  const socialLinks = [
+    { Icon: FaFacebook, href: "https://facebook.com/scholarbrood" },
+    { Icon: FaLinkedin, href: "https://www.linkedin.com/in/nicholas-otieno-28a25939a/" },
+    { Icon: FaInstagram, href: "https://www.instagram.com/scholarbrood/" },
+    { Icon: FaYoutube, href: "https://www.youtube.com/@ScholarBrood" },
+    { Icon: FaReddit, href: "https://www.reddit.com/user/scholarbrood/" },
+    { Icon: FaTumblr, href: "https://scholarbrood.tumblr.com/" },
+  ];
+
   return (
-    <footer className="relative bg-gray-50 dark:bg-[#1C1C30] pt-12 overflow-hidden">
-
-      <div className="px-8 relative max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-16 z-10">
-
-        {/* ABOUT SECTION */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0 }}
-          className="space-y-6"
-        >
-          <h3 className={`${oswald.className} font-bold text-lg text-gray-900 dark:text-white`}>
-            About ScholarBrood
-          </h3>
-
-          <p className={`${oswald.className} text-sm leading-relaxed text-gray-600 dark:text-gray-400 max-w-sm`}>
-            ScholarBrood provides professional academic writing, editing, research support,
-            and publication processing for students and researchers worldwide. Our goal is
-            to help you produce high-quality, original, and academically sound work.
-          </p>
-        </motion.div>
-
-        {/* QUICK LINKS */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
-          className="space-y-6"
-        >
-          <h3 className={`${oswald.className} font-bold text-lg text-gray-900 dark:text-white`}>
-            Quick Links
-          </h3>
-
-          <ul className="space-y-3">
-            {[
-              { label: "About Us", href: "/about" },
-              { label: "Our Services", href: "/services" },
-              { label: "Order Request Form", href: "/order" },
-              { label: "Resources", href: "/resources" },
-              { label: "Contact Us", href: "/contact" },
-            ].map(({ label, href }) => (
-              <li key={label}>
-                <Link
-                  href={href}
-                  className={`${oswald.className} text-sm text-gray-600 dark:text-gray-400 hover:text-[#E8B85F] transition-colors duration-200`}
+    <footer className="bg-black py-10 border-t border-gray-800">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8">
+        {/* Main Content */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 items-start text-sm">
+          {/* Contact Info */}
+          <div className="order-1 flex flex-col items-center justify-center">
+            <h3 className={`${oswald.className} font-semibold text-[#E8B85F] mb-4`}>
+              Contact Us
+            </h3>
+            <div className="space-y-3 text-gray-400">
+              <div className="flex items-center gap-3">
+                <Mail className="w-4 h-4 text-[#E8B85F] flex-shrink-0" />
+                <a
+                  href="mailto:info@scholarbrood.com"
+                  className={`${oswald.className} hover:text-[#E8B85F] transition break-words`}
                 >
-                  {label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </motion.div>
-
-        {/* CONTACT & SOCIALS */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="space-y-6"
-        >
-          <h3 className={`${oswald.className} font-bold text-lg text-gray-900 dark:text-white`}>
-            Contact Us
-          </h3>
-
-          <div className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
-            <div className="flex items-center gap-3">
-              <Mail className="w-4 h-4 text-[#E8B85F]" />
-              <a href="mailto:info@scholarbrood.com" className={`${oswald.className} hover:text-[#E8B85F] transition`}>
-                info@scholarbrood.com
-              </a>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <Phone className="w-4 h-4 text-[#E8B85F]" />
-              <span className={`${oswald.className}`}>+1 (843) 699-6020</span>
-            </div>
-
-            <div className="flex items-center gap-3">
-              <MapPin className="w-4 h-4 text-[#E8B85F]" />
-              <span className={`${oswald.className}`}>Myrtle Beach, SC, USA</span>
+                  info@scholarbrood.com
+                </a>
+              </div>
+              <div className="flex items-center gap-3">
+                <Phone className="w-4 h-4 text-[#E8B85F] flex-shrink-0" />
+                <span className={`${oswald.className}`}>+1 (843) 699-6020</span>
+              </div>
+              <div className="flex items-center gap-3">
+                <MapPin className="w-4 h-4 text-[#E8B85F] flex-shrink-0" />
+                <span className={`${oswald.className}`}>Myrtle Beach, SC 29572, USA</span>
+              </div>
             </div>
           </div>
 
-          <h3 className={`${oswald.className} font-bold text-lg text-gray-900 dark:text-white mt-8`}>
-            Follow Us
-          </h3>
+          {/* Quick Links & Legal */}
+          <div className="order-3 md:order-2 flex flex-col sm:flex-row justify-center gap-10 sm:gap-16">
+            {/* Quick Links */}
+            <div className="text-center sm:text-left">
+              <h4 className={`${oswald.className} font-semibold text-[#E8B85F] mb-3`}>
+                Quick Links
+              </h4>
+              <ul className="space-y-2">
+                {quickLinks.map(({ label, href }) => (
+                  <li key={label}>
+                    <Link
+                      href={href}
+                      className={`${oswald.className} text-gray-400 hover:text-[#E8B85F] transition block`}
+                    >
+                      {label}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
 
-          <div className="flex gap-5">
-            {[
-              { Icon: FaFacebook, href: "https://facebook.com/scholarbrood" }, // left as-is
-              { Icon: FaLinkedin, href: "https://www.linkedin.com/in/nicholas-otieno-28a25939a/" },
-              { Icon: FaInstagram, href: "https://www.instagram.com/scholarbrood/" },
-              { Icon: FaYoutube, href: "https://www.youtube.com/@ScholarBrood" },
-              { Icon: FaReddit, href: "https://www.reddit.com/user/scholarbrood/" },
-              { Icon: FaTumblr, href: "https://scholarbrood.tumblr.com/" },
-            ].map(({ Icon, href }) => (
-
-              <a
-                key={href}
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-600 dark:text-gray-400 hover:text-[#E8B85F] transition-all duration-300"
-              >
-                <Icon className="w-6 h-6" />
-              </a>
-            ))}
+            {/* Legal */}
+            <div className="text-center sm:text-left">
+              <h4 className={`${oswald.className} font-semibold text-[#E8B85F] mb-3`}>
+                Legal
+              </h4>
+              <ul className="space-y-2">
+                {policyLinks.map((item) => (
+                  <li key={item}>
+                    <Link
+                      href={`/${item.toLowerCase().replace(/\s/g, "-")}`}
+                      className={`${oswald.className} text-gray-400 hover:text-[#E8B85F] transition block`}
+                    >
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-        </motion.div>
-      </div>
 
-      {/* BOTTOM BAR */}
-      <div className="relative z-10 mt-16 px-6 py-12 bg-black border-t border-gray-200 dark:border-gray-800">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm text-[#E8B85F] dark:text-gray-400">
-          <p className={`${oswald.className}`}>© {currentYear} ScholarBrood. All rights reserved.</p>
-          <div className="flex gap-6 mt-4 md:mt-0">
-            {["Privacy Policy", "Terms of Service", "Cookie Policy"].map((item) => (
-              <Link
-                key={item}
-                href={`/${item.toLowerCase().replace(/\s/g, "-")}`}
-                className={`${oswald.className} hover:text-[#E8B85F] transition-colors duration-200`}
-              >
-                {item}
-              </Link>
-            ))}
+          {/* Social Icons */}
+          <div className="order-2 md:order-3 flex justify-center md:justify-end">
+            <div className="flex gap-5">
+              {socialLinks.map(({ Icon, href }) => (
+                <a
+                  key={href}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-gray-400 hover:text-[#E8B85F] transition-all duration-300"
+                >
+                  <Icon className="w-6 h-6" />
+                </a>
+              ))}
+            </div>
           </div>
+        </div>
+
+        {/* Copyright */}
+        <div className="mt-10 pt-8 border-t border-gray-800 text-center text-xs sm:text-sm text-gray-500">
+          <p className={`${oswald.className}`}>
+            © {currentYear} ScholarBrood. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

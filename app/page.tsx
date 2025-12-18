@@ -158,8 +158,8 @@ export default function Home() {
             <Link href={"/pricing"} className={`${oswald.className} text-[#E8B85F] block text-2xl sm:text-3xl md:text-4xl font-bold mb-4`}>
               <h3>See our pricing</h3>
             </Link>
-            <p className={`${oswald.className} text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-12`}>
-              We offer comprehensive support across the entire academic and research journey
+            <p className={`${oswald.className} py-10 text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-12`}>
+              ScholarBrood provides professional academic writing, editing, research support, and publication processing for students and researchers worldwide. Our goal is to help you produce high-quality, original, and academically sound work.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
