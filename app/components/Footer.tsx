@@ -16,7 +16,7 @@ export default function Footer() {
     { label: "Contact Us", href: "/contact" },
   ];
 
-  const policyLinks = ["Privacy Policy", "Terms of Service", "Cookie Policy"];
+  const policyLinks = [{label: "Privacy Policy", path: "/privacy-policy"}, { label: "Terms of Service", path: "/terms-of-service" }, {label: "Cookie Policy", path: "/cookie-policy" }];
 
   const socialLinks = [
     { Icon: FaFacebook, href: "https://facebook.com/scholarbrood" },
@@ -85,13 +85,13 @@ export default function Footer() {
                 Legal
               </h4>
               <ul className="space-y-2">
-                {policyLinks.map((item) => (
-                  <li key={item}>
+                {policyLinks.map((item, index) => (
+                  <li key={index}>
                     <Link
-                      href={`/${item.toLowerCase().replace(/\s/g, "-")}`}
+                      href={item.path}
                       className={`${oswald.className} text-gray-400 hover:text-[#E8B85F] transition block`}
                     >
-                      {item}
+                      {item.label}
                     </Link>
                   </li>
                 ))}

@@ -92,7 +92,7 @@ export default function OrderPage() {
                                 name="service"
                                 className={`${oswald.className} text-gray-100 w-full p-4 rounded-xl bg-white/10 border border-white/30 focus:ring focus:ring-[#E8B85F]/60 outline-none`}
                             >
-                                <option>Academic Writing Support</option>
+                                <option className="text-black">Academic Writing Support</option>
                                 <option className="text-black">Research Assistance (Projects, Thesis, Dissertations)</option>
                                 <option className="text-black">Publication & Journal Support</option>
                                 <option className="text-black">Editing, Review & Proofreading</option>
