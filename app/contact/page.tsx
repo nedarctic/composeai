@@ -20,7 +20,7 @@ export default function ContactPage() {
     const formData = new FormData(form);
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("/contact.php", {
         method: "POST",
         body: formData,
       });
@@ -53,7 +53,7 @@ export default function ContactPage() {
     if (!email) return;
 
     try {
-      const res = await fetch("/api/subscribe", {
+      const res = await fetch("/subscribe.php", {
         method: "POST",
         body: JSON.stringify({ email }),
         headers: { "Content-Type": "application/json" },

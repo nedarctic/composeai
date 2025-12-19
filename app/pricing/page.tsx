@@ -67,7 +67,7 @@ export default function PricingPage() {
                 <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> 100% original work</li>
               </ul>
 
-              <Link href="/contact" className={`${oswald.className} flex flex-col justify-center items-center mt-10 w-full py-4 bg-[#F9B300] text-black font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
+              <Link href="/order" className={`${oswald.className} flex flex-col justify-center items-center mt-10 w-full py-4 bg-[#F9B300] text-black font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
                 GET STARTED
               </Link>
             </div>
@@ -97,7 +97,7 @@ export default function PricingPage() {
                 <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> Plagiarism-safe improvements</li>
               </ul>
 
-              <Link href="/contact" className={`${oswald.className} flex flex-col justify-center items-center mt-10 w-full py-4 bg-[#F9B300] text-black font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
+              <Link href="/order" className={`${oswald.className} flex flex-col justify-center items-center mt-10 w-full py-4 bg-[#F9B300] text-black font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
                 IMPROVE MY WORK
               </Link>
             </div>
@@ -127,7 +127,7 @@ export default function PricingPage() {
                 <li className={`${oswald.className} flex items-center gap-3`}><Check className="w-5 h-5 text-green-600" /> Formatting to university standards</li>
               </ul>
 
-              <Link href="/contact" className={`${oswald.className} flex flex-col justify-center items-center mt-10 w-full py-4 bg-[#F9B300] text-black font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
+              <Link href="/order" className={`${oswald.className} flex flex-col justify-center items-center mt-10 w-full py-4 bg-[#F9B300] text-black font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
                 START MY THESIS
               </Link>
             </div>
@@ -163,7 +163,7 @@ export default function PricingPage() {
                 <p className={`${oswald.className} text-sm text-gray-600 mt-2`}>Journal selection • Formatting • Submission & revisions</p>
               </div>
 
-              <Link href="/contact" className={`${oswald.className} flex flex-col justify-center items-center mt-auto w-full py-4 bg-[#0B3B75] text-white font-bold rounded-xl hover:bg-[#082C58] transition-all`}>
+              <Link href="/order" className={`${oswald.className} flex flex-col justify-center items-center mt-auto w-full py-4 bg-[#0B3B75] text-white font-bold rounded-xl hover:bg-[#082C58] transition-all`}>
                 PUBLISH MY PAPER
               </Link>
             </div>
@@ -182,7 +182,7 @@ export default function PricingPage() {
           <p className={`${oswald.className} text-lg opacity-90 mb-10`}>
             We can recommend the best option based on your topic and academic level.
           </p>
-          <Link href="/contact" className={`${oswald.className} flex flex-col justify-center items-center py-5 px-12 sm:w-sm md:w-md text-sm md:text-md lg:w-lg bg-[#F9B300] text-black text-xl font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
+          <Link href="/order" className={`${oswald.className} flex flex-col justify-center items-center py-5 px-12 sm:w-sm md:w-md text-sm md:text-md lg:w-lg bg-[#F9B300] text-black text-xl font-bold rounded-xl hover:bg-[#e5a800] transition-all`}>
             REQUEST A FREE QUOTE
           </Link>
         </div>

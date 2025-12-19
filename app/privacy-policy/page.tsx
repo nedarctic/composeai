@@ -5,7 +5,7 @@ export default function PrivacyPolicy() {
     <div className={`${oswald.className} min-h-screen bg-gray-50 py-20 text-gray-800`}>
       <div className="max-w-6xl mx-auto px-4 py-12">
         {/* Header */}
-        <header className="text-center border-b-2 border-[#E8B85F] pb-8 mb-12">
+        <header className="flex flex-col items-start border-b-2 border-[#E8B85F] pb-8 mb-12">
           <h1 className="text-5xl font-bold tracking-tighter text-[#E8B85F] mb-2">
             PRIVACY POLICY
           </h1>

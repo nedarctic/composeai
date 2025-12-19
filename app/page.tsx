@@ -150,14 +150,12 @@ export default function Home() {
         </section>
 
         {/* OUR ACADEMIC SERVICES (Card Grid) */}
-        <section id="services" className="px-5 sm:px-8 py-20 sm:py-28">
+        <section id="services" className="px-5 sm:px-8 pt-20 pb-10 sm:py-28">
           <div className="max-w-7xl mx-auto text-center">
             <h2 className={`${oswald.className} text-3xl sm:text-4xl md:text-5xl font-bold mb-6`}>
               Helping You In Your Academic Journey
             </h2>
-            <Link href={"/pricing"} className={`${oswald.className} text-[#E8B85F] block text-2xl sm:text-3xl md:text-4xl font-bold mb-4`}>
-              <h3>See our pricing</h3>
-            </Link>
+            
             <p className={`${oswald.className} py-10 text-lg sm:text-xl text-gray-700 dark:text-gray-300 max-w-3xl mx-auto mb-12`}>
               ScholarBrood provides professional academic writing, editing, research support, and publication processing for students and researchers worldwide. Our goal is to help you produce high-quality, original, and academically sound work.
             </p>
@@ -194,6 +192,9 @@ export default function Home() {
                 </motion.article>
               ))}
             </div>
+            <Link href={"/pricing"} className={`${oswald.className} mt-12 inline-flex items-center gap-2 text-sm sm:text-base font-semibold underline text-[#A52A2A]`}>
+              <h3>See our pricing</h3>
+            </Link>
           </div>
         </section>
 
@@ -256,7 +257,7 @@ export default function Home() {
                 >
                   <div className="flex flex-col gap-4">
                     <div className="flex align-top gap-4"><Quote className="w-8 h-8 text-[#E8B85F] mb-3" /> <img src={t.image} alt={t.name} className="rounded-full h-24 w-24 object-cover object-top border-2 border-[#E8B85F]" /></div>
-                    <blockquote className={`${oswald.className} text-gray-700 dark:text-gray-300 mb-4`}>{t.text}</blockquote>
+                    <blockquote className={`${oswald.className} text-gray-700 dark:text-gray-300 mb-4 max-w-50`}>{t.text}</blockquote>
                   </div>
                   <figcaption className={`${oswald.className} text-sm text-[#E8B85F]`}>{t.name}</figcaption>
                 </motion.figure>
@@ -316,7 +317,7 @@ export default function Home() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.a
-                href="/contact"
+                href="/order"
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className={`${oswald.className} inline-flex items-center justify-center gap-3 px-12 py-4 bg-[#E8B85F] text-[#1C1C30] text-lg font-semibold rounded-full shadow-2xl`}

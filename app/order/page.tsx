@@ -21,10 +21,23 @@ export default function OrderPage() {
         setModalMessage("Submitting your request...");
 
         const form = e.currentTarget;
-        const formData = new FormData(form);
+        const formData = new FormData();
+
+        // Append all form fields manually
+        const elements = Array.from(form.elements) as HTMLInputElement[];
+        elements.forEach((el) => {
+            if (!el.name) return;
+            if (el.type === "file") return; // skip file inputs
+            formData.append(el.name, el.value);
+        });
+
+        // Append all selected files
+        selectedFiles.forEach((file) => {
+            formData.append("files[]", file, file.name);
+        });
 
         try {
-            const res = await fetch("/api/order", {
+            const res = await fetch("/order.php", {
                 method: "POST",
                 body: formData,
             });
@@ -35,8 +48,7 @@ export default function OrderPage() {
                 form.reset();
                 setSelectedFiles([]); // reset UI
                 setTimeout(() => setModalState(null), 5000);
-            }
-            else {
+            } else {
                 throw new Error("Submission failed");
             }
         } catch (err) {
@@ -45,6 +57,7 @@ export default function OrderPage() {
             setTimeout(() => setModalState(null), 6000);
         }
     }
+
 
     return (
         <>

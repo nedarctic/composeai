@@ -16,7 +16,7 @@ export default function Footer() {
     { label: "Contact Us", href: "/contact" },
   ];
 
-  const policyLinks = [{label: "Privacy Policy", path: "/privacy-policy"}, { label: "Terms of Service", path: "/terms-of-service" }, {label: "Cookie Policy", path: "/cookie-policy" }];
+  const policyLinks = [{ label: "Privacy Policy", path: "/privacy-policy" }, { label: "Terms of Use", path: "/terms-of-use" }, { label: "Cookie Policy", path: "/cookie-policy" }, { label: "Refund Policy", path: "/refund-policy" }];
 
   const socialLinks = [
     { Icon: FaFacebook, href: "https://facebook.com/scholarbrood" },
@@ -34,26 +34,28 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 items-start text-sm">
           {/* Contact Info */}
           <div className="order-1 flex flex-col items-center justify-center">
-            <h3 className={`${oswald.className} font-semibold text-[#E8B85F] mb-4`}>
-              Contact Us
-            </h3>
-            <div className="space-y-3 text-gray-400">
-              <div className="flex items-center gap-3">
-                <Mail className="w-4 h-4 text-[#E8B85F] flex-shrink-0" />
-                <a
-                  href="mailto:info@scholarbrood.com"
-                  className={`${oswald.className} hover:text-[#E8B85F] transition break-words`}
-                >
-                  info@scholarbrood.com
-                </a>
-              </div>
-              <div className="flex items-center gap-3">
-                <Phone className="w-4 h-4 text-[#E8B85F] flex-shrink-0" />
-                <span className={`${oswald.className}`}>+1 (843) 699-6020</span>
-              </div>
-              <div className="flex items-center gap-3">
-                <MapPin className="w-4 h-4 text-[#E8B85F] flex-shrink-0" />
-                <span className={`${oswald.className}`}>Myrtle Beach, SC 29572, USA</span>
+            <div className="text-center sm:text-left">
+              <h3 className={`${oswald.className} font-semibold text-[#E8B85F] mb-4`}>
+                Contact Us
+              </h3>
+              <div className="space-y-3 text-gray-400">
+                <div className="flex items-center gap-3">
+                  <Mail className="w-4 h-4 text-[#E8B85F] flex-shrink-0" />
+                  <a
+                    href="mailto:info@scholarbrood.com"
+                    className={`${oswald.className} hover:text-[#E8B85F] transition break-words`}
+                  >
+                    info@scholarbrood.com
+                  </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Phone className="w-4 h-4 text-[#E8B85F] flex-shrink-0" />
+                  <span className={`${oswald.className}`}>+1 (843) 699-6020</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-4 h-4 text-[#E8B85F] flex-shrink-0" />
+                  <span className={`${oswald.className}`}>Myrtle Beach, SC 29572, USA</span>
+                </div>
               </div>
             </div>
           </div>
@@ -82,7 +84,7 @@ export default function Footer() {
             {/* Legal */}
             <div className="text-center sm:text-left">
               <h4 className={`${oswald.className} font-semibold text-[#E8B85F] mb-3`}>
-                Legal
+                Legal Frameworks
               </h4>
               <ul className="space-y-2">
                 {policyLinks.map((item, index) => (
