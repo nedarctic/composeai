@@ -23,11 +23,15 @@ type DrawerProps = {
 function MobileDrawer({ isOpen, onClose, navItems, oswald }: DrawerProps) {
   if (typeof document === "undefined") return null;
 
+  const buttonVariants = {
+    hover: { scale: 1.04, transition: { duration: 0.25 } },
+    tap: { scale: 0.96, transition: { duration: 0.15 } },
+  };
+
   return createPortal(
     <AnimatePresence>
       {isOpen && (
         <>
-          {/* Overlay */}
           <motion.div
             key="overlay"
             initial={{ opacity: 0 }}
@@ -38,7 +42,6 @@ function MobileDrawer({ isOpen, onClose, navItems, oswald }: DrawerProps) {
             className="fixed inset-0 bg-black md:hidden z-[9998]"
           />
 
-          {/* Drawer */}
           <motion.aside
             key="drawer"
             initial={{ x: "100%" }}
@@ -67,17 +70,41 @@ function MobileDrawer({ isOpen, onClose, navItems, oswald }: DrawerProps) {
               ))}
             </div>
 
-            {/* FOOTER / BRANDING */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.25 }}
-              className="px-8 pb-10 border-t border-gray-200 dark:border-gray-700"
-            >
-              <p className={`${oswald.className} mt-6 text-xs text-gray-500 dark:text-gray-500`}>
+            {/* Auth Buttons + Branding Footer */}
+            <div className="px-8 pb-10 border-t border-gray-200 dark:border-gray-700 pt-2">
+              <div className="flex flex-col gap-4">
+                <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
+                  <Link
+                    href="/login"
+                    onClick={onClose}
+                    className={`${oswald.className} block text-center py-3.5 text-lg font-semibold text-[#E8B85F] border-2 border-[#E8B85F]/60 rounded-lg
+                      hover:bg-[#E8B85F]/10 hover:border-[#E8B85F] transition-all duration-300`}
+                  >
+                    Login
+                  </Link>
+                </motion.div>
+
+                <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
+                  <Link
+                    href="/signup"
+                    onClick={onClose}
+                    className={`${oswald.className} block text-center py-3.5 text-lg font-semibold bg-gradient-to-r from-[#E8B85F] to-[#d4a44e] text-white rounded-lg shadow-md
+                      hover:shadow-lg hover:shadow-[#E8B85F]/30 hover:brightness-110 transition-all duration-300`}
+                  >
+                    Sign Up
+                  </Link>
+                </motion.div>
+              </div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.25 }}
+                className={`${oswald.className} mt-4 text-xs text-gray-500 dark:text-gray-500 text-center`}
+              >
                 © {new Date().getFullYear()} ScholarBrood. All Rights Reserved.
-              </p>
-            </motion.div>
+              </motion.p>
+            </div>
           </motion.aside>
         </>
       )}

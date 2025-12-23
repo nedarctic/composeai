@@ -27,14 +27,17 @@ export default function Header() {
     document.body.style.overflow = isOpen ? "hidden" : "auto";
   }, [isOpen]);
 
+  const buttonVariants = {
+    hover: { scale: 1.05, transition: { duration: 0.25 } },
+    tap: { scale: 0.97, transition: { duration: 0.15 } },
+  };
+
   return (
     <header className="fixed top-0 left-0 w-full z-50 backdrop-blur-xl bg-white/80 dark:bg-[#1C1C30]/90 border-b border-gray-200/50 dark:border-gray-800/50 shadow-lg">
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
 
-        {/* Logo – Light & Dark versions */}
+        {/* Logo */}
         <div className="flex gap-4 justify-end items-end">
-
-          {/* Light mode logo */}
           <Image
             src="/logo/scholarbrood-light-logo.svg"
             alt="Header logo"
@@ -42,8 +45,6 @@ export default function Header() {
             height={40}
             className="dark:hidden"
           />
-
-          {/* Dark mode logo */}
           <Image
             src="/logo/scholarbrood-dark-logo-1.svg"
             alt="Header logo dark"
@@ -55,36 +56,60 @@ export default function Header() {
           <div className="flex flex-col">
             <Link
               href="/"
-              className={`${oswald.className} text-xl sm:text-3xl font-bold tracking-tight bg-linear-to-r from-[#E8B85F] to-[#d4a44e] bg-clip-text text-transparent`}
+              className={`${oswald.className} text-xl sm:text-3xl font-bold tracking-tight bg-gradient-to-r from-[#E8B85F] to-[#d4a44e] bg-clip-text text-transparent`}
             >
               ScholarBrood
             </Link>
-            <p className={`${oswald.className} text-[10px] text-black dark:text-white text-sm`}>
+            <p className={`${oswald.className} text-[10px] text-black dark:text-white`}>
               Learn, Pursue & Grow Academic Excellence!
             </p>
           </div>
         </div>
 
-
-        {/* Desktop Navigation */}
-        <nav className="hidden md:flex items-center space-x-10">
-          {navItems.map((item) => (
-            <motion.div
-              key={item.label}
-              whileHover={{ y: -3, scale: 1.08 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Link
-                href={item.href}
-                className={`${oswald.className} relative text-gray-700 dark:text-gray-300 font-medium text-base tracking-wide transition-all duration-300
-                  after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-0 after:h-0.5 after:bg-[#E8B85F] after:transition-all after:duration-300
-                  hover:text-[#E8B85F] hover:after:w-full`}
+        {/* Desktop Navigation + Auth Buttons */}
+        <div className="hidden md:flex items-center gap-10">
+          <nav className="flex items-center space-x-10">
+            {navItems.map((item) => (
+              <motion.div
+                key={item.label}
+                whileHover={{ y: -3, scale: 1.08 }}
+                whileTap={{ scale: 0.95 }}
               >
-                {item.label}
+                <Link
+                  href={item.href}
+                  className={`${oswald.className} relative text-gray-700 dark:text-gray-300 font-medium text-base tracking-wide transition-all duration-300
+                    after:content-[''] after:absolute after:bottom-[-8px] after:left-0 after:w-0 after:h-0.5 after:bg-[#E8B85F] after:transition-all after:duration-300
+                    hover:text-[#E8B85F] hover:after:w-full`}
+                >
+                  {item.label}
+                </Link>
+              </motion.div>
+            ))}
+          </nav>
+
+          {/* Auth Buttons – Desktop */}
+          <div className="flex items-center gap-4">
+            <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
+              <Link
+                href="/login"
+                className={`${oswald.className} px-6 py-2.5 text-base font-semibold text-[#E8B85F] border-2 border-[#E8B85F]/70 rounded-lg
+                  hover:bg-[#E8B85F]/10 hover:border-[#E8B85F] transition-all duration-300`}
+              >
+                Login
               </Link>
             </motion.div>
-          ))}
-        </nav>
+
+            <motion.div variants={buttonVariants} whileHover="hover" whileTap="tap">
+              <Link
+                href="/signup"
+                className={`${oswald.className} px-7 py-2.5 text-base font-semibold bg-gradient-to-r from-[#E8B85F] to-[#d4a44e] text-white rounded-lg shadow-md
+                  hover:shadow-lg hover:shadow-[#E8B85F]/30 hover:brightness-110 transition-all duration-300`}
+              >
+                Sign Up
+              </Link>
+            </motion.div>
+          </div>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -100,7 +125,7 @@ export default function Header() {
         </button>
       </div>
 
-      {/* Mobile Menu – Slide in from Right */}
+      {/* Mobile Drawer */}
       <MobileDrawer
         isOpen={isOpen}
         onClose={() => setIsOpen(false)}
